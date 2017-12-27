@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
+    <link rel="stylesheet" type="text/css" href="grid.css">
+    <link rel="stylesheet" type="text/css" href="main.css">
+	<title>practice</title>
+</head>
+<body>
+<div class="navbar-fixed">
+    <nav>
+        <div class="nav-wrapper">
+            <a href="#" class="logo">BrewFormer</a>
+            <ul id="nav-mobile" class="right hide-on-med-and-down">
+                <li><a href="about.html">About the Site</a></li>
+                <li><a href="help.html">Instructions</a></li>
+                <li><a href="index-good.html">Search Breweries</a></li>
+            </ul>
+        </div>
+    </nav>
+</div>
+
+<div class="section no-pad-bot yellow darken">
+    <div id="show-case" class="container">
+        <div id="search-section" class="section-input">
+            <!--   Icon Section   -->
+            <div class="row">
+                <div class="col s12 m12">
+                    <div id="fields" class="icon-block">
+                        <h2 id="header" class="center black-text light header subtitle"><i class="fa fa-file-code-o"></i>Brewery Search</h2>
+                        <div id ="country-field" class="col s4">
+                            <label for="Country" class="left-align" for="country">Country</label>
+                            <input type="text" name="Country">
+                        </div>
+
+                        <div id="region-field" class="col s4">
+                            <label for="Region" class="left-align" for="region">Region</label>
+                            <input type="text" id="Region">    
+                        </div>
+
+                        <div id="city-field" class="col s4">
+                             <label for='City' class="left-align" for="city">City</label>
+                            <input type="text" id="City">
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+            <div class="row">
+                <div class="col s2 m2"></div>  
+                <div class="col s6 m6">
+                    <div id="location"></div>
+                    <div id="selection"></div>  
+                </div>  
+            </div>
+        </div>
+        <ul class="row" id="brewery-list">
+        
+        </ul>
+        <div class="row" id="error-container"></div>
+    </div>
+</div>
+
+<footer role="footer">
+    <img class="footer-img" src="Powered-by-BreweryDB.png">
+</footer>
+
+</body>
+<script data-main="config" src="require.js"></script>
+
+<script>
+	require(['config'], function(){
+		require(['methods','search'])
+	})
+</script>
+<!-- <script>
+    $(document).ready(function(){
+        $('[data-toggle="tooltip"]').tooltip();
+    });
+</script> -->
+</html>

@@ -1,0 +1,86 @@
+#header{
+	position: relative;
+	right: 55px;
+}
+
+#submit{
+	float: left;
+}
+
+#brewery-list{
+
+}
+
+.list-item{
+	display: inline;
+}
+
+.left-align{
+	color: #000000;
+	font-weight: bold;
+}
+
+#country-field{
+	display: none;
+}
+
+#fields{
+	position: relative;
+	left: 100px;
+}
+
+#region-field{
+	position: relative;
+	margin-left: 60px
+}
+
+#Region{
+	color: #000000;
+}
+
+#City{
+	color: #000000;
+}
+
+#city-field{
+	position: relative;
+	margin-left: 80px
+}
+
+.item-container{
+	display: inline-block;
+	position: relative;
+	margin-bottom: 20px;
+	left: 75px;
+}
+
+.footer-img{
+	height: 100px;
+	width: 350px;
+	float: right;
+}
+
+.tooltip {
+    position: relative;
+    display: inline-block;
+    border-bottom: 1px dotted black;
+}
+
+.tooltip .tooltiptext {
+    visibility: hidden;
+    width: 120px;
+    background-color: black;
+    color: #fff;
+    text-align: center;
+    padding: 5px 0;
+    border-radius: 6px;
+ 
+    position: absolute;
+    z-index: 1;
+    top: -5px;
+	left: 105%;
+}
+
+.tooltip:hover .tooltiptext {
+    visibility: visible;
+}
