@@ -28,6 +28,26 @@ There will also be buttons that will allow for the addition of images.
 One button will be used to add an image to the background of the page, while
 the other will be used to add images to the foreground.
 
+### Userflow
+to do:
+  - describe how the creating user will interact with the site
+  - describe how the invited user will interact with the site
+
+The creating user will enter Inventations homepage where they will
+choose to create a website.  They will be redirected to a website creation page
+that will appear blank.  The creation sidebar will appear automatically.  The user
+will then begin choosing the features for their site.  They will be able to experiment
+with the order of features to fit their look. When the website is finished, the user
+will be able to see a preview version of the site before publishing it (via herokuapp).  When publishing
+the site, the user will be prompted to create a master username and password in order
+to access the page.  There will be a note shown that tells the user that these two inputs
+will be required for their guest to also access the site, and should be conveyed to them
+via the invitations that are sent out (as well as the site url).
+
+The invited users will visit the url found in their invitations and use the username and password
+to gain access to the site.  They will find browse the page and select their decision into the RSVP
+section.  
+
 ### Prerequisites
 
 to do:
