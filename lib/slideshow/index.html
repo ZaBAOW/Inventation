@@ -34,7 +34,17 @@
 		<span class="dot" onclick="currentSlide(2)"></span>
 		<span class="dot" onclick="currentSlide(3)"></span>
 	</div>
+<form method="post" enctype="multipart/form-data">
+	<div>
+		<label for="file">Choose an image to upload</label>
+		<input type="file" id="file" name="file" multiple>
+	</div>
+	<div>
+		<button onclick="imageUpload()">Upload</button>
+	</div>
+</form>
 
-<script type="text/javascript" src="slideshow.js"></script>
 </body>
+<script type="text/javascript" src="slideshow.js"></script>
+<script type="text/javascript" src="upload.js"></script>
 </html>
