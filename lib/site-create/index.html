@@ -5,12 +5,20 @@
 	<link rel="stylesheet" type="text/css" href="main.css">
 </head>
 <body>
-	<div id="mySidenav" class="sidenav">
+	<div w3-include-html="../info-box/index.html" id="mySidenav" class="sidenav">
 		<a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-		<p style="color: white;">options for adding features will go here</p>
+		<button onclick="createInfo()">Info-Box</button>
+		<br>
+		<button>Countdown</button>
+		<br>
+		<button>SlideShow</button>
 	</div>
 
 	<span class="menuOpen" onclick="openNav()">&#9776;open</span>
+
+	<div id="website-container">
+		
+	</div>
 
 <script type="text/javascript" src="sideNav.js"></script>
 </body>
