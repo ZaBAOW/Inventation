@@ -3,15 +3,16 @@
 <head>
 	<title>New Event</title>
 	<link rel="stylesheet" type="text/css" href="main.css">
+	<link rel="stylesheet" type="text/css" href="slideStyle.css">
 </head>
 <body>
 	<div id="mySidenav" class="sidenav">
 		<a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
 		<button class="info-btn" onclick="createInfo()">Info-Box</button>
 		<br>
-		<button>Countdown</button>
+		<button class="countdown-btn" onclick="createCountdown()">Countdown</button>
 		<br>
-		<button>SlideShow</button>
+		<button class="slideShow-btn" onclick="createSlideShow()">SlideShow</button>
 	</div>
 
 	<span class="menuOpen" onclick="openNav()">&#9776;open</span>
@@ -22,6 +23,9 @@
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script type="text/javascript" src="sideNav.js"></script>
+<script type="text/javascript" src="set-timer.js"></script>
+<script type="text/javascript" src="slideshow.js"></script>
+<script type="text/javascript" src="upload.js"></script>
 </body>
 
 </html>
