@@ -4,7 +4,7 @@
   "description": "event website creating app",
   "main": "index.js",
   "scripts": {
-    "test": "mocha -- ./lib/test/test.js"
+    "test": "mocha -- ./lib/test/test-test.js"
   },
   "repository": {
     "type": "git",
