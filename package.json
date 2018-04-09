@@ -4,6 +4,7 @@
   "description": "event website creating app",
   "main": "index.js",
   "scripts": {
+    "start": "node server.js",
     "test": "mocha -- ./lib/test/test-test.js"
   },
   "repository": {
@@ -15,6 +16,7 @@
   "dependencies": {
     "express": "^4.16.3",
     "mongoose": "^5.0.14",
+    "morgan": "^1.9.0",
     "quickly-copy-file": "^1.0.0",
     "requirejs": "^2.3.5"
   },
