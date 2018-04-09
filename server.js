@@ -5,10 +5,14 @@ const morgan = require('morgan');
 const mongoose = require('mongoose');
 mongoose.Promise = global.Promise;
 
+
+
 const {DATABASE_URL, PORT} = require('./config');
 
 const app = express();
 
+
+app.use(express.static('public'));
 let server;
 
 function runServer(databaseUrl = DATABASE_URL, port = PORT) {
