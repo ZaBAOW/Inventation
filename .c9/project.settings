@@ -37,6 +37,9 @@
         "@formatOnSave": true,
         "@formatter": "gofmt -w \"$file\""
     },
+    "instance": {
+        "@automaticShutdown": "30"
+    },
     "javascript": {
         "@formatOnSave": "false",
         "@formatter": "esformatter -i \"$file\"",
