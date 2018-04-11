@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>countdown</title>
+</head>
+<body>
+	<form action="/action_patge.php">
+		Event (date and time):
+		<input type="datetime-local" name="eventDay">
+		<input onsubmit="return setCountDown()" type="submit" name="Send">
+	</form>
+
+	<p id="countdown"></p>
+
+</body>
+<script type="text/javascript" src="set-timer.js"></script>
+</html>	

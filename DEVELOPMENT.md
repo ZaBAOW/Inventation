@@ -1,0 +1,12 @@
+Appendable Functions:
+  - info box
+    - title
+    - content
+    - images
+  - Countdown
+    - Set Dates
+  - RSVP
+  - Add Images
+    - background
+    - foreground
+  - slideshow
