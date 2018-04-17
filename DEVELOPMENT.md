@@ -30,8 +30,8 @@ TO DO(listed by importance):
     - test for deleting site from site list
   - fix site features so that they work as intended
   - create templates for a preview/publish format
-  - create quick full site append buttons
-  - find a way to have the app deploy user's site
+  - create quick full site append buttons(for later)
+  - find a way to have the app deploy user's site(for later)
 
 Ideas for preview/publish format:
   - info-box text does not carry over to preview site
@@ -41,13 +41,13 @@ Ideas for preview/publish format:
 
 Test Expectations:
   - GET test expects (when user log in to their site)
-    - objects to have key values for: username, password, id, URL?, JWT
+    - objects to have key values for: username, password, id, JWT
     - object to be JSON
     - status to be 200
   - POST test expects (when user creates a site)
     - user input to include key values for: username, password
     - info to be posted as a JSON object
-      - JSON object should include key values for: username, password, id, URL?, JWT
+      - JSON object should include key values for: username, password, id, JWT
     - status to be (post success code)
   - Delete test expects (when user deletes their site)
     - object respective to id to exist
@@ -57,3 +57,7 @@ Test Expectations:
     - object to have a key value for: JWT
     - JWT key value to have been updated
     - status to be (put success code)
+ 
+ expiration date for sites:
+    - The user will be prompted to enter a date after creating their site and before editting it
+    - the site will expire a month after the scheduled date
