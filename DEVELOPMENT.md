@@ -5,8 +5,8 @@ Appendable Functions:
     - images
   - Countdown
     - Set Dates
-  - RSVP
-  - Add Images
+  - RSVP(for later)
+  - Add Images(for later
     - background
     - foreground
   - slideshow
