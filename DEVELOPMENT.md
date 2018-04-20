@@ -6,7 +6,7 @@ Appendable Functions:
   - Countdown
     - Set Dates
   - RSVP(for later)
-  - Add Images(for later
+  - Add Images(for later)
     - background
     - foreground
   - slideshow
@@ -23,6 +23,7 @@ REST API for users:
 TO DO(listed by importance):
   - model for user JSON object
   - insert request functions into server.js
+  - insert use of JWT's into app (use node-auth-jwt glitch for reference)
   - create test for user request functions
     - test for creating user profile(/w JWT)
     - test for posting site to site list?
@@ -30,6 +31,7 @@ TO DO(listed by importance):
     - test for deleting site from site list
   - fix site features so that they work as intended
   - create templates for a preview/publish format
+  - plan out boxes for element organization
   - create quick full site append buttons(for later)
   - find a way to have the app deploy user's site(for later)
 
