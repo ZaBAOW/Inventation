@@ -4,9 +4,9 @@ const chai = require('chai');
 const chaiHttp = require('chai-http');
 const jwt = require('jsonwebtoken');
 
-const { app, runServer, closeServer } = require('../../server');
-const {User} = require('../users');
-const { JWT_SECRET } = require('../../config');
+const { app, runServer, closeServer } = require('../server');
+const {User} = require('../models/users');
+const { JWT_SECRET } = require('../config');
 
 const expect = chai.expect;
 
@@ -71,7 +71,7 @@ describe('Auth endpoints', function () {
 		it('Should reject request with incorrect passwords', function () {
 			return chai.request(app).post('/api/auth/login').send({username, password: 'wrongPassword'}).then(() => expect.fail(null, null, 'Request should not succeed')).catch(err => {
 				if(err instanceof chai.AssertionError){
-					thow err;
+					throw err;
 				}
 
 				const res = err.response;
@@ -135,7 +135,7 @@ describe('Auth endpoints', function () {
 		});
 
 		it('Should reject request with an expired token', function() {
-			const token - jwt.sign(
+			const token = jwt.sign(
 			{
 				user: {
 					username,

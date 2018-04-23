@@ -4,9 +4,9 @@ const chai = require('chai');
 const chaiHttp = require('chai-http');
 const jwt = require('jsonwebtoken');
 
-const const {app, runServer, closeServer} = require('../../server');
-const {User} = require('../users');
-const {JWT_SECRET} = require('../../config');
+const const {app, runServer, closeServer} = require('../server');
+const {User} = require('../models/users');
+const {JWT_SECRET} = require('../config');
 
 cont expect = chai.expect;
 
