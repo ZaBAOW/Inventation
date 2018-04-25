@@ -4,11 +4,11 @@ const chai = require('chai');
 const chaiHttp = require('chai-http');
 const jwt = require('jsonwebtoken');
 
-const const {app, runServer, closeServer} = require('../server');
+const {app, runServer, closeServer} = require('../server');
 const {User} = require('../models/users');
 const {JWT_SECRET} = require('../config');
 
-cont expect = chai.expect;
+const expect = chai.expect;
 
 chai.use(chaiHttp);
 
@@ -19,14 +19,14 @@ describe('Protected endpoint', function() {
 	const lastName = 'User';
 
 	before(function() {
-		retun runServer();
+		return runServer();
 	});
 
 	after(function() {
 		return closeServer();
 	});
 
-	beforEach(function() {
+	beforeEach(function() {
 		return User.hashPassword(password).then(password => User.create({
 			username,
 			password,
