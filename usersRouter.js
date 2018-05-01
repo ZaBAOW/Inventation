@@ -11,22 +11,6 @@ router.get('/', (req, res) =>{
    return User.find().then(users => res.json(users.map(user => user.serialize()))).catch(err => res.status(500).json({message: 'Internal server error'}));
 });
 
-// router.post('/', jsonParser , (req, res) =>{
-//   const requiredFields = ['username', 'password']
-//   for (let i=0; i<requiredFields.length; i++){
-//     const field = requiredFields[i];
-//     if(!(field in req.body)){
-//       const message = `Missing \`${field}\` in request body`;
-//       console.error(message);
-//       return res.status(400).send(message);
-//     }
-//   }
-  
-//   return User.create(req.body.username, req.body.password).then((user) => {
-//   	return res.status(201).json(user.serialize());
-//   });
-// });
-
 router.post('/', jsonParser, (req, res) => {
 	const requiredFields = ['username', 'password'];
 	const missingField = requiredFields.find(field => !(field in req.body));
@@ -131,33 +115,3 @@ router.post('/', jsonParser, (req, res) => {
 });
 
 module.exports = router;
-
-
-// router.delete('/:id', (req, res) =>{
-//   UserProfile.delete(req.params.id);
-//   res.status(204).end();
-// });
-
-// router.put('/:id', jsonParser, (req, res)=> {
-//   const requiredFields = ['username', 'password', 'id'];
-//   for (let i = 0; i<requiredFields.length; i++){
-//     const field = requiredFields[i];
-//     if(!(field in req.body)){
-//       const message =  `Missing \`${field}\` in request body`;
-//       console.error(message);
-//       return res.status(400).send(message);
-//     }
-//   }
-//   if(req.params.id !== req.body.id){
-//     const message = `Request path id (${req.params.id}) and request body id (${req.body.id}) must match`;
-//     consle.error(message);
-//     return res.status(400).send(message);
-//   }
-  
-//   UserProfile.update({
-//     id: req.params.id,
-//     username: req.body.username,
-//     password: req.body.password
-//   });
-//   res.status(204).end();
-// })

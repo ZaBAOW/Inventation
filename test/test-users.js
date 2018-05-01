@@ -7,10 +7,6 @@ const {User} = require('../models/users');
 const {DATABASE_URL, TEST_DATABASE_URL} = require('../config')
 
 const expect = chai.expect;
-
-// This let's us make HTTP requests
-// in our tests.
-// see: https://github.com/chaijs/chai-http
 chai.use(chaiHttp);
 
 describe('/api/users', function() {
@@ -41,14 +37,15 @@ describe('/api/users', function() {
       }
     };
 
-    return chai.request(app).post('/users').send(newUser).then(function(req, res){
-      expect(res).to.have.status(201);
-      expect(res).to.be.a('object');
-      expect(res.body).to.include.keys('username','password','name','id');
-      expect(res.body.username).to.equal(newUser.username);
-      expect(res.body.password).to.equal(newUser.password);
-      console.log(res.body.name);
-      return User.findById(res.body.id);
-    });
+    return User.hashPassword(newUser.password)
+      .then( function(expectedPassword) {
+        return chai.request(app).post('/users').send(newUser);
+      })
+      .then(function(res){
+        expect(res).to.have.status(201);
+        expect(res).to.be.a('object');
+        expect(res.body).to.include.keys('username','password','firstName', 'lastName','id');
+        expect(res.body.username).to.equal(newUser.username);
+      });
   });
 });

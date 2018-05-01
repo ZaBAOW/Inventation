@@ -19,7 +19,8 @@ userSchema.methods.serialize = function() {
         username: this.username || '',
         password: this.password || '',
         firstName: this.firstName || '',
-        lastName: this.lastName || ''
+        lastName: this.lastName || '',
+        id: uuid.v4()
     };
 };
 
