@@ -1,32 +1,35 @@
+'use strict';
 const uuid = require('uuid');
+const mongoose = require('mongoose');
+const bcrypt = require('bcrypt');
+mongoose.Promise = global.Promise;
 
 
-const UserProfile = {
-    create: function(username, password) {
-        console.log('creating new user profile');
-        const user = {
-            username: username,
-            password: password,
-            id: uuid.v4()
-        }
-        this.users[user.id] = user;
-        return user;
-    },
-    get: function() {
-        console.log('retrieving user profile list');
-        return Object.keys(this.users).map(key => this.users[key]);
-    },
-    delete: function(id) {
-        console.log(`Deleting user profile\`${id}\``);
-        delete this.users[id];
-    },
-    update: function(updatedUser){
-        const {id} = updatedUser;
-        if(!(id in this.users)){
-            throw StorageException(
-                `Can't update item \`${id}\` because doesn't exist.`)
-        }
-        this.users[updatedUser.id] = updatedUser;
-        return updatedUser;
+const userSchema = mongoose.Schema({
+    username: {type: String, require: true},
+    password: {type: String, require: true},
+    name: {
+        firstName: String,
+        lastName: String
     }
-}
+});
+
+userSchema.methods.serialize = function() {
+    return {
+        username: this.username || '',
+        password: this.password || '',
+        firstName: this.firstName || '',
+        lastName: this.lastName || ''
+    };
+};
+
+userSchema.methods.validatePasword = function(password) {
+    return bcrypt.compare(password, this.password);
+};
+
+userSchema.statics.hashPassword = function(password) {
+    return bcrypt.hash(password, 10);
+};
+
+const User = mongoose.model('User', userSchema);
+module.exports = {User};
