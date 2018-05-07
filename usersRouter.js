@@ -4,8 +4,10 @@ const router = express.Router();
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
 const jsonParser = bodyParser.json();
+const passport = require('passport');
 
 const {User} = require('./models/users');
+const {authToken} = require('./lib/auth/router');
 
 router.get('/', (req, res) =>{
    return User.find().then(users => res.json(users.map(user => user.serialize()))).catch(err => res.status(500).json({message: 'Internal server error'}));
@@ -118,6 +120,44 @@ router.get('/', (req, res) => {
 	return User.find()
 		.then(users => res.json(users.map(user => user.serialize)))
 		.catch(err => res.status(500).json({message: 'Internal server error'}));
+});
+
+router.put('/', jsonParser, (req, res) => {
+	const requiredFields = ['username', 'password'];
+	const missingField = requiredFields.find(field => !(field in req.body));
+
+	if(missingField) {
+		return res.status(422).json({
+			code: 422,
+			reason: 'ValidationError',
+			message: 'Missing field',
+			location: missingField
+		});
+	}
+
+	let {username, password} = req.body;
+
+	if (req.params.id !== req.body.id) {
+    const message = `Request path id (${req.params.id}) and request body id (${req.body.id}) must match`;
+    console.error(message);
+    return res.status(400).send(message);
+  }
+
+  return User.find({username: req.body.username}).then((res) => {
+  	if(res.body.username === req.body.username && res.body.password === res.body.password){ 
+  		const authToken = createAuthToken(req.user.serialize());
+  		res.json({authToken});
+  		localStorage.setItem('userToken', authToken);
+  	}
+  	else{
+		return res.status(401).json({
+			code: 401,
+			reason: 'AuthenticationError',
+			message: 'Wrong username or password',
+			location: requiredFields
+  		});
+    }
+});
 });
 
 module.exports = router;

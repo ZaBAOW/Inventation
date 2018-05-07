@@ -1,5 +1,6 @@
 'use strict';
 
+const dotenv = require('dotenv').config();
 const express = require('express');
 const morgan = require('morgan');
 const bodyParser = require('body-parser')
@@ -11,6 +12,7 @@ mongoose.Promise = global.Promise;
 const {DATABASE_URL, PORT} = require('./config');
 const {USERS} = require('./models/users');
 const usersRouter = require('./usersRouter');
+const {router: authRouter, localStrategy, jwtStrategy} = require('./lib/auth');
 
 const app = express();
 const jsonParser = bodyParser.json;

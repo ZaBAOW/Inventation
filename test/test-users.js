@@ -4,7 +4,8 @@ const chaiHttp = require('chai-http');
 
 const {app, runServer, closeServer} = require('../server');
 const {User} = require('../models/users');
-const {DATABASE_URL, TEST_DATABASE_URL} = require('../config')
+const {authToken} = require('../lib/auth/router');
+const {DATABASE_URL, TEST_DATABASE_URL} = require('../config');
 
 const expect = chai.expect;
 chai.use(chaiHttp);
@@ -89,6 +90,33 @@ describe('/api/users', function() {
         expect(res.body).to.have.length(2);
         console.log(res.body[0]);
         console.log(res.body[1])
+      });
+    });
+  });
+
+  describe('PUT', function() {
+    it('Should return a JWT auth key for the user', function() {
+      let res;
+      const newUser = {
+        username: username,
+        password: password,
+        name: {
+          firstName: firstName,
+          lastName: lastName
+        }
+      };
+
+      const loginUser = {
+        username: username,
+        password: password
+      }
+
+      return chai.request(app).post('/users').send(newUser).then(res => {
+        return User.put('/users').send(loginUser).then(res => {
+          expect(res).to.have.status(201);
+          expect(res.body).to.be.an('object');
+          expect(res.body).to.include.keys('authToken');
+        });
       });
     });
   });
