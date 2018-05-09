@@ -4,12 +4,15 @@ const mongoose = require('mongoose');
 const bcrypt = require('bcrypt');
 mongoose.Promise = global.Promise;
 
+var urlUserInput = 'defaultInput';
+const urlTemplate = 'http://example.com/'+ urlUserInput;
 
 const userSchema = mongoose.Schema({
     username: {type: String, require: true, unique: true},
     password: {type: String, require: true},
     firstName: {type: String, default: ''},
-    lastName: {type: String, default: ''}
+    lastName: {type: String, default: ''},
+    url: {type: String, default: urlTemplate}
 });
 
 userSchema.methods.serialize = function() {
@@ -18,6 +21,7 @@ userSchema.methods.serialize = function() {
         password: this.password || '',
         firstName: this.firstName || '',
         lastName: this.lastName || '',
+        url: this.url || '',
         id: uuid.v4()
     };
 };

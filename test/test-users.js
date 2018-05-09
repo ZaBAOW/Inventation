@@ -19,6 +19,7 @@ describe('/api/users', function() {
   const passwordB = 'examplePassB';
   const firstNameB = 'ExampleB';
   const lastNameB = 'UserB';
+  const url = 'http://example.com';
 
   before(function() {
     return runServer(TEST_DATABASE_URL);
@@ -44,7 +45,8 @@ describe('/api/users', function() {
         name: {
           firstName: firstName,
           lastName: lastName
-        }
+        },
+        url: url
       };
 
       return User.hashPassword(newUser.password)
@@ -54,7 +56,7 @@ describe('/api/users', function() {
         .then(function(res){
           expect(res).to.have.status(201);
           expect(res).to.be.a('object');
-          expect(res.body).to.include.keys('username','password','firstName', 'lastName','id');
+          expect(res.body).to.include.keys('username','password','firstName', 'lastName','url','id');
           expect(res.body.username).to.equal(newUser.username);
         });
     });
@@ -74,7 +76,8 @@ describe('/api/users', function() {
         username,
         password,
         firstName,
-        lastName
+        lastName,
+        url
       },
       {
         username: usernameB,
@@ -88,8 +91,6 @@ describe('/api/users', function() {
         expect(res).to.have.status(200);
         expect(res.body).to.be.an('array');
         expect(res.body).to.have.length(2);
-        console.log(res.body[0]);
-        console.log(res.body[1])
       });
     });
   });
@@ -97,27 +98,26 @@ describe('/api/users', function() {
   describe('PUT', function() {
     it('Should return a JWT auth key for the user', function() {
       let res;
+      const updatedUrl = 'http://example2.com'
       const newUser = {
         username: username,
         password: password,
         name: {
           firstName: firstName,
           lastName: lastName
-        }
+        },
+        url: url
       };
-
-      const loginUser = {
-        username: username,
-        password: password
-      }
-
-      return chai.request(app).post('/users').send(newUser).then(res => {
-        return User.put('/users').send(loginUser).then(res => {
-          expect(res).to.have.status(201);
-          expect(res.body).to.be.an('object');
-          expect(res.body).to.include.keys('authToken');
+      return User.hashPassword(newUser.password)
+        .then( function(expectedPassword) {
+          return chai.request(app).post('/users').send(newUser);
+        }).then((res) => {
+          chai.request(app).put('/users').then((res) => {
+            console.log(res.body);
+            expect(res.body).to.be.an('object');
+          });
         });
-      });
+
     });
   });
 });
