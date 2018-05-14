@@ -96,28 +96,26 @@ describe('/api/users', function() {
   });
 
   describe('PUT', function() {
-    it('Should return a JWT auth key for the user', function() {
+    it('Should update user url', function() {
       let res;
-      const updatedUrl = 'http://example2.com'
-      const newUser = {
-        username: username,
-        password: password,
-        name: {
-          firstName: firstName,
-          lastName: lastName
-        },
-        url: url
-      };
-      return User.hashPassword(newUser.password)
-        .then( function(expectedPassword) {
-          return chai.request(app).post('/users').send(newUser);
-        }).then((res) => {
-          chai.request(app).put('/users').then((res) => {
-            console.log(res.body);
-            expect(res.body).to.be.an('object');
-          });
-        });
-
+      const updatedName = usernameB;
+      return User.create(
+      {
+        username,
+        password,
+        firstName,
+        lastName,
+        url
+      }
+    )
+      .then(function(user) {
+        console.log(user);
+        console.log(user._id);
+        chai.request(app).put(`/users/${user._id}`).send({ username: updatedName})
+        .then(res => {
+          console.log(res.body);
+        })
+      });
     });
   });
 });

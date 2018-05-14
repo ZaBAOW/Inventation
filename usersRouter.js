@@ -123,18 +123,24 @@ router.get('/', (req, res) => {
 		.catch(err => res.status(500).json({message: 'Internal server error'}));
 });
 
-router.put('/', jsonParser, (req, res) => {
-	const user = req.params.username;
-	const updateUrl = req.params.url;
-  	return User.findOneAndUpdate({username: user}, {$set:{url: updateUrl}}, {new: true}, function(user){
-  			console.log(`Updating site url for ${user}`);
-	  		// const user = req.user;
-	  		// const authToken = createAuthToken(user.serialize());
-	  		// res.json({authToken});
-	  		// localStorage.setItem('userToken', authToken);
-	  		// res.json( { message: 'url and JWT updated.'})
-	  		return res.status(204);
-  	});
+router.put('/:id', jsonParser, (req, res) => {
+	const updatedData = req.body.username;
+	console.log(updatedData);
+	console.log(`Updating site url for ${req.params.id}`);
+  	const sendSuccess = function(updated){
+	  console.log(`Updated site url for ${req.params.id}`);
+	  console.log(updated);
+	 // return res.status(204);
+	};
+	const q = User.where({_id: req.params.id});
+	const updateArguments = {$inc: {username: updatedData}};
+	const options = {new: true};
+	return q.update(updateArguments, options)
+		.exec()
+		.then(sendSuccess)
+		.catch((err) => {
+			console.log(err);
+		});
 });
 
 module.exports = router;

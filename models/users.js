@@ -1,5 +1,4 @@
 'use strict';
-const uuid = require('uuid');
 const mongoose = require('mongoose');
 const bcrypt = require('bcrypt');
 mongoose.Promise = global.Promise;
@@ -22,7 +21,7 @@ userSchema.methods.serialize = function() {
         firstName: this.firstName || '',
         lastName: this.lastName || '',
         url: this.url || '',
-        id: uuid.v4()
+        id: this._id
     };
 };
 
