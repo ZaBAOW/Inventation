@@ -113,7 +113,7 @@ router.post('/', jsonParser, (req, res) => {
 		if (err.reason === 'ValidationError') {
 			return res.status(err.code).json(err);
 		}
-		res.status(500).json({code: 500, message	: 'Internal server error'});
+		res.status(500).json({code: 500, message: 'Internal server error'});
 	});
 });
 
@@ -130,17 +130,16 @@ router.put('/:id', jsonParser, (req, res) => {
   	const sendSuccess = function(updated){
 	  console.log(`Updated site url for ${req.params.id}`);
 	  console.log(updated);
-	 // return res.status(204);
 	};
-	const q = User.where({_id: req.params.id});
-	const updateArguments = {$inc: {username: updatedData}};
+	const conditions = {_id: req.params.id};
+	const updateArguments = {$set: {username: updatedData}};
 	const options = {new: true};
-	return q.update(updateArguments, options)
+	return User.update(conditions, updateArguments, options)
 		.exec()
-		.then(sendSuccess)
-		.catch((err) => {
-			console.log(err);
+		.then(function(queryResults) {
+			return res.status(204);
 		});
+
 });
 
 module.exports = router;

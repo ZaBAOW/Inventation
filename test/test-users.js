@@ -100,21 +100,22 @@ describe('/api/users', function() {
       let res;
       const updatedName = usernameB;
       return User.create(
-      {
-        username,
-        password,
-        firstName,
-        lastName,
-        url
-      }
-    )
+        {
+          username,
+          password,
+          firstName,
+          lastName,
+          url
+        }
+      )
       .then(function(user) {
         console.log(user);
         console.log(user._id);
         chai.request(app).put(`/users/${user._id}`).send({ username: updatedName})
-        .then(res => {
-          console.log(res.body);
-        })
+        .then(function(res) {
+          expect(res).to.have.status(204);
+          expect(user.username).to.equal(updatedName);
+        });
       });
     });
   });
