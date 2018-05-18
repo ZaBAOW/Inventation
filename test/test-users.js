@@ -119,4 +119,28 @@ describe('/api/users', function() {
       });
     });
   });
+
+  describe('DELETE', function() {
+    it('Should delete user profiles', function() {
+      return User.create (
+        {
+          username,
+          password,
+          firstName,
+          lastName,
+          url
+        }
+      )
+      .then(function(user) {
+        const selectedObj = user._id;
+        return chai.request(app).delete(`/users/${selectedObj}`)
+        .then(function(res) {
+          expect(res).to.have.status(204);
+        })
+        .catch(function(err) {
+          console.log(err);
+        });
+      });
+    });
+  });
 });
