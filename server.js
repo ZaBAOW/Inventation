@@ -33,11 +33,11 @@ app.use(function (req, res, next) {
 })
 
 // passport.use(localStrategy);
-// passport.use(jwtStrategy);
+passport.use(jwtStrategy);
 
-// app.use('/auth', authRouter);
+app.use('/auth', authRouter);
 
-// const jwtAuth = passport.authenticate('jwt', {session: false})
+const jwtAuth = passport.authenticate('jwt', {session: false})
 
 let server;
 
