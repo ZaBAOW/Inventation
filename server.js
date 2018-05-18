@@ -20,6 +20,7 @@ const jsonParser = bodyParser.json;
 
 app.use(express.static('public'));
 
+
 app.use('/users', usersRouter);
 
 app.use(function (req, res, next) {
@@ -32,7 +33,7 @@ app.use(function (req, res, next) {
   next();
 })
 
-// passport.use(localStrategy);
+passport.use(localStrategy);
 passport.use(jwtStrategy);
 
 app.use('/auth', authRouter);
