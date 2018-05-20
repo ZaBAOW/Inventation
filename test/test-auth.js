@@ -39,7 +39,7 @@ describe('Auth endpoints', function () {
 		return User.remove({});
 	});
 
-	describe('/', function () {
+	describe('/auth/login', function () {
 		it('Should retun a valid auth token', function(){
 			return chai.request(app).post('/auth/login')
 			.send({username, password})
@@ -49,9 +49,34 @@ describe('Auth endpoints', function () {
 				const token = res.body.authToken;
 				expect(token).to.be.a('string');
 				const payload = jwt.verify(token, JWT_SECRET, {
-					algoritm: ['HS256']
+					algorithm: ['HS256']
 				});
 			});
+		});
+
+		it('Should return a valid auth token with a newer expiry date', function() {
+			const token = jwt.sign(
+				{
+					user: {
+						username,
+						firstName,
+						lastName
+				}
+				},
+					JWT_SECRET,
+				{
+					algorithm: 'HS256',
+					subject: username,
+					expiresIn: '7d'
+				}
+			);
+			const decoded = jwt.decode(token);
+
+			return chai.request(app).post('/auth/refresh')
+			.set('authorization', `Bearer ${token}`)
+			.then(res => {
+				expect(res).to.have.status(200);
+			})
 		});
 	});
 });

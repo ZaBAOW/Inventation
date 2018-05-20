@@ -25,7 +25,7 @@ userSchema.methods.serialize = function() {
     };
 };
 
-userSchema.methods.validatePasword = function(password) {
+userSchema.methods.validatePassword = function(password) {
     return bcrypt.compare(password, this.password);
 };
 
