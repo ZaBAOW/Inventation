@@ -76,7 +76,19 @@ describe('Auth endpoints', function () {
 			.set('authorization', `Bearer ${token}`)
 			.then(res => {
 				expect(res).to.have.status(200);
-			})
+				expect(res.body).to.be.an('object');
+				const token = res.body.authToken;
+				expect(token).to.be.a('string');
+				const payload = jwt.verify(token, JWT_SECRET, {
+					algorithm: ['HS256']
+				});
+				expect(payload.user).to.deep.equal({
+					username,
+					firstName,
+					lastName
+				});
+				expect(payload.exp).to.be.at.least(decoded.exp);
+			});
 		});
 	});
 });
