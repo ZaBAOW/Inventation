@@ -2,6 +2,10 @@
 const chai = require('chai');
 const chaiHttp = require('chai-http');
 const jwt = require('jsonwebtoken');
+// const localStorage = require('./mock-localstorage');
+// global.window = {};
+// const localStorage = require('mock-local-storage');
+// window.localStorage = global.localStorage;
 
 const { app, runServer, closeServer } = require('../server');
 const {User} = require('../models/users');
@@ -10,6 +14,8 @@ const { JWT_SECRET, DATABASE_URL, TEST_DATABASE_URL } = require('../config');
 const expect = chai.expect;
 
 chai.use(chaiHttp);
+
+
 
 describe('Auth endpoints', function () {
 	const username = 'exampleUser';
@@ -37,6 +43,8 @@ describe('Auth endpoints', function () {
 
 	afterEach(function () {
 		return User.remove({});
+		localStorage.clear();
+		localStorage.itemInsertionCallback = null;
 	});
 
 	describe('/auth/login', function () {
@@ -88,6 +96,7 @@ describe('Auth endpoints', function () {
 					lastName
 				});
 				expect(payload.exp).to.be.at.least(decoded.exp);
+				console.log(localStorage);
 			});
 		});
 	});
