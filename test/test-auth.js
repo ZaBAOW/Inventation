@@ -97,12 +97,18 @@ describe('Auth endpoints', function () {
 		});
 
 		it('Should store valid auth token in user local storage', function() {
-
 			return chai.request(app).post('/auth/login')
 			.send({username, password})
 			.then(res => {
 				expect(res).to.have.status(200);
-				console.log(localStorage.getItem('authToken'));
+				const localToken = localStorage.getItem('authToken');
+				// console.log(localToken);
+				expect(localToken).to.be.an('string');
+				const payload = jwt.verify(localToken, JWT_SECRET, {
+					algorithm: ['HS256']
+				});
+				console.log(payload);
+
 			})
 		});
 	});
