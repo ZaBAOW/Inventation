@@ -3,7 +3,7 @@ const chai = require('chai');
 const chaiHttp = require('chai-http');
 const jwt = require('jsonwebtoken');
 const LocalStorage = require('node-localstorage').LocalStorage;
-const localStorage = new LocalStorage('./scratch-test');
+const localStorage = new LocalStorage('./scratch');
 const { app, runServer, closeServer } = require('../server');
 const {User} = require('../models/users');
 const { JWT_SECRET, DATABASE_URL, TEST_DATABASE_URL } = require('../config');
@@ -45,7 +45,7 @@ describe('Auth endpoints', function () {
 	});
 
 	describe('/auth/login', function () {
-		it('Should retun a valid auth token', function(){
+		it('Should return a valid auth token', function(){
 			return chai.request(app).post('/auth/login')
 			.send({username, password})
 			.then(res => {
@@ -94,6 +94,16 @@ describe('Auth endpoints', function () {
 				});
 				expect(payload.exp).to.be.at.least(decoded.exp);
 			});
+		});
+
+		it('Should store valid auth token in user local storage', function() {
+
+			return chai.request(app).post('/auth/login')
+			.send({username, password})
+			.then(res => {
+				expect(res).to.have.status(200);
+				console.log(localStorage.getItem('authToken'));
+			})
 		});
 	});
 });
