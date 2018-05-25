@@ -21,7 +21,7 @@ const jsonParser = bodyParser.json;
 app.use(express.static('public'));
 
 if(process.env.NODE_ENV === 'production') {
-  app.use(epxress.static('client/build'));
+  app.use(express.static('client/build'));
 }
 
 app.use('/users', usersRouter);
