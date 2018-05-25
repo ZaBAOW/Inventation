@@ -20,6 +20,9 @@ const jsonParser = bodyParser.json;
 
 app.use(express.static('public'));
 
+if(process.env.NODE_ENV === 'production') {
+  app.use(epxress.static('client/build'));
+}
 
 app.use('/users', usersRouter);
 
@@ -37,6 +40,10 @@ passport.use(localStrategy);
 passport.use(jwtStrategy);
 
 app.use('/auth', authRouter);
+
+app.get('*', (request, response) => {
+  response.sendFile(path.join(_dirname, 'client/build', 'index.html'));
+});
 
 const jwtAuth = passport.authenticate('jwt', {session: false})
 
