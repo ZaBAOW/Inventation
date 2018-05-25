@@ -1,7 +1,8 @@
 'use strict';
+const HOST_NAME = process.env.HOST_NAME;
 function userCreate() {
 	console.log('running user create function');
-	const endpoint = 'https://zabaow.github.io/Inventation/users';
+	const endpoint = HOST_NAME;
 	var xhttp = new XMLHttpRequest();
 	xhttp.open('GET', endpoint, true);
 	xhttp.send();
