@@ -20,18 +20,17 @@ function userCreate() {
 	fetch(endpoint , {
 		method: 'POST',
 		headers: {
-			'Accept': 'application/json',
+			'Accept': 'application/json, text/plain, */*',
 			'Content-Type': 'application/json'
 		},
 		body: JSON.stringify({username: username, password: password, firstName: firstName, lastName: lastName})
 	})
-	.then(function(response) {
-		var content = response.json();
-		console.log(content);
-		return content;
+	.then(res => res.json())
+	.then(function(data) {
+		console.log('Request succeeded with JSON response', data);
 	});
+}
 
-	// const content = await rawResponse.json();
-
-	// console.log(content)
+function userRemove() {
+	console.log('running user remove function')
 }
