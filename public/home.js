@@ -27,10 +27,37 @@ function userCreate() {
 	})
 	.then(res => res.json())
 	.then(function(data) {
+		if(data.code === 422) {
+			console.log('This username already exists in the database');
+			return;
+		}
 		console.log('Request succeeded with JSON response', data);
+		var id = data.id;
+		console.log(id);
+		localStorage.setItem('userProfile', JSON.stringify(data));
 	});
 }
 
 function userRemove() {
+	if(localStorage.userProfile === undefined) {
+		console.log('Sorry there was no profile to delete');
+		return;
+	}
+	var userId = JSON.parse(localStorage.userProfile).id;
 	console.log('running user remove function')
+	const endpoint = '/users/' + userId;
+	fetch(endpoint , {
+		method: 'DELETE',
+		headers: {
+			'Accept': 'applicaltion/json, text/plain, */*',
+			'Content-Type': 'application/json'
+		},
+		body: JSON.stringify({message: 'we have remove the profile with id: ' + userId})
+	})
+	.then(function(res) {
+		console.log('user removal successful');
+		console.log(res);
+	});
+
+	localStorage.clear();
 }

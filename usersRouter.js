@@ -145,9 +145,11 @@ router.put('/:id', jsonParser, (req, res) => {
 
 router.delete('/:id', (req, res) => {
 	const idForRemoval = req.params.id;
-	User.deleteOne(idForRemoval);
-	console.log(`Deleted blog post with id \`${idForRemoval}\``);
-	return res.status(204).end();
+	User.findByIdAndRemove(idForRemoval)
+	.then(() => {
+		console.log(`Deleted blog post with id \`${idForRemoval}\``);
+		return res.status(204).end();
+	});
 })
 
 module.exports = router;
