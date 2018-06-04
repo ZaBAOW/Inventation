@@ -28,7 +28,7 @@ router.post('/', jsonParser, (req, res) => {
 		});
 	}
 
-	const stringFields = ['username', 'password', 'firstName', 'lastName', 'url'];
+	const stringFields = ['username', 'password', 'firstName', 'lastName'];
 	const nonStringField = stringFields.find(
 		field => field in req.body && typeof req.body[field] !== 'string'
 	);
@@ -106,8 +106,7 @@ router.post('/', jsonParser, (req, res) => {
 			username,
 			password: hash,
 			firstName,
-			lastName,
-			url
+			lastName
 		});
 	}).then(user => {
 		return res.status(201).json(user.serialize());
