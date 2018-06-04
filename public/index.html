@@ -23,10 +23,15 @@
 		<span>Last Name: </span>
 		<input type="text" class="lastName" name="lastName">
 		<br>
-		<button type="button" name="profile-submit" onclick="userCreate()">Create</button>
+		<br>
+		<span>URL: </span>
+		<input type="text" class="url" name="url">
+		<br>
+		<button type="button" class="profile-submit" name="profile-submit" onclick="userCreate()">Create</button>
+		<button type="button" class="profile-remove" name="profile-remove" onclick="userRemove()">Delete Profile</button>
     </form>
     
-    <button type="button" name="profile-remove" onclick="userRemove()">Delete Profile</button>
+    
 </body>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.js"></script>
 <script type="text/javascript" src = "home.js"></script>

@@ -15,6 +15,7 @@ function userCreate() {
 	var password = $('.password').val();
 	var firstName = $('.firstName').val();
 	var lastName = $('.lastName').val();
+	var url = $('.url').val();
 	const endpoint = '/users';
 	console.log('running user create function');
 	fetch(endpoint , {
@@ -35,6 +36,8 @@ function userCreate() {
 		var id = data.id;
 		console.log(id);
 		localStorage.setItem('userProfile', JSON.stringify(data));
+		var redirectUrl = JSON.parse(localStorage.userProfile).url;
+		window.location.replace(redirectUrl);
 	});
 }
 
