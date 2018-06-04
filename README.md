@@ -34,8 +34,11 @@ to do:
   - describe how the invited user will interact with the site
 
 The creating user will enter Inventations homepage where they will
-choose to create a website.  They will be redirected to a website creation page
-that will appear blank.  The creation sidebar will appear automatically.  The user
+be presented with a form (username, password, first name, last name
+to fill out.  After filling out the form they will then click on the 
+"Create" button to finalize their user profile. **They will be redirected to a website creation page
+that will appear blank, or, they will need to click on a "Go to Page" button to
+get to their site.**(create a test for this)  The creation sidebar will appear automatically.  The user
 will then begin choosing the features for their site.  They will be able to experiment
 with the order of features to fit their look. When the website is finished, the user
 will be able to see a preview version of the site before publishing it (via herokuapp).  When publishing
@@ -47,6 +50,9 @@ via the invitations that are sent out (as well as the site url).
 The invited users will visit the url found in their invitations and use the username and password
 to gain access to the site.  They will find browse the page and select their decision into the RSVP
 section.  
+
+If the user has the desire to remove themselves from Inventation, they have the ability to do so via
+the "Delete Profile" button on the homepage.  **This in turn will also delete their site.**(create test for this)
 
 ### Prerequisites
 
