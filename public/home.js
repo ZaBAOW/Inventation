@@ -64,3 +64,21 @@ function userRemove() {
 
 	localStorage.clear();
 }
+
+function userLogin() {
+	var username = $('.username').val();
+	var password = $('.password').val();
+	const endpoint = '/login';
+	fetch(endpoint, {
+		method: 'POST',
+		headers: {
+			'Accept': 'application/json,',
+			'Content-Type': 'application/json'
+		},
+		body: JSON.stringify({message: 'user is being logged in'})
+	})
+	.then(function(res) {
+		console.log('user has logged on');
+		console.log(res);
+	});
+}
