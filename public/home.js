@@ -68,17 +68,20 @@ function userRemove() {
 function userLogin() {
 	var username = $('.username').val();
 	var password = $('.password').val();
-	const endpoint = '/login';
+	const endpoint = '/auth/login';
 	fetch(endpoint, {
 		method: 'POST',
 		headers: {
-			'Accept': 'application/json,',
+			'Accept': 'application/json',
 			'Content-Type': 'application/json'
 		},
-		body: JSON.stringify({message: 'user is being logged in'})
+		body: JSON.stringify({message: "user is being logged in"})
 	})
 	.then(function(res) {
 		console.log('user has logged on');
 		console.log(res);
+	})
+	.catch(err => {
+		console.log(err);
 	});
 }

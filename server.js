@@ -21,10 +21,6 @@ const jsonParser = bodyParser.json;
 
 app.use(express.static('public'));
 
-// if(process.env.NODE_ENV === 'production') {
-//   app.use(express.static('client/build'));
-// }
-
 app.use('/users', usersRouter);
 
 app.use(function (req, res, next) {
@@ -41,10 +37,6 @@ passport.use(localStrategy);
 passport.use(jwtStrategy);
 
 app.use('/auth', authRouter);
-
-// app.get('*', (request, response) => {
-//   response.sendFile(path.join(_dirname, 'client/build', 'index.html'));
-// });
 
 const jwtAuth = passport.authenticate('jwt', {session: false})
 
@@ -80,6 +72,15 @@ function closeServer() {
       });
     });
   });
+}
+
+function clientErrorHandler (err, req, res, next) {
+  if (req.xhr) {
+    res.status(500).send({ error: 'Something failed!' });
+  }
+  else {
+    next(err);
+  }
 }
 
 if (require.main === module) {
