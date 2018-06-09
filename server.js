@@ -77,6 +77,7 @@ function closeServer() {
 function clientErrorHandler (err, req, res, next) {
   if (req.xhr) {
     res.status(500).send({ error: 'Something failed!' });
+    console.log('something failed');
   }
   else {
     next(err);
