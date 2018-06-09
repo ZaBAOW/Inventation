@@ -68,14 +68,14 @@ function userRemove() {
 function userLogin() {
 	var username = $('.username').val();
 	var password = $('.password').val();
-	const endpoint = '/auth/login';
+	const endpoint = 'http://localhost:8080/auth/login';
 	fetch(endpoint, {
 		method: 'POST',
 		headers: {
 			'Accept': 'application/json',
 			'Content-Type': 'application/json'
 		},
-		body: JSON.stringify({message: "user is being logged in"})
+		body: JSON.stringify({username: username, password: password})
 	})
 	.then(function(res) {
 		console.log('user has logged on');
