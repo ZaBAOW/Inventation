@@ -69,7 +69,7 @@ function userLogin() {
 	var username = $('.username').val();
 	var password = $('.password').val();
 	const endpoint = 'http://localhost:8080/auth/login';
-	fetch(endpoint, {
+	return fetch(endpoint, {
 		method: 'POST',
 		headers: {
 			'Accept': 'application/json',
@@ -82,6 +82,6 @@ function userLogin() {
 		console.log(res);
 	})
 	.catch(err => {
-		console.log(err);
+		console.log("user login error ", err);
 	});
 }

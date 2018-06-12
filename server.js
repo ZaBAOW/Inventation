@@ -2,6 +2,7 @@
 
 const dotenv = require('dotenv').config();
 const express = require('express');
+const session = require('express-session');
 const morgan = require('morgan');
 const path = require('path');
 const bodyParser = require('body-parser')
@@ -11,7 +12,7 @@ mongoose.Promise = global.Promise;
 
 
 
-const {DATABASE_URL, PORT} = require('./config');
+const {DATABASE_URL, PORT, SESSION_SECRET} = require('./config');
 const {USERS} = require('./models/users');
 const usersRouter = require('./usersRouter');
 const {router: authRouter, localStrategy, jwtStrategy} = require('./lib/auth');
@@ -37,6 +38,10 @@ passport.use(localStrategy);
 passport.use(jwtStrategy);
 
 app.use('/auth', authRouter);
+app.use(session({ secret: SESSION_SECRET,
+  resave: false,
+  saveUninitialized: true,
+   cookie: {maxAge: 900000}}));
 
 const jwtAuth = passport.authenticate('jwt', {session: false})
 
