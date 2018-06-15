@@ -96,18 +96,22 @@ describe('Auth endpoints', function () {
 			});
 		});
 
-		it('Should store valid auth token in user local storage', function() {
+		it('Should store valid auth token in cookie', function() {
 			return chai.request(app).post('/auth/login')
 			.send({username, password})
 			.then(res => {
+				const sessionObj = res.headers['set-cookie'][0];
+				// console.log(sessionObj);
+				const re = /=(.*?)=/;
+				const cookieToken = sessionObj.match(re);
+				const compareCookie = cookieToken[1];
+				console.log(compareCookie);
 				expect(res).to.have.status(200);
-				const localToken = localStorage.getItem('authToken');
-				// console.log(localToken);
-				expect(localToken).to.be.an('string');
-				const payload = jwt.verify(localToken, JWT_SECRET, {
-					algorithm: ['HS256']
-				});
-				console.log(payload);
+				expect(res).to.be.an('object');
+				// const payload = jwt.verify(cookieToken, JWT_SECRET, {
+				// 	algorithm: ['HS256']
+				// });
+				// console.log(payload);
 
 			})
 		});
