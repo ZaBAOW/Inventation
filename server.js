@@ -2,23 +2,26 @@
 
 const dotenv = require('dotenv').config();
 const express = require('express');
-const session = require('express-session');
 const morgan = require('morgan');
 const path = require('path');
-const bodyParser = require('body-parser')
+const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
+const cookieSession = require('cookie-session');
 const passport = require('passport');
 mongoose.Promise = global.Promise;
 
 
 
-const {DATABASE_URL, PORT, SESSION_SECRET} = require('./config');
+const {DATABASE_URL, PORT, SESSION_SECRET, SESSION} = require('./config');
 const {USERS} = require('./models/users');
 const usersRouter = require('./usersRouter');
 const {router: authRouter, localStrategy, jwtStrategy} = require('./lib/auth');
 
 const app = express();
 const jsonParser = bodyParser.json;
+
+app.set('trust proxy', 1);
+app.use(cookieSession(SESSION));
 
 app.use(express.static('public'));
 
@@ -37,11 +40,18 @@ app.use(function (req, res, next) {
 passport.use(localStrategy);
 passport.use(jwtStrategy);
 
+app.use(passport.initialize());
+app.use(passport.session());
+
+
 app.use('/auth', authRouter);
-app.use(session({ secret: SESSION_SECRET,
-  resave: false,
-  saveUninitialized: true,
-   cookie: {maxAge: 900000}}));
+
+
+app.get('/', function (req, res, next) {
+  req.session.views = (req.session.views || 0) + 1;
+  res.end(req.session.views + ' views');
+});
+
 
 const jwtAuth = passport.authenticate('jwt', {session: false})
 
