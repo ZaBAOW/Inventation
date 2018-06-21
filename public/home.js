@@ -74,14 +74,38 @@ function userLogin() {
 		headers: {
 			'Accept': 'application/json',
 			'Content-Type': 'application/json'
-		},
+		}, 
+		credentials: 'include',
 		body: JSON.stringify({username: username, password: password})
 	})
 	.then(function(res) {
 		console.log('user has logged on');
 		console.log(res);
+		var redirectUrl = "https://zabaow.github.io/Inventation/lib/site-create/index.html"
+		window.location.replace(redirectUrl);
 	})
 	.catch(err => {
 		console.log("user login error ", err);
+	});
+}
+
+function getJwt(res) {
+	console.log('retrieving client jwt...')
+	const endpoint = 'http://localhost:8080/auth/protected';
+	return fetch(endpoint, {
+		method: 'GET',
+		headers: {
+			'Accept': 'application/json',
+			'Content-Type': 'application/json',
+			'Authorization': 'Bearer'
+		},
+		credentials: 'include'
+	})
+	.then(function(res) {
+		console.log('got the jwt');
+		console.log(res);
+	})
+	.catch(err => {
+		console.log('jwt retrieval error', err);
 	});
 }

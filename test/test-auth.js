@@ -101,18 +101,11 @@ describe('Auth endpoints', function () {
 			.send({username, password})
 			.then(res => {
 				const sessionObj = res.headers['set-cookie'][0];
-				// console.log(sessionObj);
 				const re = /=(.*?)=/;
 				const cookieToken = sessionObj.match(re);
 				const compareCookie = cookieToken[1];
-				console.log(compareCookie);
 				expect(res).to.have.status(200);
 				expect(res).to.be.an('object');
-				// const payload = jwt.verify(cookieToken, JWT_SECRET, {
-				// 	algorithm: ['HS256']
-				// });
-				// console.log(payload);
-
 			})
 		});
 	});
