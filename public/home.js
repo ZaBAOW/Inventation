@@ -68,6 +68,10 @@ function userRemove() {
 function userLogin() {
 	var username = $('.username').val();
 	var password = $('.password').val();
+	if(username === '' || password === ''){
+		console.log('oops! looks like at least one of the required two fields have been left blank!');
+		return;
+	}
 	const endpoint = 'http://localhost:8080/auth/login';
 	return fetch(endpoint, {
 		method: 'POST',
@@ -79,6 +83,9 @@ function userLogin() {
 		body: JSON.stringify({username: username, password: password})
 	})
 	.then(function(res) {
+		if(res.status === 401){
+			return;
+		}
 		console.log('user has logged on');
 		console.log(res);
 		var redirectUrl = "https://zabaow.github.io/Inventation/lib/site-create/index.html"
