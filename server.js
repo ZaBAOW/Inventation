@@ -14,6 +14,7 @@ mongoose.Promise = global.Promise;
 
 const {DATABASE_URL, PORT, SESSION_SECRET, SESSION} = require('./config');
 const {USERS} = require('./models/users');
+const {SESSION} = require('/models/sessions');
 const usersRouter = require('./usersRouter');
 const {router: authRouter, localStrategy, jwtStrategy} = require('./lib/auth');
 

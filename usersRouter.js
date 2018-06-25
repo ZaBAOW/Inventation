@@ -118,6 +118,11 @@ router.post('/', jsonParser, (req, res) => {
 	});
 });
 
+router.post('/session', (req, res) => {
+	requireFields = ['content'];
+	
+})
+
 router.get('/', (req, res) => {
 	return User.find()
 		.then(users => res.json(users.map(user => user.serialize)))
