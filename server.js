@@ -16,6 +16,7 @@ const {DATABASE_URL, PORT, SESSION_SECRET, SESSION} = require('./config');
 const {USERS} = require('./models/users');
 const {SESSIONS} = require('./models/sessions');
 const usersRouter = require('./usersRouter');
+const sessionRouter = require('./sessionRouter');
 const {router: authRouter, localStrategy, jwtStrategy} = require('./lib/auth');
 
 const app = express();
@@ -27,6 +28,7 @@ app.use(cookieSession(SESSION));
 app.use(express.static('public'));
 
 app.use('/users', usersRouter);
+app.use('/session', sessionRouter);
 
 app.use(function (req, res, next) {
   res.header('Access-Control-Allow-Origin', '*');

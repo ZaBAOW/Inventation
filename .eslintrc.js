@@ -8,7 +8,8 @@ module.exports = {
         "$": false,
         "require": false,
         "module": false,
-        "global": false
+        "global": false,
+        "requiredFields": true,
     },
     "parserOptions": {
         "ecmaVersion": 2016,
