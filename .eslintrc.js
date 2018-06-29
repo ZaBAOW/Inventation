@@ -10,6 +10,12 @@ module.exports = {
         "module": false,
         "global": false,
         "requiredFields": true,
+        "describe": false,
+        "beforeEach": false,
+        "afterEach": false,
+        "before": false,
+        "after": false,
+        "it": false
     },
     "parserOptions": {
         "ecmaVersion": 2016,

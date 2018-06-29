@@ -88,7 +88,7 @@ function userLogin() {
 		}
 		console.log('user has logged on');
 		console.log(res);
-		var redirectUrl = "https://zabaow.github.io/Inventation/lib/site-create/index.html"
+		var redirectUrl = "http://localhost:8080/index.html"
 		window.location.replace(redirectUrl);
 	})
 	.catch(err => {

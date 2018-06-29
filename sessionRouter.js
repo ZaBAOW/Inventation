@@ -13,7 +13,26 @@ const {authToken} = require('./lib/auth/router');
 
 router.post('/', (req, res) => {
 	const requireFields = ['content'];
+    console.log('creating session...');
+    let content = req.body;
+    return Session.create({
+        content
+    })
+    .then(session => {
+        return res.status(201).json(session.serialize());
+    })
+    .catch(err => {
+        if (err.reason === 'ValidationError') {
+			return res.status(err.code).json(err);
+		}
+		res.status(500).json({code: 500, message: 'Internal server error'});
+    })
+    
+})
+
+router.put('/', (req,res) => {
     console.log('saving session...');
+    return res.status(204).end();
 })
 
 module.exports = router;

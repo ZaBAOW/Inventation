@@ -1,10 +1,5 @@
 'use strict'
-$(document).ready(function() {
-	
-	if(localStorage.site !== null){
-		$('#website-container').append(localStorage.site);
-	}
-})
+
 
 function openNav() {
 	document.getElementById("mySidenav").style.width = "250px";
@@ -39,19 +34,44 @@ function returnHome () {
 	window.location.replace("http://localhost:8080/homePage.html");
 }
 
+
+function createSession() {
+	var content = $('website-container').find('storable').html();
+	const endpoint = '/session';
+	const requestData = {
+		method: 'POST',
+		headers: {
+			'Accept': 'application/json',
+			'content-Type': 'application/json'
+		},
+		body: JSON.stringify({content: content})
+	};
+	fetch(endpoint, requestData)
+	.then((res) => res.json())
+	.then(function(data) {
+		console.log('session succesfully created');
+	});
+}
+
+$(document).ready(function() {
+	createSession();
+})
+
+
 function saveSession() {
 	var content = $('website-container').find('storable').html();
 	const endpoint = '/session';
-	fetch(endpoint, {
-		method: 'POST',
+	const requestData = {
+		method: 'PUT',
 		headers: {
 			'Accept': 'application/json',
 			'Content-Type': 'application/json'
 		},
 		body: JSON.stringify({content: content})
-	})
+	};
+	fetch(endpoint, requestData)
 	.then((res) => res.json())
 	.then(function(data) {
 		console.log('session succesfully saved');
-	})
+	});
 }
