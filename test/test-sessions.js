@@ -27,20 +27,29 @@ describe('/api/session', function() {
         return Session.remove({});
       });
     
-    //   describe('PUT', function() {
-    //       it('should save the content presented in the request', function() {
-    //           let res;
-    //           const updateContent = {
-    //               content: content
-    //           };
-    //           return Session.create({content})
-    //           .then(function(res) {
-    //               expect(res).to.have.status(204);
-    //             //   expect(res).to.be.a('object');
-    //             //   expect(res.body).to.include.keys('content');
-    //           })
-    //       })
-    //   })
+      describe('PUT', function() {
+          it('should save the content presented in the request', function() {
+              let res;
+              const newContent = 'This is the new content for the site';
+              const updateContent = {
+                content: newContent
+                };
+              return Session.create({
+                  content
+              })
+              .then(function(session){
+                return chai.request(app).put(`/session/${session._id}`)
+                .set('content-type', 'application/json')
+                .send({content: updateContent})
+                .then(function(res){
+                    expect(res).to.have.status(204);
+                })
+                .catch(err => {
+                    console.log(err);
+                })
+              });
+          });
+      });
 
       describe('POST', function() {
           it('should create a session if there are no saved sessions', function() {
@@ -48,7 +57,7 @@ describe('/api/session', function() {
               const newContent = {
                   content: content
               }
-              return chai.request(app).post('/session').send(newContent)
+              return chai.request(app).post('/session').send({content: newContent})
               .then(function(res){
                   expect(res).to.have.status(201);
                   expect(res).to.be.a('object');

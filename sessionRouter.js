@@ -30,9 +30,19 @@ router.post('/', (req, res) => {
     
 })
 
-router.put('/', (req,res) => {
+router.put('/:id', jsonParser, (req, res) => {
+    console.log(req.body.content.content);
+    const updateData = req.body.content.content;
     console.log('saving session...');
-    return res.status(204).end();
+    const requireFields = ['content'];
+    const conditions = {_id: req.params.id};
+    const updateArguments = {$set: {content: updateData}};
+    const options = {new: true};
+    return Session.update(conditions, updateArguments, options)
+        .exec()
+        .then(function(queryResults) {
+            return res.status(204).end();
+        })
 })
 
 module.exports = router;
