@@ -40,7 +40,7 @@ describe('/api/session', function() {
               .then(function(session){
                 return chai.request(app).put(`/session/${session._id}`)
                 .set('content-type', 'application/json')
-                .send({content: updateContent})
+                .send(updateContent)
                 .then(function(res){
                     expect(res).to.have.status(204);
                 })
@@ -57,7 +57,7 @@ describe('/api/session', function() {
               const newContent = {
                   content: content
               }
-              return chai.request(app).post('/session').send({content: newContent})
+              return chai.request(app).post('/session').send(newContent)
               .then(function(res){
                   expect(res).to.have.status(201);
                   expect(res).to.be.a('object');

@@ -11,10 +11,11 @@ const jwtAuth = passport.authenticate('jwt', {session: false});
 const {Session} = require('./models/sessions');
 const {authToken} = require('./lib/auth/router');
 
-router.post('/', (req, res) => {
+router.post('/', jsonParser , (req, res) => {
 	const requireFields = ['content'];
     console.log('creating session...');
-    let content = req.body;
+    let content = req.body.content;
+    console.log(content);
     return Session.create({
         content
     })
@@ -31,8 +32,8 @@ router.post('/', (req, res) => {
 })
 
 router.put('/:id', jsonParser, (req, res) => {
-    console.log(req.body.content.content);
-    const updateData = req.body.content.content;
+    console.log(req.body.content);
+    const updateData = req.body.content;
     console.log('saving session...');
     const requireFields = ['content'];
     const conditions = {_id: req.params.id};
