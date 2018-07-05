@@ -37,12 +37,14 @@ router.put('/:id', jsonParser, (req, res) => {
     console.log('saving session...');
     const requireFields = ['content'];
     const conditions = {_id: req.params.id};
-    const updateArguments = {$set: {content: updateData}};
+    const updateArguments = {content: updateData};
     const options = {new: true};
-    return Session.update(conditions, updateArguments, options)
+    return Session.findOneAndUpdate(conditions, updateArguments, options)
         .exec()
-        .then(function(queryResults) {
-            return res.status(204).end();
+        .then(function(data) {
+            res.type('application/json');
+            console.log(data);
+            return res.status(204).send(data);
         })
 })
 

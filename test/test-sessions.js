@@ -39,10 +39,11 @@ describe('/api/session', function() {
               })
               .then(function(session){
                 return chai.request(app).put(`/session/${session._id}`)
-                .set('content-type', 'application/json')
                 .send(updateContent)
                 .then(function(res){
+                    console.log(session.content);
                     expect(res).to.have.status(204);
+                    expect(session.content).to.equal(newContent);
                 })
                 .catch(err => {
                     console.log(err);
