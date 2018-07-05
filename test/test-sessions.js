@@ -72,6 +72,17 @@ describe('/api/session', function() {
 
           it('should do nothing if there are saved sessions', function() {
               let res;
+              const createdContent = {
+                  content: content
+              }
+              return chai.request(app).post('/session').send(createdContent)
+              .then(function(session) {
+                  if(session.content !== null) {
+                      console.log('there is already a session ');
+                      expect(session.body.content).to.equal(createdContent.content);
+                      expect(session).to.be.a('object');
+                  }
+              })
           })
       })
 })
