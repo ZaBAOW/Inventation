@@ -42,6 +42,10 @@ describe('/api/session', function() {
                 .send(updateContent)
                 .then(function(res){
                     expect(res).to.have.status(204);
+                    console.log(session.content);
+                    return Session.findById(session._id);
+                })
+                .then(function(session) {
                     expect(session.content).to.equal(newContent);
                 })
                 .catch(err => {
@@ -54,13 +58,15 @@ describe('/api/session', function() {
       describe('POST', function() {
           it('should create a session if there are no saved sessions', function() {
               let res;
-              const newContent = {
+              const createContent = {
                   content: content
               }
-              return chai.request(app).post('/session').send(newContent)
+              return chai.request(app).post('/session').send(createContent)
               .then(function(res){
+                  console.log(res.body);
                   expect(res).to.have.status(201);
                   expect(res).to.be.a('object');
+                  expect(res.body.content).to.equal(content);
               })
           })
 
