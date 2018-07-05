@@ -42,9 +42,7 @@ router.put('/:id', jsonParser, (req, res) => {
     return Session.findOneAndUpdate(conditions, updateArguments, options)
         .exec()
         .then(function(data) {
-            res.type('application/json');
-            console.log(data);
-            return res.status(204).send(data);
+            return res.status(204)
         })
 })
 

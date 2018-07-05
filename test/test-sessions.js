@@ -41,7 +41,6 @@ describe('/api/session', function() {
                 return chai.request(app).put(`/session/${session._id}`)
                 .send(updateContent)
                 .then(function(res){
-                    console.log(session.content);
                     expect(res).to.have.status(204);
                     expect(session.content).to.equal(newContent);
                 })
