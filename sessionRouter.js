@@ -46,4 +46,16 @@ router.put('/:id', jsonParser, (req, res) => {
         })
 })
 
+router.get('/:id', jsonParser, (req, res) => {
+    console.log(req.params.id);
+    const id = req.params.id;
+    return Session.findById(id).exec()
+    .then(function(session) {
+        return res.status(200).send(session.content);
+    })
+    .catch(function(error){
+        console.log(error);
+    })
+})
+
 module.exports = router;

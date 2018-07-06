@@ -95,4 +95,22 @@ describe('/api/session', function() {
               })
           })
       })
+
+      describe('GET', function() {
+          it('Should retrieve an existing session by id', function() {
+              let res;
+              return Session.create({
+                  content: content
+              })
+              .then(function(session) {
+                  return chai.request(app).get(`/session/${session._id}`)
+                  .then(function(res) {
+                      console.log(session.content);
+                      expect(res).to.have.status(200);
+                      expect(session.content).to.be.a('string');
+                      expect(session.content).to.equal(content);
+                  })
+              })
+          })
+      })
 })
