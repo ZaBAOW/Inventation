@@ -15,11 +15,11 @@ router.post('/', jsonParser , (req, res) => {
 	const requireFields = ['content'];
     console.log('creating session...');
     let content = req.body.content;
-    console.log(content);
     return Session.create({
         content
     })
     .then(session => {
+        console.log('created session');
         return res.status(201).json(session.serialize());
     })
     .catch(err => {
