@@ -75,3 +75,7 @@ function saveSession() {
 		console.log('session succesfully saved');
 	});
 }
+
+// function retieveSession() {
+// 	var
+// }
