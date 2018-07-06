@@ -58,22 +58,25 @@ describe('/api/session', function() {
       describe('POST', function() {
           it('should create a session if there are no saved sessions', function() {
               let res;
-              const session = null;
               const createContent = {
                   content: content
               }
-              if(session !== undefined && session !== null) {
-                  console.log('there is already existing session content');
-              }
-              else{
-                return chai.request(app).post('/session').send(createContent)
-                .then(function(res){
-                    console.log(res.body);
-                    expect(res).to.have.status(201);
-                    expect(res).to.be.a('object');
-                    expect(res.body.content).to.equal(content);
-                })
-              }
+              return Session.create({
+                content: null
+              }).then(function(session){
+                    if(session.content !== undefined && session.content !== null) {
+                        console.log('there is already existing session content');
+                    }
+                    else{
+                    return chai.request(app).post('/session').send(createContent)
+                    .then(function(res){
+                        expect(res).to.have.status(201);
+                        expect(res).to.be.a('object');
+                        expect(res.body.content).to.equal(content);
+                        })
+                    }
+            })
+
             })
             
 
