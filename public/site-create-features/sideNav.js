@@ -37,6 +37,9 @@ function returnHome () {
 
 function createSession() {
 	var content = $('website-container').find('storable').html();
+	if(content === null || content === undefined) {
+		return;
+	}
 	const endpoint = '/session';
 	const requestData = {
 		method: 'POST',
@@ -52,9 +55,27 @@ function createSession() {
 		console.log('session succesfully created');
 	});
 }
+function retrieveSession() {
+	const endpoint = '/session'
+	const requestData = {
+		method: 'GET',
+		headers: {
+			'Accept': 'application/json',
+			'Content-Type': 'application/json'
+		}
+	}
+	fetch(endpoint, requestData)
+	.then(function(res) {
+		console.log(res.body);
+	})
+	.catch(function(error) {
+		console.log(error);
+	});
+}
 
 $(document).ready(function() {
 	createSession();
+	retrieveSession();
 })
 
 
@@ -76,6 +97,3 @@ function saveSession() {
 	});
 }
 
-// function retieveSession() {
-// 	var
-// }

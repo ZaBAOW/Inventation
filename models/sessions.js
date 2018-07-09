@@ -4,7 +4,9 @@ const bcrypt = require('bcrypt');
 mongoose.Promise = global.Promise;
 
 const sessionSchema = mongoose.Schema({
-    content: {type: String, require: true, unique: true}
+    content: {type: String, 
+        required: [true, 'there is not content'], 
+        unique: true}
 });
 
 sessionSchema.methods.serialize = function() {

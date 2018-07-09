@@ -15,8 +15,10 @@ router.post('/', jsonParser , (req, res) => {
 	const requireFields = ['content'];
     console.log('creating session...');
     let content = req.body.content;
+    
     return Session.create({
-        content
+        content,
+        unique: true
     })
     .then(session => {
         console.log('created session');
@@ -32,7 +34,6 @@ router.post('/', jsonParser , (req, res) => {
 })
 
 router.put('/:id', jsonParser, (req, res) => {
-    console.log(req.body.content);
     const updateData = req.body.content;
     console.log('saving session...');
     const requireFields = ['content'];
@@ -46,8 +47,14 @@ router.put('/:id', jsonParser, (req, res) => {
         })
 })
 
+// router.get('/', jsonParser, (req, res) => {
+//     return Session.find()
+//     .then(users => res.json(users.map(user => user.serialize())))
+//     .catch(err => res.status(500).json({message: 'Internal server error'}));
+//     })
+// })
+
 router.get('/:id', jsonParser, (req, res) => {
-    console.log(req.params.id);
     const id = req.params.id;
     return Session.findById(id).exec()
     .then(function(session) {
