@@ -47,12 +47,17 @@ router.put('/:id', jsonParser, (req, res) => {
         })
 })
 
-// router.get('/', jsonParser, (req, res) => {
-//     return Session.find()
-//     .then(users => res.json(users.map(user => user.serialize())))
-//     .catch(err => res.status(500).json({message: 'Internal server error'}));
-//     })
-// })
+router.get('/', (req, res) => {
+    return Session.find()
+    .then(function(session) {
+        console.log(session);
+        console.log('sessions retrieved');
+        return res.status(200).send(session).end();
+    })
+    .catch(function(err) {
+        console.log(err);
+    });
+})
 
 router.get('/:id', jsonParser, (req, res) => {
     const id = req.params.id;

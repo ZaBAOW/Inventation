@@ -62,11 +62,13 @@ function retrieveSession() {
 		headers: {
 			'Accept': 'application/json',
 			'Content-Type': 'application/json'
-		}
+		},
+		credentials: 'same-origin'
 	}
 	fetch(endpoint, requestData)
 	.then(function(res) {
-		console.log(res.body);
+		console.log(res);
+		console.log('sessions retrieved!');
 	})
 	.catch(function(error) {
 		console.log(error);
