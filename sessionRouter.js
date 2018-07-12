@@ -50,7 +50,6 @@ router.put('/:id', jsonParser, (req, res) => {
 router.get('/', (req, res) => {
     return Session.find()
     .then(function(session) {
-        console.log(session);
         console.log('sessions retrieved');
         return res.status(200).send(session).end();
     })

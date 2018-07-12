@@ -53,6 +53,10 @@ function createSession() {
 	.then((res) => res.json())
 	.then(function(data) {
 		console.log('session succesfully created');
+		if(localStorage.sessionId ===  undefined){
+			localStorage.setItem('sessionId', data.id);
+		}
+		
 	});
 }
 function retrieveSession() {
@@ -75,9 +79,27 @@ function retrieveSession() {
 	});
 }
 
+function retrieveSessionById() {
+	const id = localStorage.sessionId;
+	const endpoint = `/session/` + id;
+	const requestData = {
+		method: 'GET',
+		headers: {
+			'Accept': 'application/json',
+			'Content-Type': 'application/json'
+		},
+		credentials: 'same-origin'
+	}
+	fetch(endpoint, requestData)
+	.then(function(res) {
+		console.log(res);
+		console.log('YOUR session has been retrieved');
+	})
+}
+
 $(document).ready(function() {
 	createSession();
-	retrieveSession();
+	retrieveSessionById();
 })
 
 
