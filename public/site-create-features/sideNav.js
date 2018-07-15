@@ -104,8 +104,10 @@ $(document).ready(function() {
 
 
 function saveSession() {
-	var content = $('website-container').find('storable').html();
-	const endpoint = '/session';
+	const content = $('#website-container').find('.storable').html();
+	console.log($('#website-container'));
+	const id = localStorage.sessionId;
+	const endpoint = `/session/${id}`;
 	const requestData = {
 		method: 'PUT',
 		headers: {
@@ -115,9 +117,9 @@ function saveSession() {
 		body: JSON.stringify({content: content})
 	};
 	fetch(endpoint, requestData)
-	.then((res) => res.json())
 	.then(function(data) {
+		console.log(data);
 		console.log('session succesfully saved');
-	});
+	})
 }
 

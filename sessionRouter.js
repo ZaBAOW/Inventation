@@ -35,6 +35,7 @@ router.post('/', jsonParser , (req, res) => {
 
 router.put('/:id', jsonParser, (req, res) => {
     const updateData = req.body.content;
+    console.log(req.body.content);
     console.log('saving session...');
     const requireFields = ['content'];
     const conditions = {_id: req.params.id};
@@ -60,6 +61,7 @@ router.get('/', (req, res) => {
 
 router.get('/:id', jsonParser, (req, res) => {
     const id = req.params.id;
+    console.log(req.params);
     return Session.findById(id).exec()
     .then(function(session) {
         return res.status(200).send(session.content);
