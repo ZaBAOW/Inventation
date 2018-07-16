@@ -61,10 +61,10 @@ router.get('/', (req, res) => {
 
 router.get('/:id', jsonParser, (req, res) => {
     const id = req.params.id;
-    console.log(req.params);
     return Session.findById(id).exec()
     .then(function(session) {
-        return res.status(200).send(session.content);
+        console.log(session.content);
+        return res.json({data: session});
     })
     .catch(function(error){
         console.log(error);

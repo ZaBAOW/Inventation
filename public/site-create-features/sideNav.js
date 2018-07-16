@@ -71,7 +71,6 @@ function retrieveSession() {
 	}
 	fetch(endpoint, requestData)
 	.then(function(res) {
-		console.log(res);
 		console.log('sessions retrieved!');
 	})
 	.catch(function(error) {
@@ -92,8 +91,12 @@ function retrieveSessionById() {
 	}
 	fetch(endpoint, requestData)
 	.then(function(res) {
-		console.log(res);
+		return res.json();
+	})
+	.then(function(data) {
 		console.log('YOUR session has been retrieved');
+		const loadContent = data.data.content;
+		$('#website-container').append('<div class="infobox-container storable">' + loadContent + '</div>');
 	})
 }
 
@@ -105,7 +108,6 @@ $(document).ready(function() {
 
 function saveSession() {
 	const content = $('#website-container').find('.storable').html();
-	console.log($('#website-container'));
 	const id = localStorage.sessionId;
 	const endpoint = `/session/${id}`;
 	const requestData = {
