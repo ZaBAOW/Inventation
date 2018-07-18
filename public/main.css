@@ -1,7 +1,94 @@
+/* css for inventation homepage */
+.home-title{
+    color: red;
+    display: block;
+    margin: auto;
+    width: 50%;
+    text-align: center;
+}
+
+.signup-link{
+    display: block;
+    margin: auto;
+    width: 50%;
+    text-align: center;
+}
+
+.login-link{
+    display: block;
+    margin: auto;
+    width: 50%;
+    text-align: center;
+}
+
+/* css for inventation signup page */
+.signup-title{
+    color: red;
+    position: relative;
+    text-align: center;
+}
+
+.form-descript{
+    position: relative;
+    text-align: center;
+}
+
+.profile-create{
+    position: relative;
+    text-align: center;
+}
+
+.username{
+    position: relative;
+    left: 10px;
+}
+
+.password{
+    position: relative;
+    left: 11px;
+}
+
+.firstName{
+    position: relative;
+    left: 6px;
+}
+
+.lastName{
+    position: relative;
+    left: 6px;
+}
 .profile-remove{
     display: inline-block;
+    position: relative;
+    left: 50px;
+    top: 20px;
+
 }
 
 .profile-submit{
+    position: relative;
     display: inline-block;
+    top: 20px; 
+    left: 20px;
+}
+
+/* css for inventation login page */
+
+.login-title{
+    color: red;
+    position: relative;
+    text-align: center;
+}
+
+.user-login{
+    position: relative;
+    text-align: center;
+}
+
+.login-btn{
+    position: relative;
+    top: 20px;
+    left: 42px;
+    padding-left: 50px;
+    padding-right: 50px;
 }
