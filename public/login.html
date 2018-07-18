@@ -1,19 +1,19 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
 	<link rel="stylesheet" href="main.css">
-	<title>Home Page</title>
+	<title>Login Page</title>
 </head>
 <body>
-	<h1 class="login-title">INVENTATION</h1>
+	<h1 class="login-title" role="banner">INVENTATION</h1>
 	<p style="text-decoration: underline" class="form-descript">Log in!</p>
-	<form class="user-login">
+	<form class="user-login" role="form">
 		<span>Username: </span>
-		<input type="text" class="username" name="username">
+		<input type="text" class="username" aria-label="username" name="username">
 		<br>
 		<br>
 		<span>Password:</span>
-		<input type="text" class="password" name="password">
+		<input type="text" class="password" aria-label="password" name="password">
 		<br>
 		<button type="button" class="login-btn", name="login-btn" onclick="userLogin()">Login</button>
 	</form>
