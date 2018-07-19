@@ -1,12 +1,12 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
 	<title>New Event</title>
 	<link rel="stylesheet" type="text/css" href="site-create-features/create.css">
 	<link rel="stylesheet" type="text/css" href="site-create-features/slideStyle.css">
 </head>
 <body>
-	<div id="mySidenav" class="sidenav">
+	<div id="mySidenav" class="sidenav" aria-label="feature-menu">
 		<a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
 		<button class="info-btn" onclick="createInfo()">Info-Box</button>
 		<br>
@@ -21,9 +21,9 @@
 
 	<span class="menuOpen" onclick="openNav()">&#9776;open</span>
 
-	<div id="website-container">
-		<form class='preview-btn-container' action="../preview-site/index.html">
-			<input type="submit" class="preview-btn" name="preview" value="Preview">
+	<div id="website-container" aria-label="website-area">
+		<form class='preview-btn-container' aria-label="preview-button" action="../preview-site/index.html">
+			<input type="submit" aria-label="preview-button" class="preview-btn" name="preview" value="Preview">
 		</form>
 	</div>
 
