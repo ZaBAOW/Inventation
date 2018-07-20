@@ -38,12 +38,7 @@ There will also be buttons that will allow for the addition of images.
 One button will be used to add an image to the background of the page, while
 the other will be used to add images to the foreground.
 
-Update for current build:
-The user begins on the homepage that consists of the website's title, a link
-to the signup page, and a link to the login page.  if the user has not signed up
-for a user profile, they will then click on the signup link to be sent to the signup page.
-At the signup page, the user will enter in information into a form presented to
-them.
+
 
 ### Userflow
 to do:
@@ -70,6 +65,28 @@ section.
 
 If the user has the desire to remove themselves from Inventation, they have the ability to do so via
 the "Delete Profile" button on the homepage.  **This in turn will also delete their site.**(create test for this)
+
+Update for current build:
+
+The user begins on the homepage that consists of the website's title, a link
+to the signup page, and a link to the login page. 
+
+Route 1
+If the user has not signed up for a user profile, they will then click on the signup
+link to be sent to the signup page.  At the signup page, the user will enter in 
+information into a form presented to them.  If the user is able to enter valid 
+information into the form, they will be immediately redirected to the site creation page.  
+Otherwise they will be presented with an error message due to either missing or 
+invalid information that was input. (there is currently no code in place that presents 
+this error to the user outside of the developer tools).  
+
+Route 2
+If the user has already signed up for a user profile, they will click on the login
+link to be sent to the login page.  At the login page, the user will enter their
+respective username and password.  If the user's login attempt is succeful, they will
+be redirected to the site creation page.  Otherwise they will be presented with an error
+message due to either mission or invalid information that was input.(there is currently 
+no code in place that presents this error to the user outside of the developer tools).
 
 ### Prerequisites
 
