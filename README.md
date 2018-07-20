@@ -177,6 +177,9 @@ Give an example
 
 Add additional notes about how to deploy this on a live system
 
+**Update for current build**  
+Inventation is deployed via Heroku
+
 ## Built With
 
 to do:
