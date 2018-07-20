@@ -36,7 +36,7 @@ function userCreate() {
 		var id = data.id;
 		console.log(id);
 		localStorage.setItem('userProfile', JSON.stringify(data));
-		var redirectUrl = JSON.parse(localStorage.userProfile).url;
+		var redirectUrl = "http://localhost:8080/index.html";
 		window.location.replace(redirectUrl);
 	});
 }
