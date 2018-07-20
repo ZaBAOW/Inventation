@@ -4,7 +4,7 @@ to do:
  - explain purpose of site
  - explain what the site is
 
-**Initial build:**
+**Initial build:**  
 The purpose of this web app is to be used for the creation
 of website that contain event/invatation information. Like similar
 web apps, this site will not only serve as a place of information for
@@ -15,7 +15,7 @@ will allow for the inclusion of different features (i.e. event info box, countdo
 The site currently has 5 different pages including: a homepage, login page, signup page,
 site creation page, and site preview page.
 
-**Update for current build:**
+**Update for current build:**  
 Currently Inventation has two major functions that work with minimal bug and/or errors
 occurring.  The first being the site's user profile creation and login functions
 that allow for users to use either the user signup or user login pages as paths 
@@ -29,7 +29,7 @@ to do:
   - explain how to get to the site
   - explain the basic features of the site
 
-**Initial build:**
+**Initial build:**  
 The user begins with a completely blank page and a sidebar with
 a list of option that the user can choose from.  Clicking an option
 will append it onto the page. (will need to figure out how ordering will work)
@@ -38,7 +38,7 @@ There will also be buttons that will allow for the addition of images.
 One button will be used to add an image to the background of the page, while
 the other will be used to add images to the foreground.
 
-**Update for current build:**
+**Update for current build:**  
 The user will begin on the homepage with the option to go to either the login
 page or the signup page.  Once the user is on their page of choice, they will
 enter the required information given to them.  If the information is valid they will
@@ -55,7 +55,7 @@ to do:
   - describe how the creating user will interact with the site
   - describe how the invited user will interact with the site
 
-**Initial build:**
+**Initial build:**  
 The creating user will enter Inventations homepage where they will
 be presented with a form (username, password, first name, last name
 to fill out.  After filling out the form they will then click on the 
@@ -77,12 +77,12 @@ section.
 If the user has the desire to remove themselves from Inventation, they have the ability to do so via
 the "Delete Profile" button on the homepage.  **This in turn will also delete their site.**(create test for this)
 
-**Update for current build:**
+**Update for current build:**  
 
 The user begins on the homepage that consists of the website's title, a link
 to the signup page, and a link to the login page. 
 
-Route 1
+Route 1  
 If the user has not signed up for a user profile, they will then click on the signup
 link to be sent to the signup page.  At the signup page, the user will enter in 
 information into a form presented to them.  If the user is able to enter valid 
@@ -92,7 +92,7 @@ invalid information that was input. **(there is currently no code in place that 
 this error to the user outside of the developer tools) (users can delete user profiles, but
 there is currently no practical use for this function at the moment)
 
-Route 2
+Route 2  
 If the user has already signed up for a user profile, they will click on the login
 link to be sent to the login page.  At the login page, the user will enter their
 respective username and password.  If the user's login attempt is succeful, they will
@@ -100,6 +100,7 @@ be redirected to the site creation page.  Otherwise they will be presented with 
 message due to either mission or invalid information that was input.**(there is currently 
 no code in place that presents this error to the user outside of the developer tools)
 
+Site Creation page  
 Despite which ever route is chosen by the user, if they are able to give the application
 valid information, they will redirect to the site creation page.  On the site creation
 page they user will have access to a side menu, which is opened by pressing on the menu
@@ -120,15 +121,15 @@ to do:
 
 So far the chrome is the primary browser in mind for this web app
 
+**Update for current build:**  
+Chrome is the only browser that the web app has been tested on.
+Therefore, users must have Chrome in order to properly use it.
+
 ### Installing
 
 to do?:
   - assuming a user doesn't use compatible browser
 
-## Running the tests
-
-to do:
-  -
 
 ### Break down into end to end tests
 
@@ -137,6 +138,28 @@ Explain what these tests test and why
 ```
 Give an example
 ```
+
+**Update for current build:**  
+navigation from homepage -> signup page/login page:  
+this test includes checking that each link found on
+the homepage directs the user to the appropriate page.
+
+user profile creation:  
+this test includes checking that if valid information is
+inputted into the signup form, then the user is redirected
+to the site creation page when the create button is clicked.
+On the other hand this test also checks that if the user enters
+invalid information into the form, the user does not get redirected
+to the site creation page and an error appears in the browser
+console.
+
+user login:  
+This test checks that if valid information is entered into the
+login form, then the user is redirected to the site creation page
+when the login button is clicked.  On the other hand this test
+also checks that if the user enters invalid information into 
+the form, the user does not get redirected to the site creation
+page and an erro appears in the browser console.
 
 ### And coding style tests
 
