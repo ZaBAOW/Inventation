@@ -100,6 +100,18 @@ be redirected to the site creation page.  Otherwise they will be presented with 
 message due to either mission or invalid information that was input.**(there is currently 
 no code in place that presents this error to the user outside of the developer tools)
 
+Despite which ever route is chosen by the user, if they are able to give the application
+valid information, they will redirect to the site creation page.  On the site creation
+page they user will have access to a side menu, which is opened by pressing on the menu
+icon in the top left corner of the site creation page.  Currently there are five buttons
+available for the user to interact with.  The first three buttons are what the user will
+click in order to append one of the three features respective to the button they clicked.
+If the user wishes to remove the feature, they will be able to click on the "remove" button
+represented by an "x", which will be located to the right of its respective feature.
+The fourth button in the side menu will allow for the user to return to the homepage.
+They fifth button will allow the user to save their current session in the site creation page
+for when they are done or need to return to the session another time.**(there is a preview button
+that does redirect to a preview page that does not work as intended at the moment)**
 
 ### Prerequisites
 
