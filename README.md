@@ -4,6 +4,7 @@ to do:
  - explain purpose of site
  - explain what the site is
 
+Initial build:
 The purpose of this web app is to be used for the creation
 of website that contain event/invatation information. Like similar
 web apps, this site will not only serve as a place of information for
@@ -11,8 +12,16 @@ attendees for the site's respective event, but also as an alternate method
 for rsvp'ing to said event incase of standard mailing issues.  Each site
 is created by the user via the used of simple button presses.  Each button press
 will allow for the inclusion of different features (i.e. event info box, countdown timer, ...).
-The initial idea is for each site to be a single page site.  However, the inclusion of
-multiple pages may be a potential.
+The site currently has 5 different pages including: a homepage, login page, signup page,
+site creation page, and site preview page.
+
+Update for current build:
+Currently Inventation has two major functions that work with minimal bug and/or errors
+occurring.  The first being the site's user profile creation and login functions
+that allow for users to use either the user signup or user login pages as paths 
+toward reaching the site creation page.  The second being the creation and updating(saving) 
+of user sessions withing the site creation page.  There is a preview button that exists on
+the site creation page that leads to a preview page, but currently the page is not ready.
 
 ## Getting Started
 
@@ -20,6 +29,7 @@ to do:
   - explain how to get to the site
   - explain the basic features of the site
 
+Initial build:
 The user begins with a completely blank page and a sidebar with
 a list of option that the user can choose from.  Clicking an option
 will append it onto the page. (will need to figure out how ordering will work)
@@ -27,6 +37,13 @@ The user can append as many or as few feature as needed for their site.
 There will also be buttons that will allow for the addition of images.
 One button will be used to add an image to the background of the page, while
 the other will be used to add images to the foreground.
+
+Update for current build:
+The user begins on the homepage that consists of the website's title, a link
+to the signup page, and a link to the login page.  if the user has not signed up
+for a user profile, they will then click on the signup link to be sent to the signup page.
+At the signup page, the user will enter in information into a form presented to
+them.
 
 ### Userflow
 to do:
