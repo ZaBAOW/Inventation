@@ -4,7 +4,7 @@ to do:
  - explain purpose of site
  - explain what the site is
 
-Initial build:
+**Initial build:**
 The purpose of this web app is to be used for the creation
 of website that contain event/invatation information. Like similar
 web apps, this site will not only serve as a place of information for
@@ -15,7 +15,7 @@ will allow for the inclusion of different features (i.e. event info box, countdo
 The site currently has 5 different pages including: a homepage, login page, signup page,
 site creation page, and site preview page.
 
-Update for current build:
+**Update for current build:**
 Currently Inventation has two major functions that work with minimal bug and/or errors
 occurring.  The first being the site's user profile creation and login functions
 that allow for users to use either the user signup or user login pages as paths 
@@ -29,7 +29,7 @@ to do:
   - explain how to get to the site
   - explain the basic features of the site
 
-Initial build:
+**Initial build:**
 The user begins with a completely blank page and a sidebar with
 a list of option that the user can choose from.  Clicking an option
 will append it onto the page. (will need to figure out how ordering will work)
@@ -38,6 +38,16 @@ There will also be buttons that will allow for the addition of images.
 One button will be used to add an image to the background of the page, while
 the other will be used to add images to the foreground.
 
+**Update for current build:**
+The user will begin on the homepage with the option to go to either the login
+page or the signup page.  Once the user is on their page of choice, they will
+enter the required information given to them.  If the information is valid they will
+be redirected to the site creation page.  On the site creation page the user will
+have access to a blank slate and a few features to append to said slate.  The user
+can append and remove these feature as many times and in any order they may choose.
+When the user is done the save button can be used to save the user's site creation
+session.  When they log in to their site again they will be able to return to
+the version of the site they last left on. 
 
 
 ### Userflow
@@ -45,6 +55,7 @@ to do:
   - describe how the creating user will interact with the site
   - describe how the invited user will interact with the site
 
+**Initial build:**
 The creating user will enter Inventations homepage where they will
 be presented with a form (username, password, first name, last name
 to fill out.  After filling out the form they will then click on the 
@@ -66,7 +77,7 @@ section.
 If the user has the desire to remove themselves from Inventation, they have the ability to do so via
 the "Delete Profile" button on the homepage.  **This in turn will also delete their site.**(create test for this)
 
-Update for current build:
+**Update for current build:**
 
 The user begins on the homepage that consists of the website's title, a link
 to the signup page, and a link to the login page. 
@@ -77,16 +88,18 @@ link to be sent to the signup page.  At the signup page, the user will enter in
 information into a form presented to them.  If the user is able to enter valid 
 information into the form, they will be immediately redirected to the site creation page.  
 Otherwise they will be presented with an error message due to either missing or 
-invalid information that was input. (there is currently no code in place that presents 
-this error to the user outside of the developer tools).  
+invalid information that was input. **(there is currently no code in place that presents 
+this error to the user outside of the developer tools) (users can delete user profiles, but
+there is currently no practical use for this function at the moment)
 
 Route 2
 If the user has already signed up for a user profile, they will click on the login
 link to be sent to the login page.  At the login page, the user will enter their
 respective username and password.  If the user's login attempt is succeful, they will
 be redirected to the site creation page.  Otherwise they will be presented with an error
-message due to either mission or invalid information that was input.(there is currently 
-no code in place that presents this error to the user outside of the developer tools).
+message due to either mission or invalid information that was input.**(there is currently 
+no code in place that presents this error to the user outside of the developer tools)
+
 
 ### Prerequisites
 
