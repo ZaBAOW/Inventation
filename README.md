@@ -161,6 +161,10 @@ also checks that if the user enters invalid information into
 the form, the user does not get redirected to the site creation
 page and an erro appears in the browser console.
 
+site creation page:  
+This test checks that the buttons found in the side menu of the
+site creation page append features, 
+
 ### And coding style tests
 
 Explain what these tests test and why
