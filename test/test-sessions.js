@@ -61,21 +61,17 @@ describe('/api/session', function() {
               const createContent = {
                   content: content
               }
-              return Session.create({
-                content: null
-              }).then(function(session){
-                    if(session.content !== undefined && session.content !== null) {
-                        console.log('there is already existing session content');
+                return chai.request(app).get('/session')
+                .then(function(res) {
+                    if(res.body === null || res.body === undefined) {
+                        return chai.request(app).post('/session').send(createContent)
+                        .thne(function(res){
+                            expect(res).to.have.status(201);
+                            expect(res).to.ba.a('object');
+                            expect(res.body.content).to.equal(content);
+                        });
                     }
-                    else{
-                    return chai.request(app).post('/session').send(createContent)
-                    .then(function(res){
-                        expect(res).to.have.status(201);
-                        expect(res).to.be.a('object');
-                        expect(res.body.content).to.equal(content);
-                        })
-                    }
-            })
+                })
 
             })
             
