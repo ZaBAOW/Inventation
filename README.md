@@ -11,11 +11,14 @@ this security risk will not be present.**
 
 **Save session function is either not correctly saving(updating) when the user clicks
 the save session button, or, retrieving and loading the session onto the website-conainer
-element.**    
+element.**  
 
 **There are no buttons located on the signup and login page that allow for the user to
 easily return to the homepage, given they need to switch from the signup
-page to the login page, and vise versa.**
+page to the login page, and vise versa.**  
+
+**Some parts of this versio of Inventation will not work on gh-pages or Heroku.  This will
+be attended to in the future.**  
 
 ## About Inventation
 **Initial build:**  
@@ -137,9 +140,12 @@ Therefore, users must have Chrome in order to properly use it.
 
 ### Installing  
 
-to do?:
-  - assuming a user doesn't use compatible browser
-
+**Update for curren build:**  
+Clone or download the files from the Inventation master branch into a folder
+on your device. Open gitbash and and move to the directory with the files.
+type ``npm start`` to start the local server.  Open chrome and type in the
+url ``http://localhost:8080/homePage.html``.  This will take you to Inventation's
+homepage where you will be able to interact with the site.
 
 ### Break down into end to end tests  
 
