@@ -1,9 +1,30 @@
 # Inventation
 
-to do:
- - explain purpose of site
- - explain what the site is
+**Known Issues:**  
 
+**Some issues stated below are recent, and therefore eleborations of them will be submitted
+to the Issues tab at a later date after they have been investigated**
+
+**There are no messages in place that are shown in response to an invalid user request
+at the moment.**  
+
+**JWT are currently not stored securly in cookies and are instead stored in
+localStorage().  Once the ability to retrieve JWT from cookies is found
+this security risk will not be present.**  
+
+**Save session function is either not correctly saving(updating) when the user clicks
+the save session button, or, retrieving and loading the session onto the website-conainer
+element.**  
+
+**There are no buttons located on the signup and login page that allow for the user to
+easily return to the homepage, given they need to switch from the signup
+page to the login page, and vise versa.**  
+
+**Some parts of this versio of Inventation will not work on gh-pages or Heroku.  This will
+be attended to in the future.**  
+
+## About Inventation
+**Initial build:**  
 The purpose of this web app is to be used for the creation
 of website that contain event/invatation information. Like similar
 web apps, this site will not only serve as a place of information for
@@ -11,8 +32,16 @@ attendees for the site's respective event, but also as an alternate method
 for rsvp'ing to said event incase of standard mailing issues.  Each site
 is created by the user via the used of simple button presses.  Each button press
 will allow for the inclusion of different features (i.e. event info box, countdown timer, ...).
-The initial idea is for each site to be a single page site.  However, the inclusion of
-multiple pages may be a potential.
+The site currently has 5 different pages including: a homepage, login page, signup page,
+site creation page, and site preview page.
+
+**Update for current build:**  
+Currently Inventation has two major functions that work with minimal bug and/or errors
+occurring.  The first being the site's user profile creation and login functions
+that allow for users to use either the user signup or user login pages as paths 
+toward reaching the site creation page.  The second being the creation and updating(saving) 
+of user sessions withing the site creation page.  There is a preview button that exists on
+the site creation page that leads to a preview page, but currently the page is not ready.
 
 ## Getting Started
 
@@ -20,6 +49,7 @@ to do:
   - explain how to get to the site
   - explain the basic features of the site
 
+**Initial build:**  
 The user begins with a completely blank page and a sidebar with
 a list of option that the user can choose from.  Clicking an option
 will append it onto the page. (will need to figure out how ordering will work)
@@ -28,11 +58,24 @@ There will also be buttons that will allow for the addition of images.
 One button will be used to add an image to the background of the page, while
 the other will be used to add images to the foreground.
 
-### Userflow
+**Update for current build:**  
+The user will begin on the homepage with the option to go to either the login
+page or the signup page.  Once the user is on their page of choice, they will
+enter the required information given to them.  If the information is valid they will
+be redirected to the site creation page.  On the site creation page the user will
+have access to a blank slate and a few features to append to said slate.  The user
+can append and remove these feature as many times and in any order they may choose.
+When the user is done the save button can be used to save the user's site creation
+session.  When they log in to their site again they will be able to return to
+the version of the site they last left on. 
+
+
+## Userflow
 to do:
   - describe how the creating user will interact with the site
   - describe how the invited user will interact with the site
 
+**Initial build:**  
 The creating user will enter Inventations homepage where they will
 be presented with a form (username, password, first name, last name
 to fill out.  After filling out the form they will then click on the 
@@ -54,72 +97,111 @@ section.
 If the user has the desire to remove themselves from Inventation, they have the ability to do so via
 the "Delete Profile" button on the homepage.  **This in turn will also delete their site.**(create test for this)
 
-### Prerequisites
+**Update for current build:**  
 
-to do:
-  - what browsers are compatible with the site
+The user begins on the homepage that consists of the website's title, a link
+to the signup page, and a link to the login page. 
 
+Route 1  
+If the user has not signed up for a user profile, they will then click on the signup
+link to be sent to the signup page.  At the signup page, the user will enter in 
+information into a form presented to them.  If the user is able to enter valid 
+information into the form, they will be immediately redirected to the site creation page.  
+Otherwise they will be presented with an error message due to either missing or 
+invalid information that was input. **(there is currently no code in place that presents 
+this error to the user outside of the developer tools) (users can delete user profiles, but
+there is currently no practical use for this function at the moment)
+
+Route 2  
+If the user has already signed up for a user profile, they will click on the login
+link to be sent to the login page.  At the login page, the user will enter their
+respective username and password.  If the user's login attempt is succeful, they will
+be redirected to the site creation page.  Otherwise they will be presented with an error
+message due to either mission or invalid information that was input.**(there is currently 
+no code in place that presents this error to the user outside of the developer tools)
+
+Site Creation page  
+Despite which ever route is chosen by the user, if they are able to give the application
+valid information, they will redirect to the site creation page.  On the site creation
+page they user will have access to a side menu, which is opened by pressing on the menu
+icon in the top left corner of the site creation page.  Currently there are five buttons
+available for the user to interact with.  The first three buttons are what the user will
+click in order to append one of the three features respective to the button they clicked.
+If the user wishes to remove the feature, they will be able to click on the "remove" button
+represented by an "x", which will be located to the right of its respective feature.
+The fourth button in the side menu will allow for the user to return to the homepage.
+They fifth button will allow the user to save their current session in the site creation page
+for when they are done or need to return to the session another time.**(there is a preview button
+that does redirect to a preview page that does not work as intended at the moment)**
+
+### Prerequisites  
 So far the chrome is the primary browser in mind for this web app
 
-### Installing
+**Update for current build:**  
+Chrome is the only browser that the web app has been tested on.
+Therefore, users must have Chrome in order to properly use it.
 
-to do?:
-  - assuming a user doesn't use compatible browser
+### Installing  
 
-## Running the tests
+**Update for curren build:**  
+Clone or download the files from the Inventation master branch into a folder
+on your device. Open gitbash and and move to the directory with the files.
+type ``npm start`` to start the local server.  Open chrome and type in the
+url ``http://localhost:8080/homePage.html``.  This will take you to Inventation's
+homepage where you will be able to interact with the site.
 
-to do:
-  -
+### Break down into end to end tests  
 
-### Break down into end to end tests
+**Update for current build:**  
+navigation from homepage -> signup page/login page:  
+this test includes checking that each link found on
+the homepage directs the user to the appropriate page.
 
-Explain what these tests test and why
+user profile creation:  
+this test includes checking that if valid information is
+inputted into the signup form, then the user is redirected
+to the site creation page when the create button is clicked.
+On the other hand this test also checks that if the user enters
+invalid information into the form, the user does not get redirected
+to the site creation page and an error appears in the browser
+console.
 
-```
-Give an example
-```
+user login:  
+This test checks that if valid information is entered into the
+login form, then the user is redirected to the site creation page
+when the login button is clicked.  On the other hand this test
+also checks that if the user enters invalid information into 
+the form, the user does not get redirected to the site creation
+page and an erro appears in the browser console.
 
-### And coding style tests
-
-Explain what these tests test and why
-
-```
-Give an example
-```
+site creation page:  
+This test checks that the buttons found in the side menu of the
+site creation page append features, 
 
 ## Deployment
 
 Add additional notes about how to deploy this on a live system
 
+**Update for current build**  
+
+Inventation is deployed via Heroku
+
 ## Built With
 
-to do:
-  - figure out which api's will be used
+**Update for current build** 
+Inventation utilizes libraries from:  
+- express.js: framework used
+- mongoose.js: used for user and session object modeling
+- chai: used for unit testing
+- chai-http: used for unit testing
+- mocha: used for integrated testing
 
-## Contributing
-
-to do:
-  - will know when project is complete
-
-## Versioning
-
-to do:
-  - will attempt to use semantic versioning
-
-We use [SemVer](http://semver.org/) for versioning. For the versions available, see the [tags on this repository](https://github.com/your/project/tags).
 
 ## Authors
 
-Andrew Kadesky <github profile>
+Andrew Kadesky (https://github.com/ZaBAOW)
 
-See also the list of [contributors](https://github.com/your/project/contributors) who participated in this project.
 
 ## License
 
 This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details
-
-## Acknowledgments
-
-* Hat tip to anyone who's code was used
-* Inspiration
-* etc
