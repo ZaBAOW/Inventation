@@ -1,9 +1,23 @@
 # Inventation
 
-to do:
- - explain purpose of site
- - explain what the site is
+**Known Issues:**  
 
+**There are no messages in place that are shown in response to an invalid user request
+at the moment.**  
+
+**JWT are currently not stored securly in cookies and are instead stored in
+localStorage().  Once the ability to retrieve JWT from cookies is found
+this security risk will not be present.**  
+
+**Save session function is either not correctly saving(updating) when the user clicks
+the save session button, or, retrieving and loading the session onto the website-conainer
+element.**    
+
+**There are no buttons located on the signup and login page that allow for the user to
+easily return to the homepage, given they need to switch from the signup
+page to the login page, and vise versa.**
+
+## About Inventation
 **Initial build:**  
 The purpose of this web app is to be used for the creation
 of website that contain event/invatation information. Like similar
@@ -50,7 +64,7 @@ session.  When they log in to their site again they will be able to return to
 the version of the site they last left on. 
 
 
-### Userflow
+## Userflow
 to do:
   - describe how the creating user will interact with the site
   - describe how the invited user will interact with the site
@@ -114,30 +128,20 @@ They fifth button will allow the user to save their current session in the site 
 for when they are done or need to return to the session another time.**(there is a preview button
 that does redirect to a preview page that does not work as intended at the moment)**
 
-### Prerequisites
-
-to do:
-  - what browsers are compatible with the site
-
+### Prerequisites  
 So far the chrome is the primary browser in mind for this web app
 
 **Update for current build:**  
 Chrome is the only browser that the web app has been tested on.
 Therefore, users must have Chrome in order to properly use it.
 
-### Installing
+### Installing  
 
 to do?:
   - assuming a user doesn't use compatible browser
 
 
-### Break down into end to end tests
-
-Explain what these tests test and why
-
-```
-Give an example
-```
+### Break down into end to end tests  
 
 **Update for current build:**  
 navigation from homepage -> signup page/login page:  
@@ -165,50 +169,30 @@ site creation page:
 This test checks that the buttons found in the side menu of the
 site creation page append features, 
 
-### And coding style tests
-
-Explain what these tests test and why
-
-```
-Give an example
-```
-
 ## Deployment
 
 Add additional notes about how to deploy this on a live system
 
 **Update for current build**  
+
 Inventation is deployed via Heroku
 
 ## Built With
 
-to do:
-  - figure out which api's will be used
+**Update for current build** 
+Inventation utilizes libraries from:  
+- express.js: framework used
+- mongoose.js: used for user and session object modeling
+- chai: used for unit testing
+- chai-http: used for unit testing
+- mocha: used for integrated testing
 
-## Contributing
-
-to do:
-  - will know when project is complete
-
-## Versioning
-
-to do:
-  - will attempt to use semantic versioning
-
-We use [SemVer](http://semver.org/) for versioning. For the versions available, see the [tags on this repository](https://github.com/your/project/tags).
 
 ## Authors
 
-Andrew Kadesky <github profile>
+Andrew Kadesky (https://github.com/ZaBAOW)
 
-See also the list of [contributors](https://github.com/your/project/contributors) who participated in this project.
 
 ## License
 
 This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details
-
-## Acknowledgments
-
-* Hat tip to anyone who's code was used
-* Inspiration
-* etc
