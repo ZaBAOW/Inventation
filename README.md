@@ -2,6 +2,9 @@
 
 **Known Issues:**  
 
+**Some issues stated below are recent, and therefore eleborations of them will be submitted
+to the Issues tab at a later date after they have been investigated**
+
 **There are no messages in place that are shown in response to an invalid user request
 at the moment.**  
 
