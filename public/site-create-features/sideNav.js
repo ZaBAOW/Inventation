@@ -10,17 +10,17 @@ function closeNav() {
 }
 
 function createInfo() {
-	var newInfoBox = '<div class="infobox-container storable"><input type="button" class="remove-infoBox" value="&#10006"><textarea class="content" name="content" rows="10" cols="50"></textarea></div><br>';
+	var newInfoBox = '<div class="feature-container storable"><input type="button" class="remove-infoBox" value="&#10006"><textarea class="content" name="content" rows="10" cols="50"></textarea></div><br>';
 	$('#website-container').append(newInfoBox);
 }
 
 function createCountdown(){
-	var newCountDown = '<div class="countdown-container storable"><input type="button" class="remove-countdown" value="&#10006"><form action="/action_patge.php">Event (date and time):<input type="datetime-local" name="eventDay"><button onsubmit="return setCountDown()" name="Send">Submit</button></form><p id="countdown"></p></div>';
+	var newCountDown = '<div class="feature-container storable"><input type="button" class="remove-countdown" value="&#10006"><form action="/action_patge.php">Event (date and time):<input type="datetime-local" name="eventDay"><button onsubmit="return setCountDown()" name="Send">Submit</button></form><p id="countdown"></p></div>';
 	$('#website-container').append(newCountDown);
 }
 
 function createSlideShow() {
-	var newSlideShow = '<div class="slideshow storable"><input type="button" class="remove-slideshow" value="&#10006"><div class="slideshow-container"><div class="mySlides fade"><div class="numbertext">1 / 3</div><img src="#" style="width: 100%"><div class="text">Caption Text</div></div><div class="mySlides fade"><div class="numbertext">2 / 3</div><img src="https://imgur.com/r/cats/3lkm9AO" style="width: 100%"><div class="text">Caption Text</div></div><div class="mySlides fade"><div class="numbertext">3 / 3</div><img src="https://imgur.com/r/cats/VTCP8Cq" style="width: 100%"><div class="text">Caption Text</div></div><a class="prev" onclick="plusSlides(-1)">&#10094;</a><a class="next" onclick="plusSlides(1)">&#10095;</a></div><br><div style="text-align: center"><span class="dot" onclick="currentSlide(1)"></span><span class="dot" onclick="currentSlide(2)"></span><span class="dot" onclick="currentSlide(3)"></span></div><form method="post" enctype="multipart/form-data"><div><label for="file">Choose an image to upload</label><input type="file" id="file" name="file" multiple></div><div><button onclick="imageUpload()">Upload</button></div></form></div>';
+	var newSlideShow = '<div class="feature-container storable"><input type="button" class="remove-slideshow" value="&#10006"><div class="slideshow-container"><div class="mySlides fade"><div class="numbertext">1 / 3</div><img src="#" style="width: 100%"><div class="text">Caption Text</div></div><div class="mySlides fade"><div class="numbertext">2 / 3</div><img src="https://imgur.com/r/cats/3lkm9AO" style="width: 100%"><div class="text">Caption Text</div></div><div class="mySlides fade"><div class="numbertext">3 / 3</div><img src="https://imgur.com/r/cats/VTCP8Cq" style="width: 100%"><div class="text">Caption Text</div></div><a class="prev" onclick="plusSlides(-1)">&#10094;</a><a class="next" onclick="plusSlides(1)">&#10095;</a></div><br><div style="text-align: center"><span class="dot" onclick="currentSlide(1)"></span><span class="dot" onclick="currentSlide(2)"></span><span class="dot" onclick="currentSlide(3)"></span></div><form method="post" enctype="multipart/form-data"><div><label for="file">Choose an image to upload</label><input type="file" id="file" name="file" multiple></div><div><button onclick="imageUpload()">Upload</button></div></form></div>';
 
 	$('#website-container').append(newSlideShow);
 }
@@ -36,10 +36,9 @@ function returnHome () {
 
 
 function createSession() {
-	var content = $('website-container').find('storable').html();
-	if(content === null || content === undefined) {
-		return;
-	}
+	createInfo();
+	var content = $('#website-container').find('.storable').html();
+	console.log(content);
 	const endpoint = '/session';
 	const requestData = {
 		method: 'POST',
@@ -91,12 +90,15 @@ function retrieveSessionById() {
 	}
 	fetch(endpoint, requestData)
 	.then(function(res) {
+		if(res === null) {
+			console.log('we were unable to retrieve your session')
+		}
 		return res.json();
 	})
 	.then(function(data) {
 		console.log('YOUR session has been retrieved');
 		const loadContent = data.data.content;
-		$('#website-container').append('<div class="infobox-container storable">' + loadContent + '</div>');
+		$('#website-container').append(loadContent);
 	})
 }
 
@@ -107,7 +109,7 @@ $(document).ready(function() {
 
 
 function saveSession() {
-	const content = $('#website-container').find('.storable').html();
+	const content = $('#website-container').not('.preview-btn-container').html();
 	const id = localStorage.sessionId;
 	const endpoint = `/session/${id}`;
 	const requestData = {
@@ -119,6 +121,9 @@ function saveSession() {
 		body: JSON.stringify({content: content})
 	};
 	fetch(endpoint, requestData)
+	.then(function (res) {
+		return res.json;
+	})
 	.then(function(data) {
 		console.log(data);
 		console.log('session succesfully saved');

@@ -19,5 +19,5 @@ var setCountdown = function() {
 }
 
 $(document).on('click','.remove-countdown', function() {
-	$(this).parent('.countdown-container').remove();
+	$(this).parent('.feature-container').remove();
 });

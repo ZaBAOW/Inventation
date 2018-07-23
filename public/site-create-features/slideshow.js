@@ -30,5 +30,5 @@ function showSlides(n) {
 } 
 
 $(document).on('click','.remove-slideshow', function() {
-	$(this).parent('.slideshow').remove();
+	$(this).parent('.feature-container').remove();
 });

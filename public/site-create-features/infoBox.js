@@ -1,3 +1,3 @@
 $(document).on('click','.remove-infoBox', function() {
-	$(this).parent('.infobox-container').remove();
+	$(this).parent('.feature-container').remove();
 });
