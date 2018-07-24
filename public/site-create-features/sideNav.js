@@ -128,6 +128,7 @@ function saveSession() {
 	};
 	fetch(endpoint, requestData)
 	.then(function(data) {
+		alert('session succesfully saved');
 		console.log('session succesfully saved');
 	})
 }
