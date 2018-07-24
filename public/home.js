@@ -29,6 +29,7 @@ function userCreate() {
 	.then(res => res.json())
 	.then(function(data) {
 		if(data.code === 422) {
+			alert('Either your password is less than 10 characters or your username is already in use.');
 			console.log('This username already exists in the database');
 			return;
 		}
@@ -84,6 +85,7 @@ function userLogin() {
 	})
 	.then(function(res) {
 		if(res.status === 401){
+			alert('The username and/or password is incorrect.');
 			return;
 		}
 		console.log('user has logged on');
