@@ -36,8 +36,7 @@ function returnHome () {
 
 
 function createSession() {
-	createInfo();
-	var content = $('#website-container').find('.storable').html();
+	var content = $('#website-container').html();
 	console.log(content);
 	const endpoint = '/session';
 	const requestData = {
@@ -51,11 +50,12 @@ function createSession() {
 	fetch(endpoint, requestData)
 	.then((res) => res.json())
 	.then(function(data) {
+		console.log(data.id);
 		console.log('session succesfully created');
-		if(localStorage.sessionId ===  undefined){
-			localStorage.setItem('sessionId', data.id);
+		localStorage.setItem('sessionId', data.id);
+		if(data.code === 500){
+			console.log('there is a duplicate of your session.')
 		}
-		
 	});
 }
 function retrieveSession() {
@@ -79,6 +79,9 @@ function retrieveSession() {
 
 function retrieveSessionById() {
 	const id = localStorage.sessionId;
+	if(id === undefined) {
+		return;
+	}
 	const endpoint = `/session/` + id;
 	const requestData = {
 		method: 'GET',
@@ -90,9 +93,6 @@ function retrieveSessionById() {
 	}
 	fetch(endpoint, requestData)
 	.then(function(res) {
-		if(res === null) {
-			console.log('we were unable to retrieve your session')
-		}
 		return res.json();
 	})
 	.then(function(data) {
@@ -103,8 +103,14 @@ function retrieveSessionById() {
 }
 
 $(document).ready(function() {
-	createSession();
 	retrieveSessionById();
+	const checkArea = $('#website-container').html()
+	if(checkArea === "") {
+		createInfo();
+	}
+	if(localStorage.sessionId === undefined) {
+		createSession();
+	}
 })
 
 
@@ -121,11 +127,7 @@ function saveSession() {
 		body: JSON.stringify({content: content})
 	};
 	fetch(endpoint, requestData)
-	.then(function (res) {
-		return res.json;
-	})
 	.then(function(data) {
-		console.log(data);
 		console.log('session succesfully saved');
 	})
 }
