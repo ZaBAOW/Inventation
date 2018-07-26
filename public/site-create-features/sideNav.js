@@ -38,6 +38,10 @@ function returnHome () {
 function createSession() {
 	var content = $('#website-container').html();
 	console.log(content);
+	if(content === ""){
+		createInfo();
+		content = $('#website-container').html();
+	}
 	const endpoint = '/session';
 	const requestData = {
 		method: 'POST',
@@ -77,7 +81,7 @@ function retrieveSession() {
 	});
 }
 
-function retrieveSessionById() {
+function retrieveSessionById(checkArea) {
 	const id = localStorage.sessionId;
 	if(id === undefined) {
 		return;
@@ -103,14 +107,14 @@ function retrieveSessionById() {
 }
 
 $(document).ready(function() {
-	retrieveSessionById();
 	const checkArea = $('#website-container').html()
-	if(checkArea === "") {
-		createInfo();
-	}
+	retrieveSessionById(checkArea)
+	console.log('welcome back')
 	if(localStorage.sessionId === undefined) {
 		createSession();
 	}
+
+
 })
 
 

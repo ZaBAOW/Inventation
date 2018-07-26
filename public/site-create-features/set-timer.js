@@ -20,4 +20,5 @@ var setCountdown = function() {
 
 $(document).on('click','.remove-countdown', function() {
 	$(this).parent('.feature-container').remove();
+	$('#website-container').find('br').remove();
 });

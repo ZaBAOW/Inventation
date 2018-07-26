@@ -31,4 +31,5 @@ function showSlides(n) {
 
 $(document).on('click','.remove-slideshow', function() {
 	$(this).parent('.feature-container').remove();
+	$('#website-container').find('br').remove();
 });
