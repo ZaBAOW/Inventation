@@ -37,7 +37,7 @@ function userCreate() {
 		var id = data.id;
 		console.log(id);
 		localStorage.setItem('userProfile', JSON.stringify(data));
-		var redirectUrl = "http://localhost:8080/login.html";
+		var redirectUrl = "/login.html";
 		window.location.replace(redirectUrl);
 	});
 }
@@ -73,7 +73,7 @@ function userLogin() {
 		console.log('oops! looks like at least one of the required two fields have been left blank!');
 		return;
 	}
-	const endpoint = 'http://localhost:8080/auth/login';
+	const endpoint = '/auth/login';
 	return fetch(endpoint, {
 		method: 'POST',
 		headers: {
@@ -90,7 +90,7 @@ function userLogin() {
 		}
 		console.log('user has logged on');
 		console.log(res);
-		var redirectUrl = "http://localhost:8080/index.html"
+		var redirectUrl = "/index.html"
 		window.location.replace(redirectUrl);
 	})
 	.catch(err => {
@@ -100,7 +100,7 @@ function userLogin() {
 
 function getJwt(res) {
 	console.log('retrieving client jwt...')
-	const endpoint = 'http://localhost:8080/auth/protected';
+	const endpoint = '/auth/protected';
 	return fetch(endpoint, {
 		method: 'GET',
 		headers: {
