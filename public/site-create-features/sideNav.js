@@ -31,7 +31,7 @@ $(document).on('click', '.preview-btn' , function() {
 })
 
 function returnHome () {
-	window.location.replace("http://localhost:8080/homePage.html");
+	window.location.replace("/homePage.html");
 }
 
 
