@@ -62,8 +62,7 @@ router.get('/:id', jsonParser, (req, res) => {
     const id = req.params.id;
     return Session.findById(id).exec()
     .then(function(session) {
-        const returnData =  res.json({data: session});
-        return res.status(200).send(returnData).end();
+        return res.status(200).json({data: session});
     })
     .catch(function(error){
         console.log(error);
