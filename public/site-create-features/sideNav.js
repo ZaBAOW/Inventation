@@ -110,7 +110,7 @@ $(document).ready(function() {
 	const checkArea = $('#website-container').html()
 	retrieveSessionById(checkArea)
 	console.log('welcome back')
-	if(localStorage.sessionId === undefined) {
+	if(localStorage.sessionId === "undefined") {
 		createSession();
 	}
 
