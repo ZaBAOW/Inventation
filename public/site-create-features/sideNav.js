@@ -60,6 +60,9 @@ function createSession() {
 		if(data.code === 500){
 			console.log('there is a duplicate of your session.')
 		}
+	})
+	.catch(function(err) {
+		console.log(err);
 	});
 }
 function retrieveSession() {
@@ -107,7 +110,11 @@ function retrieveSessionById(checkArea) {
 }
 
 $(document).ready(function() {
-	const checkArea = $('#website-container').html()
+	var checkArea = $('#website-container').html()
+	if(checkArea === ""){
+		createSession();
+	}
+	checkArea = $('#website-container').html();
 	retrieveSessionById(checkArea)
 	console.log('welcome back')
 	if(localStorage.sessionId === "undefined") {

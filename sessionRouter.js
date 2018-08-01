@@ -22,6 +22,7 @@ router.post('/', jsonParser , (req, res) => {
     })
     .then(session => {
         console.log('created session');
+        console.log(session.serialize());
         return res.status(201).json(session.serialize());
     })
     .catch(err => {
