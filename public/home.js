@@ -88,8 +88,12 @@ function userLogin() {
 			alert('The username and/or password is incorrect.');
 			return;
 		}
+		return res.json();
+	})
+	.then(function(json) {
 		console.log('user has logged on');
-		console.log(res);
+		console.log(json);
+		localStorage.setItem('authToken', json.authToken);
 		var redirectUrl = "/index.html"
 		window.location.replace(redirectUrl);
 	})

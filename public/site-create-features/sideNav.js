@@ -86,7 +86,7 @@ function retrieveSession() {
 
 function retrieveSessionById(checkArea) {
 	const id = localStorage.sessionId;
-	if(id === undefined) {
+	if(id === "undefined") {
 		return;
 	}
 	const endpoint = `/session/` + id;
@@ -107,14 +107,17 @@ function retrieveSessionById(checkArea) {
 		const loadContent = data.data.content;
 		$('#website-container').append(loadContent);
 	})
+	.catch(function(err) {
+		console.log(err);
+	});
 }
 
 $(document).ready(function() {
 	var checkArea = $('#website-container').html()
-	if(checkArea === ""){
-		createSession();
-	}
-	checkArea = $('#website-container').html();
+	// if(checkArea === ""){
+	// 	createSession();
+	// }
+	// checkArea = $('#website-container').html();
 	retrieveSessionById(checkArea)
 	console.log('welcome back')
 	if(localStorage.sessionId === "undefined") {
