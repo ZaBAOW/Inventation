@@ -11,26 +11,37 @@ const jwtAuth = passport.authenticate('jwt', {session: false});
 const {Session} = require('./models/sessions');
 const {authToken} = require('./lib/auth/router');
 
-router.post('/', jsonParser , (req, res) => {
-	const requireFields = ['content'];
+router.post('/protected', jwtAuth, jsonParser , (req, res) => {
     console.log('creating session...');
     let content = req.body.content;
+    let userId = req.user.id;
+    let ObjectId = mongoose.Types.ObjectId;
+    let userSession = new ObjectId(userId);
     
-    return Session.create({
-        content,
-        unique: true
-    })
-    .then(session => {
-        console.log('created session');
-        console.log(session.serialize());
-        return res.status(201).json(session.serialize());
-    })
-    .catch(err => {
-        if (err.reason === 'ValidationError') {
-			return res.status(err.code).json(err);
-		}
-		res.status(500).json({code: 500, message: err});
-    })
+    Session.findOne({userId: userId}).exec()
+    .then(function(session) {
+        if(session !== null){
+            return res.status(409).json({message: 'You have already created a session'});
+        } else {
+            return Session.create({
+                content,
+                userId,
+                unique: true
+            })
+            .then(session => {
+                console.log('created session');
+                return res.status(201).json(session.serialize());
+            })
+            .catch(err => {
+                if (err.reason === 'ValidationError') {
+                    return res.status(err.code).json(err);
+                }
+                res.status(500).json({code: 500, message: err});
+            })
+        }
+    });
+    
+   
     
 })
 

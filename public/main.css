@@ -1,24 +1,36 @@
 /* css for inventation homepage */
+body{
+    background: #33FF5D;
+}
+
 .home-title{
     color: red;
     display: block;
     margin: auto;
     width: 50%;
     text-align: center;
+    position: relative;
+    top: 125px;
 }
 
 .signup-link{
-    display: block;
+
     margin: auto;
     width: 50%;
     text-align: center;
+    position: relative;
+    top: 150px;
+    left: 675px;
 }
 
 .login-link{
-    display: block;
+
     margin: auto;
     width: 50%;
     text-align: center;
+    position: relative;
+    top: 150px;
+    left: 725px;
 }
 
 /* css for inventation signup page */

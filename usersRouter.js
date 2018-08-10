@@ -128,9 +128,9 @@ router.put('/:id', jsonParser, (req, res) => {
 	const updatedData = req.body.username;
 	console.log(updatedData);
 	console.log(`Updating site url for ${req.params.id}`);
-  	const sendSuccess = function(updated){
-	  console.log(`Updated site url for ${req.params.id}`);
-	  console.log(updated);
+	const sendSuccess = function(updated){
+		console.log(`Updated site url for ${req.params.id}`);
+		console.log(updated);
 	};
 	const conditions = {_id: req.params.id};
 	const updateArguments = {$set: {username: updatedData}};

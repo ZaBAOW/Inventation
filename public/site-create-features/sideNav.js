@@ -42,18 +42,23 @@ function createSession() {
 		createInfo();
 		content = $('#website-container').html();
 	}
-	const endpoint = '/session';
+	const endpoint = '/session/protected';
 	const requestData = {
 		method: 'POST',
 		headers: {
 			'Accept': 'application/json',
-			'content-Type': 'application/json'
+			'content-Type': 'application/json',
+			'Authorization': 'Bearer ' + localStorage.authToken
 		},
 		body: JSON.stringify({content: content})
 	};
 	fetch(endpoint, requestData)
 	.then((res) => res.json())
 	.then(function(data) {
+		if(data.code === 500) {
+			console.log(data.message.message);
+			return;
+		}
 		console.log(data.id);
 		console.log('session succesfully created');
 		localStorage.setItem('sessionId', data.id);
@@ -71,7 +76,8 @@ function retrieveSession() {
 		method: 'GET',
 		headers: {
 			'Accept': 'application/json',
-			'Content-Type': 'application/json'
+			'Content-Type': 'application/json',
+			'Authorization': 'Bearer ' + localStorage.authToken 
 		},
 		credentials: 'same-origin'
 	}
@@ -84,7 +90,7 @@ function retrieveSession() {
 	});
 }
 
-function retrieveSessionById(checkArea) {
+function retrieveSessionById() {
 	const id = localStorage.sessionId;
 	if(id === "undefined") {
 		return;
@@ -103,6 +109,9 @@ function retrieveSessionById(checkArea) {
 		return res.json();
 	})
 	.then(function(data) {
+		// if(data.data === null){
+
+		// }
 		console.log('YOUR session has been retrieved');
 		const loadContent = data.data.content;
 		$('#website-container').append(loadContent);
@@ -113,18 +122,16 @@ function retrieveSessionById(checkArea) {
 }
 
 $(document).ready(function() {
+	retrieveSessionById()
 	var checkArea = $('#website-container').html()
-	// if(checkArea === ""){
-	// 	createSession();
-	// }
-	// checkArea = $('#website-container').html();
-	retrieveSessionById(checkArea)
-	console.log('welcome back')
 	if(localStorage.sessionId === "undefined") {
 		createSession();
 	}
-
-
+	else if(checkArea === ""){
+		createSession();
+	}
+	checkArea = $('#website-container').html();
+	console.log('welcome back')
 })
 
 
