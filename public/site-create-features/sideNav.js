@@ -53,7 +53,7 @@ function createSession() {
 		body: JSON.stringify({content: content})
 	};
 	fetch(endpoint, requestData)
-	.then((res) => res.json())
+	.then(function(res){return res.json();})
 	.then(function(data) {
 		if(data.code === 500) {
 			console.log(data.message.message);
