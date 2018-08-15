@@ -130,7 +130,7 @@ module.exports = {
         "no-console": "off",
         "no-div-regex": "off",
         "no-duplicate-imports": "error",
-        "no-else-return": "error",
+        "no-else-return": "off",
         "no-empty": [
             "error",
             {

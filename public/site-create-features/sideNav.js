@@ -121,7 +121,22 @@ function retrieveSessionById() {
 	});
 }
 
+function authValid() {
+	var authCheck = localStorage.getItem('authToken');
+	if(authCheck === "undefined" && authCheck !== null){
+		window.location.replace("/login.html");
+	}
+	else if(authCheck !== "undefined" && authCheck === null){
+
+		window.location.replace("/login.html");
+	}
+	else {
+		console.log('Validation of authToken successfull');
+	}
+}
+
 $(document).ready(function() {
+	authValid();
 	retrieveSessionById()
 	var checkArea = $('#website-container').html()
 	if(localStorage.sessionId === "undefined") {
