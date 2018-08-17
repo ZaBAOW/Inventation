@@ -92,8 +92,14 @@ function retrieveSession() {
 
 function retrieveSessionById() {
 	const id = localStorage.sessionId;
-	if(id === "undefined") {
-		return;
+	if(id === undefined) {
+		var r = confirm("We could not find your session.\n" + "Would you like to create a session?" );
+		if(r === true){
+			createSession();
+			return;
+		} else{
+			return;
+		}
 	}
 	const endpoint = `/session/` + id;
 	const requestData = {
@@ -106,12 +112,17 @@ function retrieveSessionById() {
 	}
 	fetch(endpoint, requestData)
 	.then(function(res) {
+		if(res.code === 404){
+			var r = confirm("We could not find your session.\n" + "Would you like to create a session?" );
+			if(r === true){
+				createSession();
+			} else{
+				return;
+			}
+		}
 		return res.json();
 	})
 	.then(function(data) {
-		// if(data.data === null){
-
-		// }
 		console.log('YOUR session has been retrieved');
 		const loadContent = data.data.content;
 		$('#website-container').append(loadContent);
@@ -139,12 +150,12 @@ $(document).ready(function() {
 	authValid();
 	retrieveSessionById()
 	var checkArea = $('#website-container').html()
-	if(localStorage.sessionId === "undefined") {
-		createSession();
-	}
-	else if(checkArea === ""){
-		createSession();
-	}
+	// if(localStorage.sessionId === "undefined") {
+	// 	createSession();
+	// }
+	// else if(checkArea === ""){
+	// 	createSession();
+	// }
 	checkArea = $('#website-container').html();
 	console.log('welcome back')
 })

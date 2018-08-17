@@ -77,6 +77,7 @@ router.get('/:id', jsonParser, (req, res) => {
     })
     .catch(function(error){
         console.log(error);
+        return res.status(400).json({message: "no session found"});
     })
 })
 
