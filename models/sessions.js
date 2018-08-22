@@ -6,7 +6,13 @@ mongoose.Promise = global.Promise;
 
 const Schema = mongoose.Schema;
 const sessionSchema = new Schema({
-    content: {type: String, required: [true, 'there is not content'], unique: true},
+    // content: {type: Object, required: [true, 'there is no content'], unique: true,
+    //             infoBoxContent: String,
+    //             slideShowContent: String,
+    //             countDownContent: String},
+    infoBoxContent: {type: String, unique: true},
+    slideShowContent: {type: String, unique: true},
+    countDownContent: {type: String, unique: true},
     userId: {type: Schema.Types.ObjectId, ref: 'User'}
 });
 
@@ -17,16 +23,13 @@ sessionSchema.virtual('categoryId').get(function() {
 
 sessionSchema.methods.serialize = function() {
     return {
-        content: this.content || '',
+        infoBoxContent: this.infoBoxContent || '',
+        slideShowContent: this.slideShowContent || '',
+        countDownContent: this.countDownContent || '',
         userId: this.userId,
         id: this._id
     };
 };
-
-// Schema.prototype('find', function(next) {
-//     this.populate('userId');
-//     next();
-// });
 
 const Session = mongoose.model('Session', sessionSchema);
 module.exports = {Session};

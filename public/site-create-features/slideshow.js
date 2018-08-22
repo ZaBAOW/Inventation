@@ -30,6 +30,6 @@ function showSlides(n) {
 } 
 
 $(document).on('click','.remove-slideshow', function() {
-	$(this).parent('.feature-container').remove();
+	$(this).parent('.slide-container').remove();
 	$('#website-container').find('br').remove();
 });

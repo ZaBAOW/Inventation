@@ -13,17 +13,24 @@ const {authToken} = require('./lib/auth/router');
 
 router.post('/protected', jwtAuth, jsonParser , (req, res) => {
     console.log('creating session...');
-    let content = req.body.content;
+    console.log(req.body);
+    let infoBoxContent = req.body.content.infoContent;
+    let slideShowContent = req.body.content.slideContent;
+    let countDownContent = req.body.content.countContent;
+    console.log(infoBoxContent);
+    console.log(slideShowContent);
+    console.log(countDownContent);
     let userId = req.user.id;
     let ObjectId = mongoose.Types.ObjectId;
     let userSession = new ObjectId(userId);
-    
     Session.findOne({userId: userId}).exec()
     .then(function(session) {
         console.log('checking for existing session...');
         if(session === null){
             return Session.create({
-                content,
+                infoBoxContent,
+                slideShowContent,
+                countDownContent,
                 userId,
                 unique: true
             })
@@ -48,13 +55,22 @@ router.put('/:id', jsonParser, (req, res) => {
     const updateData = req.body.content;
     console.log('saving session...');
     const requireFields = ['content'];
-    const conditions = {_id: req.params.id};
-    const updateArguments = {content: updateData};
+    let ObjectId = mongoose.Types.ObjectId;
+    let sessionId = new ObjectId(req.params.id);
+    const conditions = {_id: sessionId};
+    console.log(conditions);
+    const updateInfo = {infoBoxContent: updateData.infoBoxContent};
+    const updateSlide = {slideContent: updateData.slideContent};
+    const updateCount = {countContent: updateData.countContent};
+    const updateArguments = {updateInfo, updateSlide, updateCount};
     const options = {new: true};
     return Session.findOneAndUpdate(conditions, updateArguments, options)
         .exec()
         .then(function(data) {
             return res.status(204).end();
+        })
+        .catch(function(err) {
+            return res.status(500).json({message: err});
         })
 })
 
