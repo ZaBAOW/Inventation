@@ -6,10 +6,6 @@ mongoose.Promise = global.Promise;
 
 const Schema = mongoose.Schema;
 const sessionSchema = new Schema({
-    // content: {type: Object, required: [true, 'there is no content'], unique: true,
-    //             infoBoxContent: String,
-    //             slideShowContent: String,
-    //             countDownContent: String},
     infoBoxContent: {type: String, unique: true},
     slideShowContent: {type: String, unique: true},
     countDownContent: {type: String, unique: true},
