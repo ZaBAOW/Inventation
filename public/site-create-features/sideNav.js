@@ -38,12 +38,12 @@ function returnHome () {
 function createSession() {
 	createInfo();
 	const content = {}
-	const infoContent = $(".info-container").text();
-	const slideContent = $(".slide-container").text();
-	const countContent = $(".count-container").text();
-	content['infoContent'] = infoContent || null;
-	content['slideContent'] = slideContent || null;
-	content['countContent'] = countContent || null;
+	const infoBoxContent = $(".info-container").text();
+	const slideShowContent = $(".slide-container").text();
+	const countDownContent = $(".count-container").text();
+	content['infoBoxContent'] = infoBoxContent || null;
+	content['slideShowContent'] = slideShowContent || null;
+	content['countDownContent'] = countDownContent || null;
 	console.log(content);
 	const endpoint = '/session/protected';
 	const requestData = {
@@ -104,7 +104,7 @@ function retrieveSessionById() {
 			return;
 		}
 	}
-	const endpoint = `/session/` + id;
+	const endpoint = `/session/${id}`;
 	const requestData = {
 		method: 'GET',
 		headers: {
@@ -128,8 +128,19 @@ function retrieveSessionById() {
 	})
 	.then(function(data) {
 		console.log('YOUR session has been retrieved');
-		const loadContent = data.data.content;
-		$('#website-container').append(loadContent);
+		const infoBoxContent = data.data.infoBoxContent;
+		const slideShowContent = data.data.slideShowContent;
+		const countDownContent = data.data.countDownContent;
+		if(infoBoxContent !== null){
+			createInfo();
+			$('.info-container content').append(infoBoxContent);
+		}
+		if(countDownContent !== null){
+			createCountdown();
+		}
+		if(slideShowContent !== null){
+			createSlideShow();
+		}
 	})
 	.catch(function(err) {
 		console.log(err);
@@ -160,14 +171,14 @@ $(document).ready(function() {
 
 
 function saveSession() {
-	const infoContent = $(".info-container").text();
-	const slideContent = $(".slide-container").text();
-	const countContent = $(".count-container").text();
+	const infoBoxContent = $(".content").val();
+	const slideShowContent = $(".slide-container").text();
+	const countDownContent = $(".count-container").text();
 	const content = {};
-	content['infoContent'] = infoContent || null;
-	content['slideContent'] = slideContent || null;
-	content['countContent'] = countContent || null;
-	if(content.infoContent === null && content.slideContent === null && content.countContent === null){
+	content['infoBoxContent'] = infoBoxContent || null;
+	content['slideShowContent'] = slideShowContent || null;
+	content['countDownContent'] = countDownContent || null;
+	if(content.infoBoxContent === null && content.slideContent === null && content.countContent === null){
 		alert('There is nothing to save. Please add a feature before saving');
 		return;
 	}
@@ -185,6 +196,9 @@ function saveSession() {
 	.then(function(data) {
 		alert('session succesfully saved');
 		console.log('session succesfully saved');
+	})
+	.catch(function(err){
+		console.log(err);
 	})
 }
 

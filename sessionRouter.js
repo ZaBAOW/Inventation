@@ -14,9 +14,9 @@ const {authToken} = require('./lib/auth/router');
 router.post('/protected', jwtAuth, jsonParser , (req, res) => {
     console.log('creating session...');
     console.log(req.body);
-    let infoBoxContent = req.body.content.infoContent;
-    let slideShowContent = req.body.content.slideContent;
-    let countDownContent = req.body.content.countContent;
+    let infoBoxContent = req.body.content.infoBoxContent;
+    let slideShowContent = req.body.content.slideShowContent;
+    let countDownContent = req.body.content.countDownContent;
     console.log(infoBoxContent);
     console.log(slideShowContent);
     console.log(countDownContent);
@@ -53,20 +53,24 @@ router.post('/protected', jwtAuth, jsonParser , (req, res) => {
 
 router.put('/:id', jsonParser, (req, res) => {
     const updateData = req.body.content;
+    console.log("checking parameters: " ,  req.params);
+    console.log("REQ BODY: " , req.body);
     console.log('saving session...');
     const requireFields = ['content'];
     let ObjectId = mongoose.Types.ObjectId;
     let sessionId = new ObjectId(req.params.id);
     const conditions = {_id: sessionId};
-    console.log(conditions);
-    const updateInfo = {infoBoxContent: updateData.infoBoxContent};
-    const updateSlide = {slideContent: updateData.slideContent};
-    const updateCount = {countContent: updateData.countContent};
-    const updateArguments = {updateInfo, updateSlide, updateCount};
+    console.log("Conditions: " , conditions)
+    const infoBoxContent = updateData.infoBoxContent;
+    const slideShowContent = updateData.slideShowContent;
+    const countDownContent = updateData.countDownContent;
+    const updateArguments = {infoBoxContent, slideShowContent, countDownContent};
+    console.log("Update Arguments" , updateArguments);
     const options = {new: true};
     return Session.findOneAndUpdate(conditions, updateArguments, options)
         .exec()
         .then(function(data) {
+            console.log("Data:" , data);
             return res.status(204).end();
         })
         .catch(function(err) {
