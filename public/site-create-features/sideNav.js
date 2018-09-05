@@ -15,7 +15,7 @@ function createInfo() {
 }
 
 function createCountdown(){
-	var newCountDown = '<div class="count-container storable"><input type="button" class="remove-countdown" value="&#10006"><form action="/action_patge.php">Event (date and time):<input type="datetime-local" name="eventDay"><button onsubmit="return setCountDown()" name="Send">Submit</button></form><p id="countdown"></p></div>';
+	var newCountDown = '<div class="count-container storable"><input type="button" class="remove-countdown" value="&#10006"><div action="/action_patge.php">Event (date and time):<input type="datetime-local" id = "eventDay" name="eventDay"><input type = "submit" class = "countDownSubmit" name="Send"></input></div><p id="countdown"></p></div>';
 	$('#website-container').append(newCountDown);
 }
 
@@ -41,9 +41,11 @@ function createSession() {
 	const infoBoxContent = $(".info-container").text();
 	const slideShowContent = $(".slide-container").text();
 	const countDownContent = $(".count-container").text();
+	const selectedDateContent = localStorage.selectedDate;
 	content['infoBoxContent'] = infoBoxContent || null;
 	content['slideShowContent'] = slideShowContent || null;
 	content['countDownContent'] = countDownContent || null;
+	content['selectedDateContent'] = selectedDateContent || null;
 	console.log(content);
 	const endpoint = '/session/protected';
 	const requestData = {
@@ -131,15 +133,22 @@ function retrieveSessionById() {
 		const infoBoxContent = data.data.infoBoxContent;
 		const slideShowContent = data.data.slideShowContent;
 		const countDownContent = data.data.countDownContent;
+		const selectedDateContent = data.data.selectedDateContent;
 		if(infoBoxContent !== null){
 			createInfo();
-			$('.info-container content').append(infoBoxContent);
+			$('.content').append(infoBoxContent);
 		}
 		if(countDownContent !== null){
 			createCountdown();
 		}
 		if(slideShowContent !== null){
 			createSlideShow();
+		}
+		if(selectedDateContent !== null) {
+			var eventDate = moment().countdown(selectedDateContent, countdown.HOURS | countdown.MINUTES | countdown.SECONDS).toString();
+			var moddedDate = eventDate.replace(/\D+/g, ":");
+			var slicedTime = moddedDate.slice(0, moddedDate.length - 1);
+			$('.count-container').append('<div class = "time-left">' + slicedTime + '</div>');
 		}
 	})
 	.catch(function(err) {
@@ -174,11 +183,14 @@ function saveSession() {
 	const infoBoxContent = $(".content").val();
 	const slideShowContent = $(".slide-container").text();
 	const countDownContent = $(".count-container").text();
+	const selectedDateContent = localStorage.selectedDate;
+	console.log(selectedDateContent);
 	const content = {};
 	content['infoBoxContent'] = infoBoxContent || null;
 	content['slideShowContent'] = slideShowContent || null;
 	content['countDownContent'] = countDownContent || null;
-	if(content.infoBoxContent === null && content.slideContent === null && content.countContent === null){
+	content['selectedDateContent'] = selectedDateContent || null;
+	if(content.infoBoxContent === null && content.slideContent === null && content.countContent === null && content.selectedDateContent === null){
 		alert('There is nothing to save. Please add a feature before saving');
 		return;
 	}

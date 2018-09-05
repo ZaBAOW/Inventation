@@ -9,6 +9,7 @@ const sessionSchema = new Schema({
     infoBoxContent: {type: String, unique: true},
     slideShowContent: {type: String, unique: true},
     countDownContent: {type: String, unique: true},
+    selectedDateContent: {type: String, unique: true},
     userId: {type: Schema.Types.ObjectId, ref: 'User'}
 });
 
@@ -22,6 +23,7 @@ sessionSchema.methods.serialize = function() {
         infoBoxContent: this.infoBoxContent || '',
         slideShowContent: this.slideShowContent || '',
         countDownContent: this.countDownContent || '',
+        selectedDateContent: this.selectedDateContent || '',
         userId: this.userId,
         id: this._id
     };

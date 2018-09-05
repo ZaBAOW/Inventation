@@ -1,22 +1,20 @@
-var setCountdown = function() {
-	var now = new Date();
-	var countDownDate = $('.eventDay').val();
+$('form').on('submit', function(event) {
 
-	var distance = countDownDate - now;
+		event.preventDefault();
 
-	var days = Math.floor(distance / (1000 * 60 * 60 * 24));
-	var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-	var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-	var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+		var selectDate = $('#eventDay').val();
+		var slicedDate = selectDate.slice(0, 10);
+		console.log(slicedDate);
+		localStorage.setItem('selectedDate', slicedDate);
+		// var countDownDate = new Date(slicedDate).getTime();
 
-	document.getElementById("countdown").innerHTML = days + "d " + hours + "h " + minutes + "m " + seconds + "s ";
+		var eventDate = moment().countdown(slicedDate, countdown.HOURS | countdown.MINUTES | countdown.SECONDS).toString();
+		var moddedDate = eventDate.replace(/\D+/g, ":");
+		var slicedTime = moddedDate.slice(0, moddedDate.length - 1);
+		$('.count-container').append('<div class = "time-left">' + slicedTime + '</div>');
+	
+})
 
-	if(distance === 0 || distance < 0){
-		clearInterval(x);
-		document.getElementById("countdown").innerHTML = "EXPIRED";
-	};
-
-}
 
 $(document).on('click','.remove-countdown', function() {
 	$(this).parent('.count-container').remove();

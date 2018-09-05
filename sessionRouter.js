@@ -17,6 +17,7 @@ router.post('/protected', jwtAuth, jsonParser , (req, res) => {
     let infoBoxContent = req.body.content.infoBoxContent;
     let slideShowContent = req.body.content.slideShowContent;
     let countDownContent = req.body.content.countDownContent;
+    let selectedDateContent = req.body.content.selectedDateContent;
     console.log(infoBoxContent);
     console.log(slideShowContent);
     console.log(countDownContent);
@@ -31,6 +32,7 @@ router.post('/protected', jwtAuth, jsonParser , (req, res) => {
                 infoBoxContent,
                 slideShowContent,
                 countDownContent,
+                selectedDateContent,
                 userId,
                 unique: true
             })
@@ -60,11 +62,11 @@ router.put('/:id', jsonParser, (req, res) => {
     let ObjectId = mongoose.Types.ObjectId;
     let sessionId = new ObjectId(req.params.id);
     const conditions = {_id: sessionId};
-    console.log("Conditions: " , conditions)
     const infoBoxContent = updateData.infoBoxContent;
     const slideShowContent = updateData.slideShowContent;
     const countDownContent = updateData.countDownContent;
-    const updateArguments = {infoBoxContent, slideShowContent, countDownContent};
+    const selectedDateContent = updateData.selectedDateContent;
+    const updateArguments = {infoBoxContent, slideShowContent, countDownContent, selectedDateContent};
     console.log("Update Arguments" , updateArguments);
     const options = {new: true};
     return Session.findOneAndUpdate(conditions, updateArguments, options)
