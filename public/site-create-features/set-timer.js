@@ -1,6 +1,8 @@
-$('form').on('submit', function(event) {
+$(document).on('click', '.countDownSubmit', function(event) {
 
 		event.preventDefault();
+		console.log('time is being posted');
+		$('.time-left').remove();
 
 		var selectDate = $('#eventDay').val();
 		var slicedDate = selectDate.slice(0, 10);

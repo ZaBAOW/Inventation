@@ -15,12 +15,12 @@ function createInfo() {
 }
 
 function createCountdown(){
-	var newCountDown = '<div class="count-container storable"><input type="button" class="remove-countdown" value="&#10006"><div action="/action_patge.php">Event (date and time):<input type="datetime-local" id = "eventDay" name="eventDay"><input type = "submit" class = "countDownSubmit" name="Send"></input></div><p id="countdown"></p></div>';
+	var newCountDown = '<div class="count-container storable"><input type="button" class="remove-countdown" value="&#10006"><div action="/action_patge.php">Event (date and time):<input type="datetime-local" id = "eventDay" name="eventDay"><button class = "countDownSubmit" name="Send">Submit</button></div><p id="countdown"></p></div>';
 	$('#website-container').append(newCountDown);
 }
 
 function createSlideShow() {
-	var newSlideShow = '<div class="slide-container storable"><input type="button" class="remove-slideshow" value="&#10006"><div class="slideshow-container"><div class="mySlides fade"><div class="numbertext">1 / 3</div><img src="#" style="width: 100%"><div class="text">Caption Text</div></div><div class="mySlides fade"><div class="numbertext">2 / 3</div><img src="https://imgur.com/r/cats/3lkm9AO" style="width: 100%"><div class="text">Caption Text</div></div><div class="mySlides fade"><div class="numbertext">3 / 3</div><img src="https://imgur.com/r/cats/VTCP8Cq" style="width: 100%"><div class="text">Caption Text</div></div><a class="prev" onclick="plusSlides(-1)">&#10094;</a><a class="next" onclick="plusSlides(1)">&#10095;</a></div><br><div style="text-align: center"><span class="dot" onclick="currentSlide(1)"></span><span class="dot" onclick="currentSlide(2)"></span><span class="dot" onclick="currentSlide(3)"></span></div><form method="post" enctype="multipart/form-data"><div><label for="file">Choose an image to upload</label><input type="file" id="file" name="file" multiple></div><div><button onclick="imageUpload()">Upload</button></div></form></div>';
+	var newSlideShow = '<div class="slide-container storable"><input type="button" class="remove-slideshow" value="&#10006"><div class="slideshow-container"><div class="mySlides fade"><div class="numbertext">1 / 1</div><img src="https://i.imgur.com/wYTCtRu.jpg" style="width: 100%"><div class="text">Caption Text</div></div><a class="prev" onclick="plusSlides(-1)">&#10094;</a><a class="next" onclick="plusSlides(1)">&#10095;</a><div style="text-align: center" class="dot-container"><span class="dot" onclick="currentSlide(1)"></span></div><div class="imageUpload"><div><label>Copy an image url to upload</label><input type="text" class="imageUrl" name="imageUrl" multiple></div><button class = "upload-submit">Submit</button></div></div>';
 
 	$('#website-container').append(newSlideShow);
 }
