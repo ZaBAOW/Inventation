@@ -20,7 +20,7 @@ function createCountdown(){
 }
 
 function createSlideShow() {
-	var newSlideShow = '<div class="slide-container storable"><input type="button" class="remove-slideshow" value="&#10006"><div class="slideshow-container"><div class="mySlides fade"><div class="numbertext">1 / 1</div><img src="https://i.imgur.com/wYTCtRu.jpg" style="width: 100%"><div class="text">Caption Text</div></div><a class="prev" onclick="plusSlides(-1)">&#10094;</a><a class="next" onclick="plusSlides(1)">&#10095;</a><div style="text-align: center" class="dot-container"><span class="dot" onclick="currentSlide(1)"></span></div><div class="imageUpload"><div><label>Copy an image url to upload</label><input type="text" class="imageUrl" name="imageUrl" multiple></div><button class = "upload-submit">Submit</button></div></div>';
+	var newSlideShow = '<div class="slide-container storable"><div class="slideshow-container"><input type="button" class="remove-slideshow" value="&#10006"><div class="mySlides fade"><div class="numbertext">1 / 1</div><img src="https://i.imgur.com/wYTCtRu.jpg" style="width: 100%"><div class="text">Caption Text</div></div><a class="prev" onclick="plusSlides(-1)">&#10094;</a><a class="next" onclick="plusSlides(1)">&#10095;</a><div style="text-align: center" class="dot-container"><span class="dot" onclick="currentSlide(1)"></span></div><div class="imageUpload"><div><label>Copy an image url to upload</label><input type="text" class="imageUrl" name="imageUrl" multiple></div><button class = "upload-submit">Submit</button></div></div>';
 
 	$('#website-container').append(newSlideShow);
 }
