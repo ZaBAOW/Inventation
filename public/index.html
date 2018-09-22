@@ -1,31 +1,35 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-	<title>New Event</title>
-	<link rel="stylesheet" type="text/css" href="site-create-features/create.css">
-	<link rel="stylesheet" type="text/css" href="site-create-features/slideStyle.css">
+    <title>New Event</title>
+    <link rel="stylesheet" type="text/css" href="site-create-features/create.css">
+    <link rel="stylesheet" type="text/css" href="site-create-features/slideStyle.css">
 </head>
+
 <body>
-	<div id="mySidenav" class="sidenav" aria-label="feature-menu">
-		<a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-		<button class="info-btn" onclick="createInfo()">Info-Box</button>
-		<br>
-		<button class="countdown-btn" onclick="createCountdown()">Countdown</button>
-		<br>
-		<button class="slideShow-btn" onclick="createSlideShow(), showSlides()">SlideShow</button>
-		<br>
-		<button class="return-home" onclick="returnHome()">Return to Homepage</button>
-		<br>
-		<button class="Save Session" onclick="saveSession()">Save</button>
-	</div>
+    <div id="mySidenav" class="sidenav" aria-label="feature-menu">
+        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+        <button class="info-btn" onclick="createInfo()">Info-Box</button>
+        <br>
+        <button class="countdown-btn" onclick="createCountdown()">Countdown</button>
+        <br>
+        <button class="slideShow-btn" onclick="createSlideShow(), showSlides()">SlideShow</button>
+        <br>
+        <button class="return-home" onclick="returnHome()">Return to Homepage</button>
+        <br>
+        <button class="Save Session" onclick="saveSession()">Save</button>
+    </div>
 
-	<span class="menuOpen" onclick="openNav()">&#9776;Open Menu</span>
+    <span class="menuOpen" onclick="openNav()">&#9776;Open Menu</span>
 
-	<form id="website-container" aria-label="website-area"></form>
+    <form id="website-container" aria-label="website-area"></form>
 
 </body>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.22.2/moment.js"></script>
+<script src="uuid.js"></script>
+<script src="jquery.sha1.js"></script>
 <script src="countdownjs/countdown.js"></script>
 <script src="moment-countdown/dist/moment-countdown.js"></script>
 <script type="text/javascript" src="site-create-features/sideNav.js"></script>
