@@ -32,10 +32,10 @@ describe('/api/users', function() {
   beforeEach(function() {});
 
   afterEach(function() {
-    return User.remove({});
+//    return User.remove({});
   });
 
-  
+
   describe('POST', function(){
     it('should post a new user to the user list', function(){
       let res;

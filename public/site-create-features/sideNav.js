@@ -20,7 +20,7 @@ function createCountdown() {
 }
 
 function createSlideShow() {
-    var newSlideShow = '<div class="slide-container storable"><div class="slideshow-container"><input type="button" class="remove-slideshow" value="&#10006"><div class="mySlides fade"><div class="numbertext">1 / 1</div><img src="https://i.imgur.com/wYTCtRu.jpg" style="width: 100%"></div><a class="prev" onclick="plusSlides(-1)">&#10094;</a><a class="next" onclick="plusSlides(1)">&#10095;</a><div style="text-align: center" class="dot-container"><span class="dot" onclick="currentSlide(1)"></span></div><div class="imageUpload"><div><input name="file" type="file"class="file-select" data-cloudinary-field="image_id" data-form-data="{ "transformation": {"crop":"limit","tags":"samples" "width":3000,"height":2000}}"/></div><button class = "upload-submit">Submit</button></div></div>';
+    var newSlideShow = '<div class="slide-container storable"><div class="slideshow-container"><input type="button" class="remove-slideshow" value="&#10006"><a class="prev" onclick="plusSlides(-1)">&#10094;</a><a class="next" onclick="plusSlides(1)">&#10095;</a><div style="text-align: center" class="dot-container"></span></div><div class="imageUpload"><div><input name="file" type="file"class="file-select" data-cloudinary-field="image_id" data-form-data="{ "transformation": {"crop":"limit","tags":"samples" "width":3000,"height":2000}}"/></div><button class = "upload-submit">Submit</button></div></div>';
 
     $('#website-container').append(newSlideShow);
 }
@@ -182,9 +182,10 @@ $(document).ready(function () {
 })
 
 
-function saveSession() {
+function saveSession(upload_url) {
     const infoBoxContent = $(".content").val();
-    const slideShowContent = $(".slide-container").text();
+    const slideShowContent = upload_url;
+    console.log(slideShowContent);
     const countDownContent = $(".count-container").text();
     const selectedDateContent = localStorage.selectedDate;
     console.log(selectedDateContent);

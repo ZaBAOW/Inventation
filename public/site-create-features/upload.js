@@ -49,6 +49,8 @@ function uploadImage(file) {
             // addImageToDb(uploadDataObject);
             console.log(result.secure_url);
             console.log(result.original_filename);
+            var upload_url = result.secure_url;
+            saveSession(upload_url);
             var newImageTemplate = "<div class='mySlides fade'><div class='numbertext'>4 /4</div><img src='" + result.secure_url + "' style='max-width:400px'><div class='text'>Caption Text</div></div>";
             var imageNumber = $('.dot-container span').length
             var newDotTemplate = '<span class="dot" onclick="currentSlide(' + imageNumber + ')"></span>'
