@@ -20,7 +20,7 @@ function createCountdown() {
 }
 
 function createSlideShow() {
-    var newSlideShow = '<div class="slide-container storable"><div class="slideshow-container"><input type="button" class="remove-slideshow" value="&#10006"><a class="prev" onclick="plusSlides(-1)">&#10094;</a><a class="next" onclick="plusSlides(1)">&#10095;</a><div style="text-align: center" class="dot-container"></span></div><div class="imageUpload"><div><input name="file" type="file"class="file-select" data-cloudinary-field="image_id" data-form-data="{ "transformation": {"crop":"limit","tags":"samples" "width":3000,"height":2000}}"/></div><button class = "upload-submit">Submit</button></div></div>';
+    var newSlideShow = '<div class="slide-container storable"><div class="slideshow-container"><input type="button" class="remove-slideshow" value="&#10006"><a class="prev" onclick="plusSlides(-1)">&#10094;</a><a class="next" onclick="plusSlides(1)">&#10095;</a><div style="text-align: center" class="dot-container"></div><div class="imageUpload"><div><input name="file" type="file"class="file-select" data-cloudinary-field="image_id" data-form-data="{ "transformation": {"crop":"limit","tags":"samples" "width":3000,"height":2000}}"/></div><button class = "upload-submit">Submit</button></div></div>';
 
     $('#website-container').append(newSlideShow);
 }
@@ -148,6 +148,11 @@ function retrieveSessionById() {
             }
             if (slideShowContent !== null) {
                 createSlideShow();
+                var newImageTemplate = "<div class='mySlides fade'><div class='numbertext'>4 /4</div><img src='" + slideShowContent + "' style='max-width:400px'>";
+                var imageNumber = $('.dot-container span').length
+                var newDotTemplate = '<span class="dot" onclick="currentSlide(' + imageNumber + ')"></span>'
+                $('.dot-container').append(newDotTemplate);
+                $('.slideshow-container').append(newImageTemplate);
             }
             if (selectedDateContent !== null) {
                 var eventDate = moment().countdown(selectedDateContent, countdown.HOURS | countdown.MINUTES | countdown.SECONDS).toString();
