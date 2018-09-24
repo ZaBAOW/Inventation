@@ -1,24 +1,42 @@
 'use strict';
 const mongoose = require('mongoose');
 const bcrypt = require('bcrypt');
-const {User} = require('./users');
+const {
+    User
+} = require('./users');
 mongoose.Promise = global.Promise;
 
 const Schema = mongoose.Schema;
 const sessionSchema = new Schema({
-    infoBoxContent: {type: String, unique: true},
-    slideShowContent: {type: String, unique: true},
-    countDownContent: {type: String, unique: true},
-    selectedDateContent: {type: String, unique: true},
-    userId: {type: Schema.Types.ObjectId, ref: 'User'}
+    infoBoxContent: {
+        type: String,
+        unique: true
+    },
+    slideShowContent: {
+        type: Array,
+        unique: true,
+        default: []
+    },
+    countDownContent: {
+        type: String,
+        unique: true
+    },
+    selectedDateContent: {
+        type: String,
+        unique: true
+    },
+    userId: {
+        type: Schema.Types.ObjectId,
+        ref: 'User'
+    }
 });
 
 
-sessionSchema.virtual('categoryId').get(function() {
+sessionSchema.virtual('categoryId').get(function () {
     return this._id;
 });
 
-sessionSchema.methods.serialize = function() {
+sessionSchema.methods.serialize = function () {
     return {
         infoBoxContent: this.infoBoxContent || '',
         slideShowContent: this.slideShowContent || '',
@@ -30,4 +48,6 @@ sessionSchema.methods.serialize = function() {
 };
 
 const Session = mongoose.model('Session', sessionSchema);
-module.exports = {Session};
+module.exports = {
+    Session
+};

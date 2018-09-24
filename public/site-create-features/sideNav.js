@@ -39,7 +39,7 @@ function createSession() {
     createInfo();
     const content = {}
     const infoBoxContent = $(".info-container").text();
-    const slideShowContent = $(".slide-container").text();
+    const slideShowContent = []
     const countDownContent = $(".count-container").text();
     const selectedDateContent = localStorage.selectedDate;
     content['infoBoxContent'] = infoBoxContent || null;
