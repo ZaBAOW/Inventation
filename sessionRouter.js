@@ -99,14 +99,12 @@ router.put('/:id', jsonParser, (req, res) => {
             console.log('adding image...');
             return Session.update(conditions, {
                     $push: {
-                        slideShowContent: {
-                            slideShowContent
-                        }
+                        slideShowContent
                     }
                 })
                 .then(function (session) {
                     console.log('displaying updated session');
-                    // console.log("New Session: ", session);
+                    //  console.log("New Session: ", session);
                     return res.status(204).end();
                 })
                 .catch(function (err) {
