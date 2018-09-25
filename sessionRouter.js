@@ -78,7 +78,9 @@ router.put('/:id', jsonParser, (req, res) => {
         _id: sessionId
     };
     const infoBoxContent = updateData.infoBoxContent;
-    const slideShowContent = updateData.slideShowContent;
+    const slideShowContent = {
+        image: updateData.slideShowContent
+    };
     const countDownContent = updateData.countDownContent;
     const selectedDateContent = updateData.selectedDateContent;
     const updateArguments = {
@@ -93,16 +95,18 @@ router.put('/:id', jsonParser, (req, res) => {
     return Session.findOneAndUpdate(conditions, updateArguments, options)
         .exec()
         .then(function (session) {
-            console.log('slideshowContent: ', session.slideShowContent);
+            console.log('slideshowContent: ', session.slideShowContent[0]);
             console.log('adding image...');
             return Session.update(conditions, {
                     $push: {
-                        slideShowContent: slideShowContent
+                        slideShowContent: {
+                            slideShowContent
+                        }
                     }
                 })
                 .then(function (session) {
                     console.log('displaying updated session');
-//                    console.log("New Session: ", session);
+                    // console.log("New Session: ", session);
                     return res.status(204).end();
                 })
                 .catch(function (err) {
