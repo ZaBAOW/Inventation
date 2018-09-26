@@ -39,7 +39,7 @@ describe('Auth endpoints', function () {
     });
 
     afterEach(function () {
-//        return User.remove({});
+        return User.remove({});
         localStorage.clear();
         localStorage.itemInsertionCallback = null;
     });
