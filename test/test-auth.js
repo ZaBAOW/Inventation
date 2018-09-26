@@ -45,6 +45,15 @@ describe('Auth endpoints', function () {
     });
 
     describe('/auth/login', function () {
+        return User.create (
+            {
+                username,
+                password,
+                firstName,
+                lastName,
+                url
+            }
+        )
         it('Should return a valid auth token', function(){
             return chai.request(app).post('/auth/login')
             .send({username, password})
