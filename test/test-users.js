@@ -42,10 +42,8 @@ describe('/api/users', function() {
       const newUser = {
         username: username,
         password: password,
-        name: {
-          firstName: firstName,
-          lastName: lastName
-        },
+        firstName: firstName,
+        lastName: lastName,
         url: url
       };
 
