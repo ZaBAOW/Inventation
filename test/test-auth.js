@@ -21,7 +21,7 @@ describe('Auth endpoints', function () {
     const lastName = 'User';
 
     before(function () {
-        return runServer(TEST_DATABASE_URL);
+        return runServer();
     });
 
     after(function() {
@@ -39,7 +39,7 @@ describe('Auth endpoints', function () {
     });
 
     afterEach(function () {
-        return User.remove({});
+//        return User.remove({});
         localStorage.clear();
         localStorage.itemInsertionCallback = null;
     });
