@@ -21,7 +21,7 @@ describe('Auth endpoints', function () {
     const lastName = 'User';
 
     before(function () {
-        return runServer();
+        return runServer(TEST_DATABASE_URL);
     });
 
     after(function() {
@@ -39,21 +39,21 @@ describe('Auth endpoints', function () {
     });
 
     afterEach(function () {
-//        return User.remove({});
+        return User.remove({});
         localStorage.clear();
         localStorage.itemInsertionCallback = null;
     });
 
     describe('/auth/login', function () {
-        return User.create (
-            {
-                username,
-                password,
-                firstName,
-                lastName
-            }
-        )
         it('Should return a valid auth token', function(){
+            User.create (
+                {
+                    username,
+                    password,
+                    firstName,
+                    lastName
+                }
+            )
             return chai.request(app).post('/auth/login')
             .send({username, password})
             .then(res => {
