@@ -32,7 +32,7 @@ describe('/api/users', function() {
   beforeEach(function() {});
 
   afterEach(function() {
-    return User.remove({});
+//    return User.remove({});
   });
 
 
