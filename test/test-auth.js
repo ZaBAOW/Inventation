@@ -50,8 +50,7 @@ describe('Auth endpoints', function () {
                 username,
                 password,
                 firstName,
-                lastName,
-                url
+                lastName
             }
         )
         it('Should return a valid auth token', function(){
