@@ -149,7 +149,7 @@ function retrieveSessionById() {
             if (slideShowContent !== null) {
                 createSlideShow();
                 var i;
-                for (i = 0; i < slideShowContent.length; i++) {
+                for (i = 0; i < slideShowContent.length - 1; i++) {
                     console.log(slideShowContent[i].image);
                     var image = slideShowContent[i].image;
                     var newImageTemplate = "<div class='mySlides fade'><div class='numbertext'>4 /4</div><img src='" + image + "' style='max-width:400px'>";
