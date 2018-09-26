@@ -5,7 +5,7 @@ const chaiHttp = require('chai-http');
 const {app, runServer, closeServer} = require('../server');
 const {User} = require('../models/users');
 const {authToken} = require('../lib/auth/router');
-const {DATABASE_URL, TEST_DATABASE_URL} = require('../config');
+const { TEST_DATABASE_URL} = require('../config');
 
 const expect = chai.expect;
 chai.use(chaiHttp);
@@ -32,7 +32,7 @@ describe('/api/users', function() {
   beforeEach(function() {});
 
   afterEach(function() {
-//    return User.remove({});
+    return User.remove({});
   });
 
 

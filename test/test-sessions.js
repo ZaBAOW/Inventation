@@ -5,7 +5,7 @@ const chaiHttp = require('chai-http');
 const {app, runServer, closeServer} = require('../server');
 const {Session} = require('../models/sessions');
 const {authToken} = require('../lib/auth/router');
-const {DATABASE_URL, TEST_DATABASE_URL} = require('../config');
+const { TEST_DATABASE_URL} = require('../config');
 
 const expect = chai.expect;
 chai.use(chaiHttp);
@@ -16,17 +16,17 @@ describe('/api/session', function() {
     before(function() {
         return runServer(TEST_DATABASE_URL);
       });
-    
+
       after(function(){
         return closeServer();
       });
-    
+
       beforeEach(function() {});
-    
+
       afterEach(function() {
         return Session.remove({});
       });
-    
+
       describe('PUT', function() {
           it('should save the content presented in the request', function() {
               let res;
@@ -76,7 +76,7 @@ describe('/api/session', function() {
               })
             })
         })
-            
+
 
           it('should do nothing if there are saved sessions', function() {
               let res;
