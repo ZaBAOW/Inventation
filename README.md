@@ -35,13 +35,21 @@ will allow for the inclusion of different features (i.e. event info box, countdo
 The site currently has 5 different pages including: a homepage, login page, signup page,
 site creation page, and site preview page.
 
-**Update for current build:**  
+**July 2018 update:**  
 Currently Inventation has two major functions that work with minimal bug and/or errors
 occurring.  The first being the site's user profile creation and login functions
 that allow for users to use either the user signup or user login pages as paths 
 toward reaching the site creation page.  The second being the creation and updating(saving) 
 of user sessions withing the site creation page.  There is a preview button that exists on
 the site creation page that leads to a preview page, but currently the page is not ready.
+
+**September 2018 update:**  
+Inventation shows no signs of bugs and/or errors.  The users' ability to signup and login
+function as intended and issues with user deletion via the chai unit tests has been resolved.
+Users are now able to save their session and have it load for them when they return to the
+site creation page.  The preview button has been removed from the site-creation page.  Due
+to time constraints a preview page for the site and the ability to publish the site will
+be put on hold.
 
 ## Getting Started
 
@@ -58,7 +66,7 @@ There will also be buttons that will allow for the addition of images.
 One button will be used to add an image to the background of the page, while
 the other will be used to add images to the foreground.
 
-**Update for current build:**  
+**July 2018 update:**  
 The user will begin on the homepage with the option to go to either the login
 page or the signup page.  Once the user is on their page of choice, they will
 enter the required information given to them.  If the information is valid they will
@@ -97,7 +105,7 @@ section.
 If the user has the desire to remove themselves from Inventation, they have the ability to do so via
 the "Delete Profile" button on the homepage.  **This in turn will also delete their site.**(create test for this)
 
-**Update for current build:**  
+**July 2018 update:**  
 
 The user begins on the homepage that consists of the website's title, a link
 to the signup page, and a link to the login page. 
@@ -137,13 +145,13 @@ that does redirect to a preview page that does not work as intended at the momen
 ### Prerequisites  
 So far the chrome is the primary browser in mind for this web app
 
-**Update for current build:**  
+**July 2018 update:**  
 Chrome is the only browser that the web app has been tested on.
 Therefore, users must have Chrome in order to properly use it.
 
 ### Installing  
 
-**Update for curren build:**  
+**July 2018 update:**  
 Clone or download the files from the Inventation master branch into a folder
 on your device. Open gitbash and and move to the directory with the files.
 type ``npm start`` to start the local server.  Open chrome and type in the
@@ -152,7 +160,7 @@ homepage where you will be able to interact with the site.
 
 ### Break down into end to end tests  
 
-**Update for current build:**  
+**July 2018 update:**  
 navigation from homepage -> signup page/login page:  
 this test includes checking that each link found on
 the homepage directs the user to the appropriate page.
@@ -182,13 +190,13 @@ site creation page append features,
 
 Add additional notes about how to deploy this on a live system
 
-**Update for current build**  
+**July 2018 update**  
 
 Inventation is deployed via Heroku
 
 ## Built With
 
-**Update for current build** 
+**July 2018 update:** 
 Inventation utilizes libraries from:  
 - express.js: framework used
 - mongoose.js: used for user and session object modeling
