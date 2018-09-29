@@ -79,7 +79,7 @@ body{
 .profile-remove{
     display: inline-block;
     position: relative;
-    left: 50px;
+    left: 100px;
     top: 20px;
 
 }
@@ -88,7 +88,7 @@ body{
     position: relative;
     display: inline-block;
     top: 20px;
-    left: 20px;
+    left: 70px;
 }
 
 /* css for inventation login page */
@@ -115,4 +115,10 @@ body{
 .toSignUp{
     position: relative;
     top: 50px;
+}
+
+.toHome{
+    position: relative;
+    top: 50px;
+    right: 70px;
 }

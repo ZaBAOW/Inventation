@@ -1,31 +1,32 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<link rel="stylesheet" href="main.css">
-	<title>Home Page</title>
+    <link rel="stylesheet" href="main.css">
+    <title>Home Page</title>
 </head>
 <body>
-	<h1 class="signup-title" aria-label="header">INVENTATION</h1>
-	<p style="text-decoration: underline" class="form-descript">Sign Up!</p>
-	<form class="profile-create" role="form">
-		<span>Username: </span>
-		<input type="text" class="username" aria-label="username" name="username">
-		<br>
-		<br>
-		<span>Password:</span>
-		<input type="text" class="password" aria-label="password" name="password">
-		<br>
-		<br>
-		<span>First Name: </span>
-		<input type="text" class="firstName" aria-label="firstName" name="firstName">
-		<br>
-		<br>
-		<span>Last Name: </span>
-		<input type="text" class="lastName" aria-label="lastName" name="lastName">
-		<br>
-		<button type="button" class="profile-submit" name="profile-submit" onclick="userCreate()">Create</button>
-		<button type="button" class="profile-remove" name="profile-remove" onclick="userRemove()">Delete Profile</button>
-	</form> 
+    <h1 class="signup-title" aria-label="header">INVENTATION</h1>
+    <p style="text-decoration: underline" class="form-descript">Sign Up!</p>
+    <form class="profile-create" role="form">
+        <span>Username: </span>
+        <input type="text" class="username" aria-label="username" name="username">
+        <br>
+        <br>
+        <span>Password:</span>
+        <input type="text" class="password" aria-label="password" name="password">
+        <br>
+        <br>
+        <span>First Name: </span>
+        <input type="text" class="firstName" aria-label="firstName" name="firstName">
+        <br>
+        <br>
+        <span>Last Name: </span>
+        <input type="text" class="lastName" aria-label="lastName" name="lastName">
+        <br>
+        <button type="button" class="profile-submit" name="profile-submit" onclick="userCreate()">Create</button>
+        <button type="button" class="profile-remove" name="profile-remove" onclick="userRemove()">Delete Profile</button>
+        <a href="homePage.html" class="toHome">Return to Homepage</a>
+    </form>
 </body>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.js"></script>
 <script>src="https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.js"</script>
