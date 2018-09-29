@@ -248,7 +248,7 @@ page and an erro appears in the browser console.
 
 site creation page:  
 This test checks that the buttons found in the side menu of the
-site creation page append features, 
+site creation page append features.
 
 ## Deployment
 
