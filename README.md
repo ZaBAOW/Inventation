@@ -77,6 +77,30 @@ When the user is done the save button can be used to save the user's site creati
 session.  When they log in to their site again they will be able to return to
 the version of the site they last left on. 
 
+**September 2018 update:**  
+Users will begin on the homepage with the option to go to either the login
+page or th signup page. If the user does not have a profile, they will go
+to the signup page to create one.  After creating their profile the user will be
+redirected to the login page where they will input the username and password of their
+newly created account.  If the user has a profile or beleives to have one, they will
+go to the login page.  The user will then enter their username and password.  If valid
+the user will be redirected to the site-creation page.  Otherwise the user will be presented
+with an alert telling them that their input was invalid.  In the case that the user 
+does not have a profile, there is a link under the login input fields that will redirect
+the user to the signup page where they will create a profile and return to the login page.
+
+In the instance of a returning user, when the site-creation page is loaded, the user's last
+saved session will be loaded.  If the user is new an alert will ask the user if they want
+to create a new session.  Clicking yes will create the new session and append an info box
+for the user by default.  The user can remove the info box if they wish.  After, the user
+can append and remove features from the side navigation bar, which is accessed by via the
+menu icon in the upper left corner of the page.  The current features are: InfoBox, Count Down
+timer, and slideshow.  Info box allows for the addition of text to the page.  Count Down allows
+for the addition of a timer that count down to the user's selected date.  Slideshow allows 
+the user to upload images to a slideshow.  When the user is finished they can use the save
+function also found in the side navigation bar.  An alert will appear if the session is
+saved successfully.
+
 
 ## Userflow
 to do:
