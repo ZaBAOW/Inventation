@@ -6,7 +6,7 @@
 to the Issues tab at a later date after they have been investigated**
 
 **There are no messages in place that are shown in response to an invalid user request
-at the moment.**  
+at the moment.**(SOLVED)    
 
 **JWT are currently not stored securly in cookies and are instead stored in
 localStorage().  Once the ability to retrieve JWT from cookies is found
@@ -14,14 +14,14 @@ this security risk will not be present.**
 
 **Save session function is either not correctly saving(updating) when the user clicks
 the save session button, or, retrieving and loading the session onto the website-conainer
-element.**  
+element.**(SOLVED)  
 
 **There are no buttons located on the signup and login page that allow for the user to
 easily return to the homepage, given they need to switch from the signup
-page to the login page, and vise versa.**  
+page to the login page, and vise versa.**(SOLVED)  
 
-**Some parts of this versio of Inventation will not work on gh-pages or Heroku.  This will
-be attended to in the future.**  
+**Some parts of this version of Inventation will not work on gh-pages or Heroku.  This will
+be attended to in the future.**(SOLVED)  
 
 ## About Inventation
 **Initial build:**  
@@ -166,12 +166,52 @@ They fifth button will allow the user to save their current session in the site 
 for when they are done or need to return to the session another time.**(there is a preview button
 that does redirect to a preview page that does not work as intended at the moment)**
 
+**September 2018 update:**  
+
+The user begins on the homepage that consists of the website's title, a link
+to the signup page, and a link to the login page. 
+
+Route 1  
+If the user has not signed up for a user profile, they will then click on the signup
+link to be sent to the signup page.  At the signup page, the user will enter in 
+information into a form presented to them.  If the user is able to enter valid 
+information into the form, they will be immediately redirected to the site creation page.  
+Otherwise they will be presented with an error message due to either missing or 
+invalid information that was input.  The user will then use the link on the page to
+visit the signup page to create a valid profile and after will be returned to the
+login page.
+
+Route 2  
+If the user has already signed up for a user profile, they will click on the login
+link to be sent to the login page.  At the login page, the user will enter their
+respective username and password.  If the user's login attempt is succeful, they will
+be redirected to the site creation page.  Otherwise they will be presented with an error
+message due to either mission or invalid information that was input
+
+Site Creation page  
+Despite which ever route is chosen by the user, if they are able to give the application
+valid information, they will redirect to the site creation page.  On the site creation
+page they user will have access to a side menu, which is opened by pressing on the menu
+icon in the top left corner of the site creation page.  Currently there are five buttons
+available for the user to interact with.  The first three buttons are what the user will
+click in order to append one of the three features respective to the button they clicked.
+If the user wishes to remove the feature, they will be able to click on the "remove" button
+represented by an "x", which will be located to the right of its respective feature.
+The fourth button in the side menu will allow for the user to return to the homepage.
+They fifth button will allow the user to save their current session in the site creation page
+for when they are done or need to return to the session another time.  The previe button that
+existed in the previous update has been removed.
+
 ### Prerequisites  
 So far the chrome is the primary browser in mind for this web app
 
 **July 2018 update:**  
 Chrome is the only browser that the web app has been tested on.
 Therefore, users must have Chrome in order to properly use it.
+
+**September 2018 update:**  
+nothing has been changed as far as accessibility outside of 
+Chrome.
 
 ### Installing  
 
