@@ -6,7 +6,7 @@
 to the Issues tab at a later date after they have been investigated**
 
 **There are no messages in place that are shown in response to an invalid user request
-at the moment.**  
+at the moment.**(SOLVED)    
 
 **JWT are currently not stored securly in cookies and are instead stored in
 localStorage().  Once the ability to retrieve JWT from cookies is found
@@ -14,14 +14,14 @@ this security risk will not be present.**
 
 **Save session function is either not correctly saving(updating) when the user clicks
 the save session button, or, retrieving and loading the session onto the website-conainer
-element.**  
+element.**(SOLVED)  
 
 **There are no buttons located on the signup and login page that allow for the user to
 easily return to the homepage, given they need to switch from the signup
-page to the login page, and vise versa.**  
+page to the login page, and vise versa.**(SOLVED)  
 
-**Some parts of this versio of Inventation will not work on gh-pages or Heroku.  This will
-be attended to in the future.**  
+**Some parts of this version of Inventation will not work on gh-pages or Heroku.  This will
+be attended to in the future.**(SOLVED)  
 
 ## About Inventation
 **Initial build:**  
@@ -35,13 +35,21 @@ will allow for the inclusion of different features (i.e. event info box, countdo
 The site currently has 5 different pages including: a homepage, login page, signup page,
 site creation page, and site preview page.
 
-**Update for current build:**  
+**July 2018 update:**  
 Currently Inventation has two major functions that work with minimal bug and/or errors
 occurring.  The first being the site's user profile creation and login functions
 that allow for users to use either the user signup or user login pages as paths 
 toward reaching the site creation page.  The second being the creation and updating(saving) 
 of user sessions withing the site creation page.  There is a preview button that exists on
 the site creation page that leads to a preview page, but currently the page is not ready.
+
+**September 2018 update:**  
+Inventation shows no signs of bugs and/or errors.  The users' ability to signup and login
+function as intended and issues with user deletion via the chai unit tests has been resolved.
+Users are now able to save their session and have it load for them when they return to the
+site creation page.  The preview button has been removed from the site-creation page.  Due
+to time constraints a preview page for the site and the ability to publish the site will
+be put on hold.
 
 ## Getting Started
 
@@ -58,7 +66,7 @@ There will also be buttons that will allow for the addition of images.
 One button will be used to add an image to the background of the page, while
 the other will be used to add images to the foreground.
 
-**Update for current build:**  
+**July 2018 update:**  
 The user will begin on the homepage with the option to go to either the login
 page or the signup page.  Once the user is on their page of choice, they will
 enter the required information given to them.  If the information is valid they will
@@ -68,6 +76,30 @@ can append and remove these feature as many times and in any order they may choo
 When the user is done the save button can be used to save the user's site creation
 session.  When they log in to their site again they will be able to return to
 the version of the site they last left on. 
+
+**September 2018 update:**  
+Users will begin on the homepage with the option to go to either the login
+page or th signup page. If the user does not have a profile, they will go
+to the signup page to create one.  After creating their profile the user will be
+redirected to the login page where they will input the username and password of their
+newly created account.  If the user has a profile or beleives to have one, they will
+go to the login page.  The user will then enter their username and password.  If valid
+the user will be redirected to the site-creation page.  Otherwise the user will be presented
+with an alert telling them that their input was invalid.  In the case that the user 
+does not have a profile, there is a link under the login input fields that will redirect
+the user to the signup page where they will create a profile and return to the login page.
+
+In the instance of a returning user, when the site-creation page is loaded, the user's last
+saved session will be loaded.  If the user is new an alert will ask the user if they want
+to create a new session.  Clicking yes will create the new session and append an info box
+for the user by default.  The user can remove the info box if they wish.  After, the user
+can append and remove features from the side navigation bar, which is accessed by via the
+menu icon in the upper left corner of the page.  The current features are: InfoBox, Count Down
+timer, and slideshow.  Info box allows for the addition of text to the page.  Count Down allows
+for the addition of a timer that count down to the user's selected date.  Slideshow allows 
+the user to upload images to a slideshow.  When the user is finished they can use the save
+function also found in the side navigation bar.  An alert will appear if the session is
+saved successfully.
 
 
 ## Userflow
@@ -97,7 +129,7 @@ section.
 If the user has the desire to remove themselves from Inventation, they have the ability to do so via
 the "Delete Profile" button on the homepage.  **This in turn will also delete their site.**(create test for this)
 
-**Update for current build:**  
+**July 2018 update:**  
 
 The user begins on the homepage that consists of the website's title, a link
 to the signup page, and a link to the login page. 
@@ -134,16 +166,56 @@ They fifth button will allow the user to save their current session in the site 
 for when they are done or need to return to the session another time.**(there is a preview button
 that does redirect to a preview page that does not work as intended at the moment)**
 
+**September 2018 update:**  
+
+The user begins on the homepage that consists of the website's title, a link
+to the signup page, and a link to the login page. 
+
+Route 1  
+If the user has not signed up for a user profile, they will then click on the signup
+link to be sent to the signup page.  At the signup page, the user will enter in 
+information into a form presented to them.  If the user is able to enter valid 
+information into the form, they will be immediately redirected to the site creation page.  
+Otherwise they will be presented with an error message due to either missing or 
+invalid information that was input.  The user will then use the link on the page to
+visit the signup page to create a valid profile and after will be returned to the
+login page.
+
+Route 2  
+If the user has already signed up for a user profile, they will click on the login
+link to be sent to the login page.  At the login page, the user will enter their
+respective username and password.  If the user's login attempt is succeful, they will
+be redirected to the site creation page.  Otherwise they will be presented with an error
+message due to either mission or invalid information that was input
+
+Site Creation page  
+Despite which ever route is chosen by the user, if they are able to give the application
+valid information, they will redirect to the site creation page.  On the site creation
+page they user will have access to a side menu, which is opened by pressing on the menu
+icon in the top left corner of the site creation page.  Currently there are five buttons
+available for the user to interact with.  The first three buttons are what the user will
+click in order to append one of the three features respective to the button they clicked.
+If the user wishes to remove the feature, they will be able to click on the "remove" button
+represented by an "x", which will be located to the right of its respective feature.
+The fourth button in the side menu will allow for the user to return to the homepage.
+They fifth button will allow the user to save their current session in the site creation page
+for when they are done or need to return to the session another time.  The previe button that
+existed in the previous update has been removed.
+
 ### Prerequisites  
 So far the chrome is the primary browser in mind for this web app
 
-**Update for current build:**  
+**July 2018 update:**  
 Chrome is the only browser that the web app has been tested on.
 Therefore, users must have Chrome in order to properly use it.
 
+**September 2018 update:**  
+nothing has been changed as far as accessibility outside of 
+Chrome.
+
 ### Installing  
 
-**Update for curren build:**  
+**July 2018 update:**  
 Clone or download the files from the Inventation master branch into a folder
 on your device. Open gitbash and and move to the directory with the files.
 type ``npm start`` to start the local server.  Open chrome and type in the
@@ -152,7 +224,7 @@ homepage where you will be able to interact with the site.
 
 ### Break down into end to end tests  
 
-**Update for current build:**  
+**July 2018 update:**  
 navigation from homepage -> signup page/login page:  
 this test includes checking that each link found on
 the homepage directs the user to the appropriate page.
@@ -176,19 +248,19 @@ page and an erro appears in the browser console.
 
 site creation page:  
 This test checks that the buttons found in the side menu of the
-site creation page append features, 
+site creation page append features.
 
 ## Deployment
 
 Add additional notes about how to deploy this on a live system
 
-**Update for current build**  
+**July 2018 update**  
 
 Inventation is deployed via Heroku
 
 ## Built With
 
-**Update for current build** 
+**July 2018 update:** 
 Inventation utilizes libraries from:  
 - express.js: framework used
 - mongoose.js: used for user and session object modeling
