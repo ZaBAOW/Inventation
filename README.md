@@ -273,6 +273,20 @@ Inventation utilizes libraries from:
 
 Andrew Kadesky (https://github.com/ZaBAOW)
 
+## RoadMap for the future of Inventation  
+The ultimate purspose of Inventation was to allow for users to publish their own
+site for upcoming events with ease.  Such functionality has yet to be implemented
+so this will be one of the primary focuses for future updates.
+
+Along with that, the inclusion of a preview page for the user to check the look and
+feel of their site before publishing will be a part of the site publishing updates.
+
+At the moment the home, signup, and login pages are all somewhat bland in style.
+Future updates will see that the look and feel of these pages will be more stylish
+and better to look at for the user.
+
+New site features and added interactions to already existing features will be include
+to allow for more variety when creating your site.
 
 ## License
 
