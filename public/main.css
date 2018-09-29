@@ -45,6 +45,16 @@ body{
     color: red;
     position: relative;
     text-align: center;
+    background-color: #faaa4b;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    border-radius: 20px;
+    border-color: #080808;
+    border-width: 5px;
+    border-style: solid;
+    width: 50%;
+    left: 245px;
+
 }
 
 .form-descript{
@@ -97,6 +107,15 @@ body{
     color: red;
     position: relative;
     text-align: center;
+    background-color: #faaa4b;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    border-radius: 20px;
+    border-color: #080808;
+    border-width: 5px;
+    border-style: solid;
+    width: 50%;
+    left: 245px;
 }
 
 .user-login{
