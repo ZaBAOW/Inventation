@@ -156,7 +156,7 @@ function retrieveSessionById() {
                     var imageNumber = $('.dot-container span').length
                     var newDotTemplate = '<span class="dot" onclick="currentSlide(' + imageNumber + ')"></span>'
                     $('.dot-container').append(newDotTemplate);
-                    $('.slideshow-container').append(newImageTemplate);
+                    $('.slideshow-container').prepend(newImageTemplate);
                 }
             }
             if (selectedDateContent !== null) {

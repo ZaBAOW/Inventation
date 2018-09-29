@@ -1,6 +1,6 @@
 /* css for inventation homepage */
 body{
-    background: #33FF5D;
+    background: #2FB8E9;
 }
 
 .home-title{
@@ -11,6 +11,13 @@ body{
     text-align: center;
     position: relative;
     top: 125px;
+    background-color: #faaa4b;
+    padding-top: 50px;
+    padding-bottom: 50px;
+    border-radius: 20px;
+    border-color: #080808;
+    border-width: 5px;
+    border-style: solid;
 }
 
 .signup-link{
@@ -80,7 +87,7 @@ body{
 .profile-submit{
     position: relative;
     display: inline-block;
-    top: 20px; 
+    top: 20px;
     left: 20px;
 }
 
