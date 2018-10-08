@@ -8,7 +8,7 @@ Home Page View | Login Page View
 Signup Page View
 ![Signup Page](https://github.com/ZaBAOW/Inventation/blob/master/screen_shots/sign_up_page.jpg)
 Site Create Page View
-![Open Menu Icon](https://github.com/ZaBAOW/Inventation/blob/master/screen_shots/menu_icon.jpg)
+![Open Menu Icon](https://github.com/ZaBAOW/Inventation/blob/master/screen_shots/menu_icon.jpg) |
 ![Side Menu View](https://github.com/ZaBAOW/Inventation/blob/master/screen_shots/side_navigation_bar.jpg)
 
 **Known Issues:**
