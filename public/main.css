@@ -156,18 +156,27 @@ h1, h2, h3, h4, h5, h6{
     left: 6px;
 }
 .profile-remove{
-    display: inline-block;
     position: relative;
-    left: 100px;
     top: 20px;
+    left: 132px;
+    padding-left: 50px;
+    padding-right: 50px;
 
 }
 
 .profile-submit{
     position: relative;
-    display: inline-block;
     top: 20px;
-    left: 70px;
+    left: 92px;
+    padding-left: 50px;
+    padding-right: 50px;
+}
+
+.toHome{
+    position: relative;
+    top: 50px;
+    right: 170px;
+    color: white;
 }
 
 /* css for inventation login page */
@@ -210,9 +219,4 @@ h1, h2, h3, h4, h5, h6{
     color: white;
 }
 
-.toHome{
-    position: relative;
-    top: 50px;
-    right: 70px;
-    color: white;
-}
+
