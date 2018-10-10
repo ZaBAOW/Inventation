@@ -85,6 +85,7 @@ h1, h2, h3, h4, h5, h6{
     text-align: center;
     color: white;
     display:inline-block;
+    font-size: x-large;
 }
 
 .login-link{
@@ -92,12 +93,14 @@ h1, h2, h3, h4, h5, h6{
     text-align: center;
     color: white;
     display:inline-block;
+    font-size: x-large;
 }
 
 .aboutApp{
     margin-top: 5%;
     text-align: center;
-    color: white
+    color: white;
+    font-size: x-large;
 }
 
 /* css for inventation signup page */
@@ -123,6 +126,9 @@ h1, h2, h3, h4, h5, h6{
 .form-descript{
     position: relative;
     text-align: center;
+    padding-bottom: 10px;
+    font-size: x-large;
+    color: white;
 }
 
 .profile-create{
