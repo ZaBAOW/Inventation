@@ -4,11 +4,15 @@
 
 Home Page View | Login Page View
 :-------------------------------:|:----------------------:
-![Home Page](https://github.com/ZaBAOW/Inventation/blob/master/screen_shots/home_page.jpg) | ![Login Page](https://github.com/ZaBAOW/Inventation/blob/master/screen_shots/login_page.jpg)
+![Home Page](https://github.com/ZaBAOW/Inventation/blob/master/screen_shots/home_page.png) | ![Login Page](https://github.com/ZaBAOW/Inventation/blob/master/screen_shots/login_page.png)
 Signup Page View
-![Signup Page](https://github.com/ZaBAOW/Inventation/blob/master/screen_shots/sign_up_page.jpg)
-Site Create Page View | Side Menu View
-![Open Menu Icon](https://github.com/ZaBAOW/Inventation/blob/master/screen_shots/menu_icon.jpg) | ![Side Menu View](https://github.com/ZaBAOW/Inventation/blob/master/screen_shots/side_navigation_bar.jpg)
+![Signup Page](https://github.com/ZaBAOW/Inventation/blob/master/screen_shots/sign_up_page.png)
+Site Create Page View
+![Open Menu Icon](https://github.com/ZaBAOW/Inventation/blob/master/screen_shots/open_menu_icon.png)
+Info Box View | Countdown View
+![Info Box View](https://github.com/ZaBAOW/Inventation/blob/master/screen_shots/Info_box.png) | ![Countdown View](https://github.com/ZaBAOW/Inventation/blob/master/screen_shots/count_down.png)
+Slideshow View
+![Slideshow View](https://github.com/ZaBAOW/Inventation/blob/master/screen_shots/slide_show.png)
 
 **Known Issues:**
 

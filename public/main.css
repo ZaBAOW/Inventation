@@ -1,16 +1,67 @@
+*{
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 100%;
+    /*The box-sizing property is used to tell the browser what the sizing properties (width and height) should include border-box.*/
+    box-sizing: border-box;
+    /*reset Chrome user agent styles*/
+    -webkit-margin-before: 0px;
+    -webkit-margin-after: 0px;
+    -webkit-margin-start: 0px;
+    -webkit-margin-end: 0px;
+    -webkit-padding-before: 0px;
+    -webkit-padding-after: 0px;
+    -webkit-padding-start: 0px;
+    -webkit-padding-end: 0px;
+    /*reset Firefox user agent styles*/
+    -moz-margin-before: 0px;
+    -moz-margin-after: 0px;
+    -moz-margin-start: 0px;
+    -moz-margin-end: 0px;
+    -moz-padding-before: 0px;
+    -moz-padding-after: 0px;
+    -moz-padding-start: 0px;
+    -moz-padding-end: 0px;
+    /*reset Internet Explorer user agent styles*/
+    -ms-margin-before: 0px;
+    -ms-margin-after: 0px;
+    -ms-margin-start: 0px;
+    -ms-margin-end: 0px;
+    -ms-padding-before: 0px;
+    -ms-padding-after: 0px;
+    -ms-padding-start: 0px;
+    -ms-padding-end: 0px;
+    /*reset Opera user agent styles*/
+    -o-margin-before: 0px;
+    -o-margin-after: 0px;
+    -o-margin-start: 0px;
+    -o-margin-end: 0px;
+    -o-padding-before: 0px;
+    -o-padding-after: 0px;
+    -o-padding-start: 0px;
+    -o-padding-end: 0px;
+}
+
 /* css for inventation homepage */
 body{
     background: #2FB8E9;
+    font-family: 'Kreon', serif;
+}
+
+h1, h2, h3, h4, h5, h6{
+    font-family: 'Itim', cursive;
+    font-size: 42px;
 }
 
 .home-title{
-    color: red;
+    color: #669b00;
     display: block;
     margin: auto;
+    margin-top: 5%;
     width: 50%;
     text-align: center;
     position: relative;
-    top: 125px;
     background-color: #faaa4b;
     padding-top: 50px;
     padding-bottom: 50px;
@@ -20,40 +71,52 @@ body{
     border-style: solid;
 }
 
-.signup-link{
-
-    margin: auto;
+.link-container{
     width: 50%;
+    margin-top: 5%;
+    margin-left: auto;
+    margin-right: auto;
     text-align: center;
-    position: relative;
-    top: 150px;
-    left: 675px;
+    display: block;
+}
+
+.signup-link{
+    width: 49%;
+    text-align: center;
+    color: white;
+    display:inline-block;
 }
 
 .login-link{
-
-    margin: auto;
-    width: 50%;
+    width: 49%;
     text-align: center;
-    position: relative;
-    top: 150px;
-    left: 725px;
+    color: white;
+    display:inline-block;
+}
+
+.aboutApp{
+    margin-top: 5%;
+    text-align: center;
+    color: white
 }
 
 /* css for inventation signup page */
 .signup-title{
-    color: red;
-    position: relative;
+    color: #669b00;
+    display: block;
+    margin: auto;
+    margin-top: 5%;
+    margin-bottom: 5%;
+    width: 50%;
     text-align: center;
+    position: relative;
     background-color: #faaa4b;
-    padding-top: 10px;
-    padding-bottom: 10px;
+    padding-top: 25px;
+    padding-bottom: 25px;
     border-radius: 20px;
     border-color: #080808;
     border-width: 5px;
     border-style: solid;
-    width: 50%;
-    left: 375px;
 
 }
 
@@ -104,23 +167,27 @@ body{
 /* css for inventation login page */
 
 .login-title{
-    color: red;
-    position: relative;
+    color: #669b00;
+    display: block;
+    margin: auto;
+    margin-top: 5%;
+    margin-bottom: 5%;
+    width: 50%;
     text-align: center;
+    position: relative;
     background-color: #faaa4b;
-    padding-top: 10px;
-    padding-bottom: 10px;
+    padding-top: 25px;
+    padding-bottom: 25px;
     border-radius: 20px;
     border-color: #080808;
     border-width: 5px;
     border-style: solid;
-    width: 50%;
-    left: 375px;
 }
 
 .user-login{
     position: relative;
     text-align: center;
+    color: white;
 }
 
 .login-btn{
@@ -134,10 +201,12 @@ body{
 .toSignUp{
     position: relative;
     top: 50px;
+    color: white;
 }
 
 .toHome{
     position: relative;
     top: 50px;
     right: 70px;
+    color: white;
 }
