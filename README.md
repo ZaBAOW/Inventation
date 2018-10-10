@@ -9,8 +9,6 @@ Login Page View
 ![Login Page](https://github.com/ZaBAOW/Inventation/blob/master/screen_shots/log_in_page.png)
 Signup Page View
 ![Signup Page](https://github.com/ZaBAOW/Inventation/blob/master/screen_shots/sign_up_page.png)
-Site Create Page View
-![Open Menu Icon](https://github.com/ZaBAOW/Inventation/blob/master/screen_shots/open_menu_icon.png)
 Info Box View
 ![Info Box View](https://github.com/ZaBAOW/Inventation/blob/master/screen_shots/Info_box.png)
 Countdown View
