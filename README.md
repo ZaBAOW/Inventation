@@ -4,7 +4,7 @@
 
 Home Page View | Login Page View
 :-------------------------------:|:----------------------:
-![Home Page](https://github.com/ZaBAOW/Inventation/blob/master/screen_shots/home_page.png) | ![Login Page](https://github.com/ZaBAOW/Inventation/blob/master/screen_shots/login_page.png)
+![Home Page](https://github.com/ZaBAOW/Inventation/blob/master/screen_shots/home_page.png) | ![Login Page](https://github.com/ZaBAOW/Inventation/blob/master/screen_shots/log_in_page.png)
 Signup Page View
 ![Signup Page](https://github.com/ZaBAOW/Inventation/blob/master/screen_shots/sign_up_page.png)
 Site Create Page View
