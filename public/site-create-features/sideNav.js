@@ -102,7 +102,7 @@ function retrieveSession() {
 
 function retrieveSessionById() {
     const id = localStorage.sessionId;
-    if (id === undefined) {
+    if (id === "undefined") {
         var r = confirm("We could not find your session.\n" + "Would you like to create a session?");
         if (r === true) {
             createSession();
