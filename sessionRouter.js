@@ -35,7 +35,7 @@ router.post('/protected', jwtAuth, jsonParser, (req, res) => {
         }).exec()
         .then(function (session) {
             console.log('checking for existing session...');
-            if (session === null) {
+            if (session === "null") {
                 return Session.create({
                         infoBoxContent,
                         slideShowContent,
