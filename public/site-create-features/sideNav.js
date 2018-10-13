@@ -71,8 +71,9 @@ function createSession() {
             console.log(data.id);
             console.log('session succesfully created');
             localStorage.setItem('sessionId', data.id);
-            if (data.code === 500) {
+            if (data.code === 409) {
                 console.log('there is a duplicate of your session.')
+                alert('You already have a session stored, your good to go');
             }
         })
         .catch(function (err) {
