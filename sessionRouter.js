@@ -59,7 +59,8 @@ router.post('/protected', jwtAuth, jsonParser, (req, res) => {
                     })
             } else {
                 return res.status(409).json({
-                    message: 'You have already created a session'
+                    message: 'You have already created a session',
+                    code: 409
                 });
             }
 
