@@ -1,5 +1,10 @@
 'use strict'
 
+function displayMessage(message){
+    $("#message-box span").html(message);
+    $("#message-box").fadeIn();
+    $("#message-box").fadeOut(10000);
+}
 
 function openNav() {
     document.getElementById("mySidenav").style.width = "250px";
@@ -73,7 +78,7 @@ function createSession() {
             localStorage.setItem('sessionId', data.id);
             if (data.code === 409) {
                 console.log('there is a duplicate of your session.')
-                alert('You already have a session stored, your good to go');
+                displayMessage('You already have a session stored, your good to go');
             }
         })
         .catch(function (err) {
@@ -103,7 +108,7 @@ function retrieveSession() {
 
 function retrieveSessionById() {
     const id = localStorage.sessionId;
-    if (id === "undefined") {
+    if (id === undefined || id === "undefined") {
         var r = confirm("We could not find your session.\n" + "Would you like to create a session?");
         if (r === true) {
             createSession();
@@ -206,7 +211,7 @@ function saveSession(upload_url) {
     content['countDownContent'] = countDownContent || null;
     content['selectedDateContent'] = selectedDateContent || null;
     if (content.infoBoxContent === null && content.slideContent === null && content.countContent === null && content.selectedDateContent === null) {
-        alert('There is nothing to save. Please add a feature before saving');
+        displayMessage('There is nothing to save. Please add a feature before saving');
         return;
     }
     const id = localStorage.sessionId;
@@ -223,7 +228,7 @@ function saveSession(upload_url) {
     };
     fetch(endpoint, requestData)
         .then(function (data) {
-            alert('session succesfully saved');
+            displayMessage('session succesfully saved');
             console.log('session succesfully saved');
         })
         .catch(function (err) {

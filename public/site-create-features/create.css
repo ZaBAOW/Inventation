@@ -38,17 +38,27 @@
 }
 
 .home-link {
+    display: inline-block;
     font-size: 30px;
     cursor: pointer;
+    border: 1px solid red;
 }
 
-.preview-btn{
-    border-radius: 4px;
-    padding: 14px 40px;
-    font-size: 20px;
-    position: fixed;
-    left: 85%;
-    top: 1200px
+.item-selection{
+    position: relative;
+    display: inline-block;
+    border: 1px solid red;
+    margin-right: auto;
+    margin-left: auto;
+
+}
+
+.save-container{
+    position: relative;
+    display: inline-block;
+    border: 1px solid red;
+    margin-right: auto;
+    margin-left: auto;
 }
 
 .remove-slideshow{
