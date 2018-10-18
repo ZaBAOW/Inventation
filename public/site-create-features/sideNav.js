@@ -15,9 +15,20 @@ function closeNav() {
 }
 
 function createInfo() {
-    var newInfoBox = '<div class="info-container storable"><input type="button" class="remove-infoBox" value="&#10006"><textarea class="content" name="content" rows="10" cols="50"></textarea></div><br>';
+    var newInfoBox = "";
+    newInfoBox += `<div class="info-container storable">`;
+    newInfoBox += `<input type="button" class="remove-infoBox" value="&#10006">`;
+    newInfoBox += `<textarea class="content" name="content" rows="10" cols="50">`;
+    newInfoBox += `</textarea>`;
+    newInfoBox += `</div>`;
+    newInfoBox += `<br>`;
     $('#website-container').append(newInfoBox);
 }
+
+//function createInfo() {
+//    var newInfoBox = '<div class="info-container storable"><input type="button" class="remove-infoBox" value="&#10006"><textarea class="content" name="content" rows="10" cols="50"></textarea></div><br>';
+//    $('#website-container').append(newInfoBox);
+//}
 
 function createCountdown() {
     var newCountDown = '<div class="count-container storable"><input type="button" class="remove-countdown" value="&#10006"><div action="/action_patge.php">Event (date and time):<input type="datetime-local" id = "eventDay" name="eventDay"><button class = "countDownSubmit" name="Send">Submit</button></div><p id="countdown"></p></div>';
