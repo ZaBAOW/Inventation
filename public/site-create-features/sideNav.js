@@ -1,6 +1,6 @@
 'use strict'
 
-function displayMessage(message){
+function displayMessage(message) {
     $("#message-box span").html(message);
     $("#message-box").fadeIn();
     $("#message-box").fadeOut(5000);
@@ -37,11 +37,10 @@ $(document).on('click', '.preview-btn', function () {
 
 function returnHome() {
     var r = confirm('Are you sure you want to return to the home page?');
-    if(r === true){
+    if (r === true) {
         saveSession();
         window.location.replace("/homePage.html");
-    }
-    else{
+    } else {
         return
     }
 }

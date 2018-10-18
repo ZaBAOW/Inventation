@@ -45,7 +45,6 @@ function uploadImage(file) {
             let uploadDataObject = {
                 'userImageUrl': result.secure_url,
             }
-            alert('Successfully uploaded to Cloudinary');
             // addImageToDb(uploadDataObject);
             console.log(result.secure_url);
             console.log(result.original_filename);
@@ -58,23 +57,3 @@ function uploadImage(file) {
             $('.slideshow-container').prepend(newImageTemplate);
         });
 }
-
-// function addImageToDb(data){
-//     console.log(data);
-//     $.ajax({
-//         url: "/contestant/addpic",
-//         type: 'POST',
-//         data: JSON.stringify(data),
-//         contentType: 'application/json'
-//     })
-//     .done(function(result) {
-//         console.log(result);
-//         alert('You successfully submitted your pic!');
-
-//     })
-//     .fail(function(jqXHR, error, errorThrown){
-//         console.log(jqXHR);
-//         console.log(error);
-//         console.log(errorThrown);
-//     });
-// }
