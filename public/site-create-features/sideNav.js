@@ -3,7 +3,7 @@
 function displayMessage(message){
     $("#message-box span").html(message);
     $("#message-box").fadeIn();
-    $("#message-box").fadeOut(10000);
+    $("#message-box").fadeOut(5000);
 }
 
 function openNav() {
@@ -36,7 +36,14 @@ $(document).on('click', '.preview-btn', function () {
 })
 
 function returnHome() {
-    window.location.replace("/homePage.html");
+    var r = confirm('Are you sure you want to return to the home page?');
+    if(r === true){
+        saveSession();
+        window.location.replace("/homePage.html");
+    }
+    else{
+        return
+    }
 }
 
 
@@ -52,7 +59,7 @@ function createSession() {
     content['countDownContent'] = countDownContent || null;
     content['selectedDateContent'] = selectedDateContent || null;
     console.log(content);
-    const endpoint = '/session/protected';
+    const endpoint = '/session';
     const requestData = {
         method: 'POST',
         headers: {
@@ -73,8 +80,8 @@ function createSession() {
                 console.log(data.message.message);
                 return;
             }
-            console.log(data.id);
-            console.log('session succesfully created');
+            console.log("session id: ", data.id);
+            displayMessage('session succesfully created');
             localStorage.setItem('sessionId', data.id);
             if (data.code === 409) {
                 console.log('there is a duplicate of your session.')
@@ -140,7 +147,7 @@ function retrieveSessionById() {
             }
         })
         .then(function (data) {
-            console.log('YOUR session has been retrieved');
+            displayMessage('YOUR session has been retrieved');
             const infoBoxContent = data.data.infoBoxContent;
             const slideShowContent = data.data.slideShowContent;
             const countDownContent = data.data.countDownContent;
@@ -152,7 +159,7 @@ function retrieveSessionById() {
             if (countDownContent !== null) {
                 createCountdown();
             }
-            if (slideShowContent !== null) {
+            if (slideShowContent.length !== 0) {
                 createSlideShow();
                 var i;
                 for (i = 0; i < slideShowContent.length - 1; i++) {

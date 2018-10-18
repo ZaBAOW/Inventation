@@ -17,7 +17,7 @@ const {
     authToken
 } = require('./lib/auth/router');
 
-router.post('/protected', jwtAuth, jsonParser, (req, res) => {
+router.post('/', jwtAuth, jsonParser, (req, res) => {
     console.log('creating session...');
     console.log(req.body);
     let infoBoxContent = req.body.content.infoBoxContent;
@@ -28,6 +28,7 @@ router.post('/protected', jwtAuth, jsonParser, (req, res) => {
     console.log(slideShowContent);
     console.log(countDownContent);
     let userId = req.user.id;
+    console.log("user id: ", userId);
     let ObjectId = mongoose.Types.ObjectId;
     let userSession = new ObjectId(userId);
     Session.findOne({
@@ -35,7 +36,8 @@ router.post('/protected', jwtAuth, jsonParser, (req, res) => {
         }).exec()
         .then(function (session) {
             console.log('checking for existing session...');
-            if (session === "null") {
+            console.log("new session: ", session);
+            if (session == "null" || session == null || session == "") {
                 return Session.create({
                         infoBoxContent,
                         slideShowContent,
@@ -46,9 +48,11 @@ router.post('/protected', jwtAuth, jsonParser, (req, res) => {
                     })
                     .then(session => {
                         console.log('created session');
+                        console.log("session id: ", session);
                         return res.status(201).json(session.serialize());
                     })
                     .catch(err => {
+                    console.log(err);
                         if (err.reason === 'ValidationError') {
                             return res.status(err.code).json(err);
                         }
@@ -96,7 +100,10 @@ router.put('/:id', jsonParser, (req, res) => {
     return Session.findOneAndUpdate(conditions, updateArguments, options)
         .exec()
         .then(function (session) {
-            console.log('slideshowContent: ', session.slideShowContent[0]);
+            if(slideShowContent.image == null){
+                console.log('there was no image to add');
+                return;
+            }
             console.log('adding image...');
             return Session.update(conditions, {
                     $push: {
