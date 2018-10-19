@@ -25,19 +25,42 @@ function createInfo() {
     $('#website-container').append(newInfoBox);
 }
 
-//function createInfo() {
-//    var newInfoBox = '<div class="info-container storable"><input type="button" class="remove-infoBox" value="&#10006"><textarea class="content" name="content" rows="10" cols="50"></textarea></div><br>';
-//    $('#website-container').append(newInfoBox);
-//}
-
 function createCountdown() {
-    var newCountDown = '<div class="count-container storable"><input type="button" class="remove-countdown" value="&#10006"><div action="/action_patge.php">Event (date and time):<input type="datetime-local" id = "eventDay" name="eventDay"><button class = "countDownSubmit" name="Send">Submit</button></div><p id="countdown"></p></div>';
-    $('#website-container').append(newCountDown);
+    var newCountdown = "";
+    newCountdown += `<div class="count-container storable">`
+    newCountdown += `<input type="button" class="remove-countdown" value="&#10006">`
+    newCountdown = `<div action="/action_patge.php">`
+    newCountdown += `Event (date and time):`
+    newCountdown += `<input type="datetime-local" id = "eventDay" name="eventDay">`
+    newCountdown += `<button class = "countDownSubmit" name="Send">`
+    newCountdown += `Submit`
+    newCountdown += `</button>`
+    newCountdown += `</div>`
+    newCountdown += `<p id="countdown">`
+    newCountdown += `</p>`
+    newCountdown += `</div>`
+    $('#website-container').append(newCountdown);
 }
 
-function createSlideShow() {
-    var newSlideShow = '<div class="slide-container storable"><div class="slideshow-container"><input type="button" class="remove-slideshow" value="&#10006"><a class="prev" onclick="plusSlides(-1)">&#10094;</a><a class="next" onclick="plusSlides(1)">&#10095;</a><div style="text-align: center" class="dot-container"></div><div class="imageUpload"><div><input name="file" type="file"class="file-select" data-cloudinary-field="image_id" data-form-data="{ "transformation": {"crop":"limit","tags":"samples" "width":3000,"height":2000}}"/></div><button class = "upload-submit">Submit</button></div></div>';
 
+function createSlideShow() {
+    var newSlideShow = ""
+    newSlideShow += `<div class="slide-container storable"><div class="slideshow-container">`
+    newSlideShow += `<input type="button" class="remove-slideshow" value="&#10006">`
+    newSlideShow += `<a class="prev" onclick="plusSlides(-1)">&#10094;`
+    newSlideShow += `</a>`
+    newSlideShow += `<a class="next" onclick="plusSlides(1)">&#10095;`
+    newSlideShow += `</a>`
+    newSlideShow += `<div style="text-align: center" class="dot-container">`
+    newSlideShow += `</div>`
+    newSlideShow += `<div class="imageUpload">`
+    newSlideShow += `<div>`
+    newSlideShow += `<input name="file" type="file"class="file-select" data-cloudinary-field="image_id" data-form-data="{ "transformation": {"crop":"limit","tags":"samples" "width":3000,"height":2000}}"/>`
+    newSlideShow += `</div><button class = "upload-submit">`
+    newSlideShow += `Submit`
+    newSlideShow += `</button>`
+    newSlideShow += `</div>`
+    newSlideShow += `</div>`
     $('#website-container').append(newSlideShow);
 }
 
