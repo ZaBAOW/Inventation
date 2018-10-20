@@ -66,6 +66,12 @@
     margin-left: auto;
 }
 
+#website-container {
+    border: 1px green solid;
+    width: 85%;
+    margin: auto;
+}
+
 .remove-slideshow {
     display: block;
     float: right;
@@ -91,6 +97,7 @@
     padding-left: 5%;
     padding-top: 5%;
     padding-bottom: 5%;
+    margin-bottom: 15px;
 }
 
 .count-container {
@@ -99,9 +106,11 @@
     margin: auto;
     padding: 2%;
     margin-left: 12.5%;
+    margin-bottom: 15px;
 }
 
 .slide-container {
     border: 1px red solid;
     min-height: 80px;
+    margin-bottom: 15px;
 }

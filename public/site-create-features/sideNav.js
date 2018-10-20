@@ -21,7 +21,6 @@ function createInfo() {
     newInfoBox += `<textarea class="content" name="content" rows="10" cols="50">`;
     newInfoBox += `</textarea>`;
     newInfoBox += `</div>`;
-    newInfoBox += `<br>`;
     $('#website-container').append(newInfoBox);
 }
 
@@ -39,7 +38,6 @@ function createCountdown() {
     newCountdown += `<p id="countdown">`;
     newCountdown += `</p>`;
     newCountdown += `</div>`;
-    newCountdown += `<br>`;
     $('#website-container').append(newCountdown);
 }
 
@@ -62,7 +60,6 @@ function createSlideShow() {
     newSlideShow += `</button>`;
     newSlideShow += `</div>`;
     newSlideShow += `</div>`;
-    newSlideShow += `<br>`;
     $('#website-container').append(newSlideShow);
 }
 
