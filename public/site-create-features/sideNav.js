@@ -47,6 +47,7 @@ function createCountdown() {
 function createSlideShow() {
     var newSlideShow = ""
     newSlideShow += `<div class="slide-container storable"><div class="slideshow-container">`;
+    newSlideShow += `<input type="button" class="remove-slideshow" value="&#10006">`;
     newSlideShow += `<a class="prev" onclick="plusSlides(-1)">&#10094;`;
     newSlideShow += `</a>`;
     newSlideShow += `<a class="next" onclick="plusSlides(1)">&#10095;`;
@@ -60,7 +61,6 @@ function createSlideShow() {
     newSlideShow += `Submit`;
     newSlideShow += `</button>`;
     newSlideShow += `</div>`;
-    newSlideShow += `<input type="button" class="remove-slideshow" value="&#10006">`;
     newSlideShow += `</div>`;
     newSlideShow += `<br>`;
     $('#website-container').append(newSlideShow);

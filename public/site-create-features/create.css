@@ -67,8 +67,8 @@
 }
 
 .remove-slideshow {
-    float: right;
     display: block;
+    float: right;
 }
 
 .remove-countdown {
@@ -103,4 +103,5 @@
 
 .slide-container {
     border: 1px red solid;
+    min-height: 80px;
 }
