@@ -50,6 +50,10 @@ html {
     }
 }
 
+#message-box {
+    font-size: 24px;
+}
+
 .header {
     min-height: 45px;
     border: red 1px solid;
@@ -74,6 +78,23 @@ html {
     float: right;
     margin-top: 20px;
 
+}
+
+.info-btn {
+    padding-right: 10px;
+    padding-left: 10px;
+    margin-right: 5px;
+}
+
+.countdown-btn {
+    padding-right: 10px;
+    padding-left: 10px;
+}
+
+.slideShow-btn {
+    padding-right: 10px;
+    padding-left: 10px;
+    margin-left: 5px;
 }
 
 .save-container {
@@ -116,8 +137,6 @@ html {
     padding-left: 5%;
     margin-bottom: 15px;
 }
-
-.info_box_content {}
 
 .count-container {
     border: 1px solid red;
