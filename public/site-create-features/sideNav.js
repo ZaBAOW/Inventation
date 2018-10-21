@@ -28,7 +28,7 @@ function createCountdown() {
     var newCountdown = "";
     newCountdown += `<div class="count-container storable">`;
     newCountdown += `<input type="button" class="remove-countdown" value="&#10006">`;
-    newCountdown += `<div action="/action_patge.php">`;
+    newCountdown += `<div class="date-selector" action="/action_patge.php">`;
     newCountdown += `Event (date and time):`;
     newCountdown += `<input type="datetime-local" id = "eventDay" name="eventDay">`;
     newCountdown += `<button class = "countDownSubmit" name="Send">`;
