@@ -18,7 +18,7 @@ function createInfo() {
     var newInfoBox = "";
     newInfoBox += `<div class="info-container storable">`;
     newInfoBox += `<input type="button" class="remove-infoBox" value="&#10006">`;
-    newInfoBox += `<textarea class="content" name="content" rows="10" cols="50">`;
+    newInfoBox += `<textarea class="content" name="content" rows="10" cols="50" placeholder="Enter some information about your event">`;
     newInfoBox += `</textarea>`;
     newInfoBox += `</div>`;
     $('#website-container').append(newInfoBox);
