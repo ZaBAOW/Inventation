@@ -52,7 +52,7 @@ router.post('/', jwtAuth, jsonParser, (req, res) => {
                         return res.status(201).json(session.serialize());
                     })
                     .catch(err => {
-                    console.log(err);
+                        console.log(err);
                         if (err.reason === 'ValidationError') {
                             return res.status(err.code).json(err);
                         }
@@ -100,27 +100,28 @@ router.put('/:id', jsonParser, (req, res) => {
     return Session.findOneAndUpdate(conditions, updateArguments, options)
         .exec()
         .then(function (session) {
-            if(slideShowContent.image == null){
+            if (slideShowContent.image == null) {
                 console.log('there was no image to add');
-                return;
-            }
-            console.log('adding image...');
-            return Session.update(conditions, {
-                    $push: {
-                        slideShowContent
-                    }
-                })
-                .then(function (session) {
-                    console.log('displaying updated session');
-                    //  console.log("New Session: ", session);
-                    return res.status(204).end();
-                })
-                .catch(function (err) {
-                    console.log(err);
-                    return res.status(500).json({
-                        message: err
+                return res.status(204).end();
+            } else {
+                console.log('adding image...');
+                return Session.update(conditions, {
+                        $push: {
+                            slideShowContent
+                        }
+                    })
+                    .then(function (session) {
+                        console.log('displaying updated session');
+                        //  console.log("New Session: ", session);
+                        return res.status(204).end();
+                    })
+                    .catch(function (err) {
+                        console.log(err);
+                        return res.status(500).json({
+                            message: err
+                        });
                     });
-                });
+            }
         })
         .catch(function (err) {
             return res.status(500).json({
