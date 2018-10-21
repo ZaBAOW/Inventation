@@ -40,6 +40,5 @@ function showSlides(n) {
 }
 
 $(document).on('click', '.remove-slideshow', function () {
-    $('.slideshow-container').parent('.slide-container').remove();
-    $('#website-container').find('br').remove();
+    $(this).parent().parent().remove();
 });

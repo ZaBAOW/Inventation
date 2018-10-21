@@ -42,6 +42,13 @@
     }
 }
 
+.header {
+    min-height: 45px;
+    border: red 1px solid;
+}
+
+.title {}
+
 .home-link {
     display: inline-block;
     font-size: 30px;
@@ -53,8 +60,8 @@
     position: relative;
     display: inline-block;
     border: 1px solid red;
-    margin-right: auto;
-    margin-left: auto;
+    float: right;
+    margin-top: 20px;
 
 }
 
@@ -71,6 +78,7 @@
     border: 1px green solid;
     width: 85%;
     margin: auto;
+    margin-top: 15px;
 }
 
 .remove-slideshow {
