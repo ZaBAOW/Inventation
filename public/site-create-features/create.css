@@ -56,8 +56,9 @@ html {
 
 .header {
     min-height: 45px;
-    border: red 1px solid;
+/*    border: red 1px solid;*/
     background: rgba(255, 255, 255, 0.8);
+    border-radius: 10px;
 }
 
 .title {
@@ -77,7 +78,7 @@ html {
     border: 1px solid red;
     float: right;
     margin-top: 20px;
-
+    margin-right: 60px;
 }
 
 .info-btn {
@@ -147,6 +148,12 @@ html {
 
 .date-selector {
     text-align: center;
+}
+
+.countdown-description {
+    text-align: center;
+    font-size: 15px;
+    margin-bottom: 0px;
 }
 
 .slide-container {

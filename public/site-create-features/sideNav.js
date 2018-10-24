@@ -35,7 +35,8 @@ function createCountdown() {
     newCountdown += `Submit`;
     newCountdown += `</button>`;
     newCountdown += `</div>`;
-    newCountdown += `<p id="countdown">`;
+    newCountdown += `<p class="countdown-description">`;
+    newCountdown += `(Hours) (Minutes) (Seconds)`;
     newCountdown += `</p>`;
     newCountdown += `</div>`;
     $('#website-container').append(newCountdown);
