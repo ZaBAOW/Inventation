@@ -54,6 +54,9 @@ h1, h2, h3, h4, h5, h6{
     font-size: 42px;
 }
 
+
+/*///USER LOGIN / SIGNUP PAGE STYLE SHEET///*/
+
 .home-title{
     color: #669b00;
     display: block;
@@ -220,3 +223,217 @@ h1, h2, h3, h4, h5, h6{
 }
 
 
+/*///SITE CREATION PAGE STYLE SHEET///*/
+
+.create {
+    background: rgba(0, 0, 0, 0) url("../site_creation_background.jpg") no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+
+.create-body {
+    background-color: transparent;
+}
+
+
+button {
+    background-color: mediumaquamarine;
+    padding: 10px 15px;
+    font-size: 12px;
+    border-radius: 5px;
+    border: gray 1px solid;
+    margin-top: 6px;
+}
+
+input {
+    background-color: transparent;
+    border: gray 1px solid;
+    padding: 5px 10px;
+    border-radius: 5px;
+    font-size: 12px;
+}
+
+#message-box {
+    font-size: 24px;
+    background: rgba(255, 255, 255, 0.8);
+    border-radius: 10px;
+    border: 1px gray solid
+}
+
+.header {
+    min-height: 45px;
+    /*    border: red 1px solid;*/
+    background: rgba(255, 255, 255, 0.8);
+    border-radius: 10px;
+}
+
+.title {
+    font-size: 28px;
+    display: inline-block;
+}
+
+.home-link {
+    display: inline-block;
+    font-size: 30px;
+    cursor: pointer;
+    border: 1px solid red;
+}
+
+.item-selection {
+    position: relative;
+    display: inline-block;
+    border: 1px solid red;
+    float: right;
+    margin-top: 20px;
+    margin-right: 60px;
+}
+
+.info-btn {
+    padding-right: 10px;
+    padding-left: 10px;
+    margin-right: 5px;
+}
+
+.countdown-btn {
+    padding-right: 10px;
+    padding-left: 10px;
+}
+
+.slideShow-btn {
+    padding-right: 10px;
+    padding-left: 10px;
+    margin-left: 5px;
+}
+
+.save-container {
+    float: right;
+    position: relative;
+    display: inline-block;
+    border: 1px solid red;
+    margin-right: 10%;
+    margin-top: 10px;
+}
+
+#website-container {
+    border: 1px green solid;
+    width: 85%;
+    margin: auto;
+    margin-top: 15px;
+    background-color: white;
+    background: rgba(255, 255, 255, 0.8);
+}
+
+.remove-slideshow {
+    display: block;
+    float: right;
+}
+
+.remove-countdown {
+    float: right;
+    display: block;
+}
+
+.remove-infoBox {
+    display: block;
+    float: right;
+}
+
+.info-container {
+    margin: auto;
+    border: 1px solid red;
+    width: 100%;
+    padding-left: 5%;
+    margin-bottom: 15px;
+}
+
+.info-box-content {
+    width: 100%;
+}
+
+.count-container {
+    border: 1px solid red;
+    width: 100%;
+    margin: auto;
+    margin-bottom: 15px;
+}
+
+.date-selector {
+    text-align: center;
+}
+
+.countdown-description {
+    text-align: center;
+    font-size: 15px;
+    margin-bottom: 0px;
+}
+
+.slide-container {
+    border: 1px red solid;
+    min-height: 80px;
+    margin-bottom: 15px;
+}
+
+.save-session {}
+
+.time-left {
+    text-align: center;
+    font-size: 40px;
+    color: blue;
+}
+
+/*ipad lanscape / small laptop*/
+
+@media only screen and (max-width: 1024px) {
+
+    /* acting like an IF statement, the media query is a set of conditions in which the containing css will be applied
+    for example the statament above says: IF the media on which this CSS is going to used is SCREEN (Mobiles, Tables, Laptops, Desktops or Projectors) and the maximum resolution of that device is 1024px, THEN apply the body color blue for all the text
+    */
+    body {
+        color: blue;
+    }
+
+    .item-selection {
+        margin-top: 0px;
+        margin-right: 0px;
+    }
+}
+
+
+/*ipad potrait*/
+
+@media only screen and (max-width: 768px) {
+    body {
+        color: red;
+    }
+
+    .item-selection {
+        margin-top: 0px;
+        margin-right: 0px;
+    }
+}
+
+
+/*iPhone landscape*/
+
+@media only screen and (max-width: 480px) {
+    body {
+        color: green;
+    }
+
+    .item-selection {
+        margin-top: 0px;
+        margin-right: 0px;
+    }
+
+}
+
+
+/*iPhone portrait*/
+
+@media only screen and (max-width: 320px) {
+    body {
+        color: purple;
+    }
+}
