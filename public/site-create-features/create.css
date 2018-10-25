@@ -74,6 +74,7 @@ input {
     font-size: 24px;
     background: rgba(255, 255, 255, 0.8);
     border-radius: 10px;
+    border: 1px gray solid
 }
 
 .header {
@@ -207,6 +208,11 @@ input {
     body {
         color: blue;
     }
+
+    .item-selection {
+        margin-top: 0px;
+        margin-right: 0px;
+    }
 }
 
 
@@ -215,6 +221,11 @@ input {
 @media only screen and (max-width: 768px) {
     body {
         color: red;
+    }
+
+    .item-selection {
+        margin-top: 0px;
+        margin-right: 0px;
     }
 }
 
@@ -226,35 +237,10 @@ input {
         color: green;
     }
 
-    /*
-    .header {
-    min-height: 125px;
-}
-
-    .title {
-    font-size: 75px;
-
-}
-    */
-
     .item-selection {
         margin-top: 0px;
         margin-right: 0px;
     }
-
-    /*
-    .info-btn {
-    font-size: 30px;
-}
-
-    .countdown-btn {
-    font-size: 30px;
-}
-
-    .slideShow-btn {
-    font-size: 30px;
-}
-    */
 
 }
 
