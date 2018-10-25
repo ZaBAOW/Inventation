@@ -147,8 +147,9 @@ function retrieveSession() {
 }
 
 function retrieveSessionById() {
-    const id = localStorage.sessionId;
-    if (id === undefined || id === "undefined") {
+    const userId = localStorage.userID;
+    const sessionId = localStorage.sessionId
+    if (sessionId === undefined || sessionId === "undefined") {
         var r = confirm("We could not find your session.\n" + "Would you like to create a session?");
         if (r === true) {
             createSession();
@@ -157,7 +158,7 @@ function retrieveSessionById() {
             return;
         }
     }
-    const endpoint = `/session/${id}`;
+    const endpoint = `/session/${userId}`;
     const requestData = {
         method: 'GET',
         headers: {
@@ -239,7 +240,7 @@ $(document).ready(function () {
 
 
 function saveSession(upload_url) {
-    const infoBoxContent = $(".content").val();
+    const infoBoxContent = $(".info-box-content").val();
     const slideShowContent = upload_url;
     console.log(slideShowContent);
     const countDownContent = $(".count-container").text();

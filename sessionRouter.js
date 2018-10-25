@@ -144,10 +144,12 @@ router.get('/', (req, res) => {
 
 router.get('/:id', jsonParser, (req, res) => {
     const id = req.params.id;
-    return Session.findById(id).exec()
+    return Session.findOne({userId: id}).exec()
         .then(function (session) {
+            console.log(session);
             return res.status(200).json({
-                data: session
+                data: session,
+                message: "session found"
             });
         })
         .catch(function (error) {
