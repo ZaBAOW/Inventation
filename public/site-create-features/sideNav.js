@@ -18,7 +18,7 @@ function createInfo() {
     var newInfoBox = "";
     newInfoBox += `<div class="info-container storable">`;
     newInfoBox += `<input type="button" class="remove-infoBox" value="&#10006">`;
-    newInfoBox += `<textarea class="info-box-content" style=margin-left:44px name="content" rows="10" cols="50" placeholder="Enter some information about your event">`;
+    newInfoBox += `<textarea class="info-box-content" name="content" rows="10" cols="50" placeholder="Enter some information about your event">`;
     newInfoBox += `</textarea>`;
     newInfoBox += `</div>`;
     $('#website-container').append(newInfoBox);
@@ -198,7 +198,7 @@ function retrieveSessionById() {
                 for (i = 0; i < slideShowContent.length - 1; i++) {
                     console.log(slideShowContent[i].image);
                     var image = slideShowContent[i].image;
-                    var newImageTemplate = "<div class='mySlides fade'><div class='numbertext'>4 /4</div><img src='" + image + "' style='max-width:400px'>";
+                    var newImageTemplate = "<div class='mySlides fade'><div class='numbertext'>4 /4</div><img src='" + image + "' style='max-width:100%'>";
                     var imageNumber = $('.dot-container span').length
                     var newDotTemplate = '<span class="dot" onclick="currentSlide(' + imageNumber + ')"></span>'
                     $('.dot-container').append(newDotTemplate);
