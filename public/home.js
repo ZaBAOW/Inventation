@@ -85,18 +85,19 @@ function userLogin() {
         body: JSON.stringify({username: username, password: password})
     })
     .then(function(res) {
+        var obj = res.json();
+        console.log(obj);
+        console.log('logging you on!');
         if(res.status === 401){
             alert('The username and/or password is incorrect.');
             return;
+        } if(res.status === 200) {
+            console.log('user has logged on');
+            console.log(obj);
+            localStorage.setItem('authToken', obj.authToken);
+            var redirectUrl = "/index.html"
+            window.location.replace(redirectUrl);
         }
-        return res.json();
-    })
-    .then(function(json) {
-        console.log('user has logged on');
-        console.log(json);
-        localStorage.setItem('authToken', json.authToken);
-        var redirectUrl = "/index.html"
-        window.location.replace(redirectUrl);
     })
     .catch(err => {
         console.log("user login error ", err);

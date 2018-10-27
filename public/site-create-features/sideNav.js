@@ -188,7 +188,7 @@ function retrieveSessionById() {
             const selectedDateContent = data.data.selectedDateContent;
             if (infoBoxContent !== null) {
                 createInfo();
-                $('.content').append(infoBoxContent);
+                $('.info-box-content').append(infoBoxContent);
             }
             if (countDownContent !== null) {
                 createCountdown();
@@ -219,11 +219,11 @@ function retrieveSessionById() {
 }
 
 function authValid() {
-    var authCheck = localStorage.getItem('authToken');
+    var authCheck = localStorage.getItem('userID');
     if (authCheck === "undefined" && authCheck !== null) {
         window.location.replace("/login.html");
     } else if (authCheck !== "undefined" && authCheck === null) {
-
+        alert('We could not find your user ID\n you will be returned to the login page to login');
         window.location.replace("/login.html");
     } else {
         console.log('Validation of authToken successfull');
@@ -275,4 +275,8 @@ function saveSession(upload_url) {
         .catch(function (err) {
             console.log(err);
         })
+}
+
+function deleteStoredId() {
+
 }

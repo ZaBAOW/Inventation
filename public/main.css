@@ -436,4 +436,9 @@ input {
     body {
         color: purple;
     }
+
+    .item-selection {
+        margin-top: 0px;
+        margin-right: 0px;
+    }
 }
