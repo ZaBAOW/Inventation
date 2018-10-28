@@ -277,6 +277,14 @@ function saveSession(upload_url) {
         })
 }
 
-function deleteStoredId() {
+setInterval(function deleteLocalStorageExpire() {
+
+}, 30000)
+
+function deleteLocalStorageLeave() {
+
+}
+
+function deleteLocalStorageClose() {
 
 }

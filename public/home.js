@@ -37,7 +37,7 @@ function userCreate() {
         var id = data.id;
         console.log(id);
         localStorage.setItem('userProfile', JSON.stringify(data));
-        localStorage.setItem('userID', id);
+
         var redirectUrl = "/login.html";
         window.location.replace(redirectUrl);
     });
@@ -70,10 +70,31 @@ function userRemove() {
 function userLogin() {
     var username = $('.username').val();
     var password = $('.password').val();
+    var userId;
     if(username === '' || password === ''){
         console.log('oops! looks like at least one of the required two fields have been left blank!');
         return;
     }
+    fetch('/users/' + username, {
+        method: 'GET',
+        headers: {
+            'Accept': 'application/json',
+            'Content-Type': 'application/json'
+        }
+    })
+    .then(function(res) {
+        if(res.status === 200){
+            return res.json()
+        }
+    })
+    .then(function(data) {
+        console.log('response data: ', data.user);
+        localStorage.setItem('userID', data.user);
+    })
+    .catch(err => {
+        console.log('user retrieval error:', err);
+    })
+
     const endpoint = '/auth/login';
     return fetch(endpoint, {
         method: 'POST',
@@ -84,7 +105,7 @@ function userLogin() {
         credentials: 'include',
         body: JSON.stringify({username: username, password: password})
     })
-    .then(function(res) {
+        .then(function(res) {
         var obj = res.json();
         console.log(obj);
         console.log('logging you on!');
@@ -93,7 +114,6 @@ function userLogin() {
             return;
         } if(res.status === 200) {
             console.log('user has logged on');
-            console.log(obj);
             localStorage.setItem('authToken', obj.authToken);
             var redirectUrl = "/index.html"
             window.location.replace(redirectUrl);
