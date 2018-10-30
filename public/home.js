@@ -37,7 +37,6 @@ function userCreate() {
         var id = data.id;
         console.log(id);
         localStorage.setItem('userProfile', JSON.stringify(data));
-
         var redirectUrl = "/login.html";
         window.location.replace(redirectUrl);
     });
@@ -83,9 +82,7 @@ function userLogin() {
         }
     })
     .then(function(res) {
-        if(res.status === 200){
-            return res.json()
-        }
+        return res.json()
     })
     .then(function(data) {
         console.log('response data: ', data.user);

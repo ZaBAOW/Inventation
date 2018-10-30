@@ -1,5 +1,8 @@
 'use strict'
 
+var timeoutInMiliseconds = 3600000;
+var timeoutId;
+
 function displayMessage(message) {
     $("#message-box span").html(message);
     $("#message-box").fadeIn();
@@ -235,6 +238,7 @@ $(document).ready(function () {
     retrieveSessionById()
     var checkArea = $('#website-container').html()
     checkArea = $('#website-container').html();
+    setupTimers();
     console.log('welcome back')
 })
 
@@ -277,14 +281,33 @@ function saveSession(upload_url) {
         })
 }
 
-setInterval(function deleteLocalStorageExpire() {
-
-}, 30000)
-
-function deleteLocalStorageLeave() {
-
+window.onbeforeunload = function() {
+    localStorage.removeItem('userID');
+    return null;
 }
 
-function deleteLocalStorageClose() {
+function setupTimers() {
+    document.addEventListener("mousemove", resetTimer, false);
+    document.addEventListener("mousedown", resetTimer, false);
+    document.addEventListener("keypress", resetTimer, false);
+    document.addEventListener("touchmove", resetTimer, false);
 
+    startTimer();
 }
+
+function startTimer() {
+    timeoutId = window.setTimeout(deleteLocalStorageExpire, timeoutInMiliseconds)
+}
+
+function resetTimer() {
+    window.clearTimeout(timeoutId);
+    startTimer();
+}
+
+function deleteLocalStorageExpire() {
+    saveSession();
+    localStorage.removeItem('userID');
+    window.location.replace("/login.html");
+    return null;
+}
+
