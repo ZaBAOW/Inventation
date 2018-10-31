@@ -159,27 +159,23 @@ h1, h2, h3, h4, h5, h6{
     left: 6px;
 }
 .profile-remove{
-    position: relative;
-    top: 20px;
-    left: 132px;
+    margin-left: 30px;
     padding-left: 50px;
     padding-right: 50px;
 
 }
 
 .profile-submit{
-    position: relative;
-    top: 20px;
-    left: 92px;
+    margin-left: 65px;
     padding-left: 50px;
     padding-right: 50px;
 }
 
 .toHome{
-    position: relative;
-    top: 50px;
-    right: 170px;
-    color: white;
+    display: block;
+    margin-top: 15px;
+    margin-left: 45px;
+    font-size: 22px;
 }
 
 /* css for inventation login page */
@@ -286,7 +282,6 @@ input {
     display: inline-block;
     border: 1px solid red;
     float: right;
-    margin-top: 20px;
     margin-right: 60px;
 }
 
@@ -394,6 +389,16 @@ input {
         color: blue;
     }
 
+    .home-title{
+        width: 55%;
+        color: blue;
+    }
+
+    .signup-title {
+        width: 55%;
+        color: blue;
+    }
+
     .item-selection {
         margin-top: 0px;
         margin-right: 0px;
@@ -406,6 +411,23 @@ input {
 @media only screen and (max-width: 768px) {
     body {
         color: red;
+    }
+
+    .home-title{
+        width: 60%;
+        color: red;
+    }
+
+    .signup-title {
+        width: 60%;
+        color: red;
+    }
+
+    .toHome {
+        display: block;
+        margin-left: 65px;
+        margin-top: 20px;
+        font-size: 22px;
     }
 
     .item-selection {
@@ -422,11 +444,55 @@ input {
         color: green;
     }
 
+    .home-title{
+        width: 65%;
+        color: green;
+    }
+
+    .signup-title {
+        width: 65%;
+        color: green;
+    }
+
+    .toHome {
+        display: block;
+        font-size: 20px;
+        margin-top: 40px;
+    }
+
     .item-selection {
         margin-top: 0px;
         margin-right: 0px;
     }
 
+}
+
+@media only screen and (max-width: 440px) {
+    .home-title{
+        widows: 70%;
+    }
+
+    .signup-title {
+        widows: 70%;
+    }
+
+    .profile-submit {
+        left: 0px
+    }
+
+    .toHome {
+        display: block;
+        font-size: 20px;
+        margin-top: 40px;
+    }
+
+    .profile-remove {
+        margin-left: 60px;
+    }
+
+    h1 {
+        font-size: 175%;
+    }
 }
 
 
@@ -437,8 +503,28 @@ input {
         color: purple;
     }
 
+    h1 {
+        font-size: 175%;
+    }
+
+    .home-title{
+        width: 75%;
+        color: purple;
+    }
+
+    .signup-title {
+        width: 75%;
+        color: purple;
+    }
+
+    .profile-remove{
+        left: 32px;
+    }
+
     .item-selection {
         margin-top: 0px;
         margin-right: 0px;
     }
 }
+
+
