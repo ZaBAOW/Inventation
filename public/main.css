@@ -284,7 +284,6 @@ input {
 
 .header {
     min-height: 45px;
-    /*    border: red 1px solid;*/
     background: rgba(255, 255, 255, 0.8);
     border-radius: 10px;
 }
@@ -298,13 +297,11 @@ input {
     display: inline-block;
     font-size: 30px;
     cursor: pointer;
-    border: 1px solid red;
 }
 
 .item-selection {
     position: relative;
     display: inline-block;
-    border: 1px solid red;
     float: right;
     margin-right: 60px;
 }
@@ -330,13 +327,11 @@ input {
     float: right;
     position: relative;
     display: inline-block;
-    border: 1px solid red;
     margin-right: 10%;
     margin-top: 10px;
 }
 
 #website-container {
-    border: 1px green solid;
     width: 85%;
     margin: auto;
     margin-top: 15px;
@@ -361,7 +356,6 @@ input {
 
 .info-container {
     margin: auto;
-    border: 1px solid red;
     width: 100%;
     padding-left: 5%;
     margin-bottom: 15px;
@@ -372,7 +366,6 @@ input {
 }
 
 .count-container {
-    border: 1px solid red;
     width: 100%;
     margin: auto;
     margin-bottom: 15px;
@@ -389,7 +382,6 @@ input {
 }
 
 .slide-container {
-    border: 1px red solid;
     min-height: 80px;
     margin-bottom: 15px;
 }
@@ -438,23 +430,17 @@ input {
 /*ipad potrait*/
 
 @media only screen and (max-width: 768px) {
-    body {
-        color: red;
-    }
 
     .home-title{
         width: 60%;
-        color: red;
     }
 
     .signup-title {
         width: 60%;
-        color: red;
     }
 
     .login-title {
         width: 60%;
-        color: red;
     }
 
     .toHome {
@@ -474,23 +460,17 @@ input {
 /*iPhone landscape*/
 
 @media only screen and (max-width: 480px) {
-    body {
-        color: green;
-    }
 
     .home-title{
         width: 65%;
-        color: green;
     }
 
     .signup-title {
         width: 65%;
-        color: green;
     }
 
     .login-title {
         width: 65%;
-        color: green;
     }
 
     .toHome {
@@ -542,9 +522,6 @@ input {
 /*iPhone portrait*/
 
 @media only screen and (max-width: 320px) {
-    body {
-        color: purple;
-    }
 
     h1 {
         font-size: 175%;
@@ -552,17 +529,14 @@ input {
 
     .home-title{
         width: 75%;
-        color: purple;
     }
 
     .signup-title {
         width: 75%;
-        color: purple;
     }
 
     .login-title {
         width: 75%;
-        color: purple;
     }
 
     .profile-remove{
