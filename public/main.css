@@ -205,9 +205,7 @@ h1, h2, h3, h4, h5, h6{
 }
 
 .login-btn{
-    position: relative;
-    top: 20px;
-    left: 42px;
+    margin-top: 20px;
     padding-left: 50px;
     padding-right: 50px;
 }
@@ -399,6 +397,11 @@ input {
         color: blue;
     }
 
+    .login-title {
+        width: 55%;
+        color: blue;
+    }
+
     .item-selection {
         margin-top: 0px;
         margin-right: 0px;
@@ -419,6 +422,11 @@ input {
     }
 
     .signup-title {
+        width: 60%;
+        color: red;
+    }
+
+    .login-title {
         width: 60%;
         color: red;
     }
@@ -454,6 +462,11 @@ input {
         color: green;
     }
 
+    .login-title {
+        width: 65%;
+        color: green;
+    }
+
     .toHome {
         display: block;
         font-size: 20px;
@@ -473,6 +486,10 @@ input {
     }
 
     .signup-title {
+        widows: 70%;
+    }
+
+    .login-title {
         widows: 70%;
     }
 
@@ -513,6 +530,11 @@ input {
     }
 
     .signup-title {
+        width: 75%;
+        color: purple;
+    }
+
+    .login-title {
         width: 75%;
         color: purple;
     }
