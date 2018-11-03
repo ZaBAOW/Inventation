@@ -4,7 +4,7 @@ const bcrypt = require('bcrypt');
 mongoose.Promise = global.Promise;
 
 var urlUserInput = 'defaultInput';
-const urlTemplate = 'https://zabaow.github.io/Inventation/lib/site-create/index.html';
+const urlTemplate = 'https://zabaow.github.io/Inventation/lib/site-create/create.html';
 
 const userSchema = mongoose.Schema({
     username: {type: String, require: true, unique: true},

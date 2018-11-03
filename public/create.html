@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html class="create" lang="en">
+
+<head>
+    <meta content="width=device-width, initial-scale=1" name="viewport" />
+    <title>New Event</title>
+    <link href="https://fonts.googleapis.com/css?family=Itim|Kreon" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="main.css">
+    <link rel="stylesheet" type="text/css" href="site-create-features/slideStyle.css">
+</head>
+
+<body class="create-body">
+    <div id="message-box">
+        <span></span>
+    </div>
+
+    <div class="header">
+        <span class="home-link" onclick="returnHome()">&#9776</span>
+        <h4 class="title">Inventation</h4>
+        <div class="item-selection">
+            <button class="info-btn" onclick="createInfo()">Info-Box</button>
+            <button class="countdown-btn" onclick="createCountdown()">Countdown</button>
+            <button class="slideShow-btn" onclick="createSlideShow(), showSlides()">SlideShow</button>
+        </div>
+    </div>
+
+
+
+    <form id="website-container" aria-label="website-area"></form>
+
+
+    <div class="save-container">
+        <button class="save-session" onclick="saveSession()">Save</button>
+    </div>
+
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.22.2/moment.js"></script>
+    <script type="text/javascript" src="uuid.js"></script>
+    <script type="text/javascript" src="jquery.sha1.js"></script>
+    <script type="text/javascript" src="count-down-js/countdown.js"></script>
+    <script type="text/javascript" src="moment-countdown-js/dist/moment-countdown.js"></script>
+    <script type="text/javascript" src="site-create-features/sideNav.js"></script>
+    <script type="text/javascript" src="site-create-features/set-timer.js"></script>
+    <script type="text/javascript" src="site-create-features/slideshow.js"></script>
+    <script type="text/javascript" src="site-create-features/infoBox.js"></script>
+    <script type="text/javascript" src="./home.js"></script>
+    <script type="text/javascript" src="./site-create-features/upload.js"></script>
+
+</body>
+
+</html>

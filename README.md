@@ -235,7 +235,7 @@ Chrome.
 Clone or download the files from the Inventation master branch into a folder
 on your device. Open gitbash and and move to the directory with the files.
 type ``npm start`` to start the local server.  Open chrome and type in the
-url ``http://localhost:8080/homePage.html``.  This will take you to Inventation's
+url ``http://localhost:8080/index.html``.  This will take you to Inventation's
 homepage where you will be able to interact with the site.
 
 ### Break down into end to end tests
