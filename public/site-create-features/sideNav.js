@@ -21,7 +21,7 @@ function createInfo() {
     var newInfoBox = "";
     newInfoBox += `<div class="info-container storable">`;
     newInfoBox += `<input type="button" class="remove-infoBox" value="&#10006">`;
-    newInfoBox += `<textarea class="info-box-content" name="content" rows="10" cols="50" placeholder="Enter some information about your event">`;
+    newInfoBox += `<textarea aria-label="info-box-content" class="info-box-content" name="content" rows="10" cols="50" placeholder="Enter some information about your event">`;
     newInfoBox += `</textarea>`;
     newInfoBox += `</div>`;
     $('#website-container').append(newInfoBox);
@@ -33,7 +33,7 @@ function createCountdown() {
     newCountdown += `<input type="button" class="remove-countdown" value="&#10006">`;
     newCountdown += `<div class="date-selector" action="/action_patge.php">`;
     newCountdown += `Event (date and time):`;
-    newCountdown += `<input type="datetime-local" id = "eventDay" name="eventDay">`;
+    newCountdown += `<input aria-label="eventDay" type="datetime-local" class="eventDay" name="eventDay">`;
     newCountdown += `<button class = "countDownSubmit" name="Send">`;
     newCountdown += `Submit`;
     newCountdown += `</button>`;
@@ -58,7 +58,7 @@ function createSlideShow() {
     newSlideShow += `</div>`;
     newSlideShow += `<div class="imageUpload">`;
     newSlideShow += `<div>`;
-    newSlideShow += `<input name="file" type="file"class="file-select" data-cloudinary-field="image_id" data-form-data="{ "transformation": {"crop":"limit","tags":"samples" "width":3000,"height":2000}}"/>`;
+    newSlideShow += `<input aria-label="file-select" name="file" type="file" class="file-select" data-cloudinary-field="image_id" data-form-data="{ "transformation": {"crop":"limit","tags":"samples" "width":3000,"height":2000}}"/>`;
     newSlideShow += `</div><button class = "upload-submit">`;
     newSlideShow += `Submit`;
     newSlideShow += `</button>`;

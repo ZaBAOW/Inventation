@@ -45,7 +45,7 @@
 
 /* css for inventation homepage */
 body{
-    background: #2FB8E9;
+    background: #0b7dc7;
     font-family: 'Kreon', serif;
 }
 
@@ -134,6 +134,26 @@ h1, h2, h3, h4, h5, h6{
     color: white;
 }
 
+.username-label {
+    color: white;
+    font-size: x-large;
+}
+
+.password-label {
+    color: white;
+    font-size: x-large;
+}
+
+.firstname-label {
+    color: white;
+    font-size: x-large;
+}
+
+.lastname-label {
+    color: white;
+    font-size: x-large;
+}
+
 .profile-create{
     position: relative;
     text-align: center;
@@ -142,21 +162,25 @@ h1, h2, h3, h4, h5, h6{
 .username{
     position: relative;
     left: 10px;
+    background: white;
 }
 
 .password{
     position: relative;
     left: 11px;
+    background: white;
 }
 
 .firstName{
     position: relative;
     left: 6px;
+    background: white;
 }
 
 .lastName{
     position: relative;
     left: 6px;
+    background: white;
 }
 .profile-remove{
     margin-left: 30px;
@@ -175,7 +199,8 @@ h1, h2, h3, h4, h5, h6{
     display: block;
     margin-top: 15px;
     margin-left: 45px;
-    font-size: 22px;
+    color: white;
+    font-size: x-large;
 }
 
 /* css for inventation login page */
@@ -214,6 +239,7 @@ h1, h2, h3, h4, h5, h6{
     position: relative;
     top: 50px;
     color: white;
+    font-size: x-large;
 }
 
 

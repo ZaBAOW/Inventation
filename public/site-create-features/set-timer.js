@@ -4,7 +4,7 @@ $(document).on('click', '.countDownSubmit', function (event) {
     console.log('time is being posted');
     $('.time-left').remove();
 
-    var selectDate = $('#eventDay').val();
+    var selectDate = $('.eventDay').val();
     var slicedDate = selectDate.slice(0, 10);
     console.log(slicedDate);
     localStorage.setItem('selectedDate', slicedDate);
