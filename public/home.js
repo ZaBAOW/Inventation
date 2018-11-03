@@ -112,7 +112,7 @@ function userLogin() {
         } if(res.status === 200) {
             console.log('user has logged on');
             localStorage.setItem('authToken', obj.authToken);
-            var redirectUrl = "/index.html"
+            var redirectUrl = "/create.html"
             window.location.replace(redirectUrl);
         }
     })

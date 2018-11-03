@@ -76,7 +76,7 @@ function returnHome() {
     var r = confirm('Are you sure you want to return to the home page?');
     if (r === true) {
         saveSession();
-        window.location.replace("/homePage.html");
+        window.location.replace("/index.html");
     } else {
         return
     }
