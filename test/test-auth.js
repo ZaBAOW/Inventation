@@ -46,20 +46,21 @@ describe('Auth endpoints', function () {
 
     describe('/auth/login', function () {
         it('Should return a valid auth token', function(){
-            User.create (
-                {
-                    username,
-                    password,
-                    firstName,
-                    lastName
-                }
-            )
+//            User.create (
+//                {
+//                    username,
+//                    password,
+//                    firstName,
+//                    lastName
+//                }
+//            )
             return chai.request(app).post('/auth/login')
             .send({username, password})
             .then(res => {
                 expect(res).to.have.status(200);
                 expect(res.body).to.be.an('object');
                 const token = res.body.authToken;
+                console.log('token: ', token);
                 expect(token).to.be.a('string');
                 const payload = jwt.verify(token, JWT_SECRET, {
                     algorithm: ['HS256']

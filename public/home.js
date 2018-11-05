@@ -102,19 +102,22 @@ function userLogin() {
         credentials: 'include',
         body: JSON.stringify({username: username, password: password})
     })
-        .then(function(res) {
-        var obj = res.json();
-        console.log(obj);
-        console.log('logging you on!');
-        if(res.status === 401){
+    .then(function(res) {
+        console.log(res.status);
+        if(res.status === 401) {
             alert('The username and/or password is incorrect.');
             return;
         } if(res.status === 200) {
-            console.log('user has logged on');
-            localStorage.setItem('authToken', obj.authToken);
-            var redirectUrl = "/create.html"
-            window.location.replace(redirectUrl);
+            return res.json();
         }
+    })
+    .then(function(data) {
+        console.log(data);
+        console.log('logging you on!');
+        console.log('user has logged on');
+        localStorage.setItem('authToken', data.authToken);
+        var redirectUrl = "/create.html"
+        window.location.replace(redirectUrl);
     })
     .catch(err => {
         console.log("user login error ", err);
