@@ -10,20 +10,20 @@ const Schema = mongoose.Schema;
 const sessionSchema = new Schema({
     infoBoxContent: {
         type: String,
-        unique: true
+        unique: false
     },
     slideShowContent: {
         type: Array,
-        unique: true,
+        unique: false,
         default: []
     },
     countDownContent: {
         type: String,
-        unique: true
+        unique: false
     },
     selectedDateContent: {
         type: String,
-        unique: true
+        unique: false
     },
     userId: {
         type: Schema.Types.ObjectId,
