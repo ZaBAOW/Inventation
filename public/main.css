@@ -401,23 +401,16 @@ input {
     /* acting like an IF statement, the media query is a set of conditions in which the containing css will be applied
     for example the statament above says: IF the media on which this CSS is going to used is SCREEN (Mobiles, Tables, Laptops, Desktops or Projectors) and the maximum resolution of that device is 1024px, THEN apply the body color blue for all the text
     */
-    body {
-        color: blue;
-    }
-
     .home-title{
         width: 55%;
-        color: blue;
     }
 
     .signup-title {
         width: 55%;
-        color: blue;
     }
 
     .login-title {
         width: 55%;
-        color: blue;
     }
 
     .item-selection {
