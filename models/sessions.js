@@ -14,8 +14,7 @@ const sessionSchema = new Schema({
     },
     slideShowContent: {
         type: Array,
-        unique: false,
-        default: []
+        unique: false
     },
     countDownContent: {
         type: String,
@@ -26,8 +25,10 @@ const sessionSchema = new Schema({
         unique: false
     },
     userId: {
-        type: Schema.Types.ObjectId,
-        ref: 'User'
+        type: String,
+        unique: false
+//        type: Schema.Types.ObjectId
+//        ref: 'User'
     }
 });
 

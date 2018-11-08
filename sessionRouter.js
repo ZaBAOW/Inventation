@@ -44,7 +44,7 @@ router.post('/', jwtAuth, jsonParser, (req, res) => {
                         countDownContent,
                         selectedDateContent,
                         userId,
-                        unique: true
+                        unique: false
                     })
                     .then(session => {
                         console.log('created session');

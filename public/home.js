@@ -114,7 +114,6 @@ function userLogin() {
     .then(function(data) {
         console.log(data);
         console.log('logging you on!');
-        console.log('user has logged on');
         localStorage.setItem('authToken', data.authToken);
         var redirectUrl = "/create.html"
         window.location.replace(redirectUrl);

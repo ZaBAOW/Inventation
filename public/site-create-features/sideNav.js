@@ -94,7 +94,6 @@ function createSession() {
     content['slideShowContent'] = slideShowContent || null;
     content['countDownContent'] = countDownContent || null;
     content['selectedDateContent'] = selectedDateContent || null;
-    console.log(content);
     const endpoint = '/session';
     const requestData = {
         method: 'POST',
@@ -151,16 +150,6 @@ function retrieveSession() {
 
 function retrieveSessionById() {
     const userId = localStorage.userID;
-    const sessionId = localStorage.sessionId
-    if (sessionId === undefined || sessionId === "undefined") {
-        var r = confirm("We could not find your session.\n" + "Would you like to create a session?");
-        if (r === true) {
-            createSession();
-            return;
-        } else {
-            return;
-        }
-    }
     const endpoint = `/session/${userId}`;
     const requestData = {
         method: 'GET',
@@ -184,6 +173,15 @@ function retrieveSessionById() {
             }
         })
         .then(function (data) {
+            if(data.data == null) {
+                var r = confirm("You have not created a session yet.\n" + "Would you like to create a session?");
+                if (r === true) {
+                    createSession();
+                } else {
+                    return;
+                }
+            }
+            localStorage.setItem('sessionId', data.data._id);
             displayMessage('YOUR session has been retrieved');
             const infoBoxContent = data.data.infoBoxContent;
             const slideShowContent = data.data.slideShowContent;
@@ -283,6 +281,7 @@ function saveSession(upload_url) {
 
 window.onbeforeunload = function() {
     localStorage.removeItem('userID');
+    localStorage.removeItem('sessionId');
     return null;
 }
 
@@ -307,6 +306,8 @@ function resetTimer() {
 function deleteLocalStorageExpire() {
     saveSession();
     localStorage.removeItem('userID');
+    localStorage.removeItem('sessionId');
+    window.location.replace("/login.html");
     window.location.replace("/login.html");
     return null;
 }
