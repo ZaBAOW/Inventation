@@ -279,7 +279,8 @@ function saveSession(upload_url) {
 }
 
 function previewSession() {
-    console.log('creating a preview');
+    console.log('creating new preview');
+    $('.preview-seperator').remove();
     $('.create-body').append("<hr class='preview-seperator'>");
 }
 
