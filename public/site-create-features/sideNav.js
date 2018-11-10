@@ -281,7 +281,13 @@ function saveSession(upload_url) {
 function previewSession() {
     console.log('creating new preview');
     $('.preview-seperator').remove();
+    $('.preview-container').remove();
     $('.create-body').append("<hr class='preview-seperator'>");
+
+    const infoBoxContent = $(".info-box-content").val();
+    const countDownContent = $(".count-container").text();
+
+    $('.create-body').append("<div class='preview-container'></div>")
 }
 
 window.onbeforeunload = function() {

@@ -443,6 +443,15 @@ input {
     border-radius: 20px;
 }
 
+.preview-container {
+    border: 3px solid black;
+    width: 85%;
+    margin: auto;
+    margin-top: 15px;
+    background-color: white;
+    background: rgba(255, 255, 255, 0.8);
+}
+
 .save-session {}
 
 .preview-session {}
