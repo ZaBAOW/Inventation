@@ -423,7 +423,29 @@ input {
     margin-bottom: 15px;
 }
 
+.preview-seperator {
+    overflow: visible; /* For IE */
+    height: 30px;
+    border-style: solid;
+    border-color: black;
+    border-width: 1px 0 0 0;
+    border-radius: 20px;
+}
+
+.preview-seperator:before {
+    display: block;
+    content: "";
+    height: 30px;
+    margin-top: -31px;
+    border-style: solid;
+    border-color: black;
+    border-width: 0 0 1px 0;
+    border-radius: 20px;
+}
+
 .save-session {}
+
+.preview-session {}
 
 .time-left {
     text-align: center;

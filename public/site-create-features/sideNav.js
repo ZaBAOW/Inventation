@@ -278,6 +278,11 @@ function saveSession(upload_url) {
         })
 }
 
+function previewSession() {
+    console.log('creating a preview');
+    $('.create-body').append("<hr class='preview-seperator'>");
+}
+
 window.onbeforeunload = function() {
     localStorage.removeItem('userID');
     localStorage.removeItem('sessionId');
