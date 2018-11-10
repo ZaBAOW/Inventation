@@ -1,20 +1,39 @@
 <!DOCTYPE html>
 <html class="home" lang="en">
-<head>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link href="https://fonts.googleapis.com/css?family=Itim|Kreon" rel="stylesheet">
-    <link rel="stylesheet" type="text/css" href="main.css">
-    <title role="banner">Home Page</title>
-</head>
-<body role="main">
-    <h1 class="home-title">Inventation</h1>
-    <div class="link-container">
-        <a href="Signup.html" class="signup-link">Sign Up!</a>
-        <a href="login.html" class="login-link">Log in!</a>
-    </div>
-    <p class="aboutApp">Create websites for your events quickly and effortlessly.</p>
-
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.js"></script>
-    <script type="text/javascript" src = "home.js"></script>
-</body>
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link href="https://fonts.googleapis.com/css?family=Itim|Kreon" rel="stylesheet">
+        <link rel="stylesheet" type="text/css" href="main.css">
+        <title role="banner">Home Page</title>
+    </head>
+    <body role="main">
+        <h1 class="home-title">Inventation</h1>
+        <div class="landing-left">
+            <p class="landing-desc">Welcome to Inventation, where you can create your own websitefor events quickly and effortlessly. To begin, please signup with the form to the right.  Already have an account? Hit the "Login" button to head to the login page.</p>
+            <button class="land-login-btn" onclick="toLogin()">Login</button>
+        </div>
+        <div class="signup-container">
+            <p style="text-decoration: underline" class="form-descript">Sign Up!</p>
+            <form class="profile-create" role="form">
+                <span class="username-label">Username: </span>
+                <input type="text" class="username" aria-label="username" name="username">
+                <br>
+                <br>
+                <span class="password-label">Password:</span>
+                <input type="text" class="password" aria-label="password" name="password">
+                <br>
+                <br>
+                <span class="firstname-label">First Name: </span>
+                <input type="text" class="firstName" aria-label="firstName" name="firstName">
+                <br>
+                <br>
+                <span class="lastname-label">Last Name: </span>
+                <input type="text" class="lastName" aria-label="lastName" name="lastName">
+                <br>
+                <button type="button" class="profile-submit" name="profile-submit" onclick="userCreate()">Create</button>
+            </form>
+        </div>
+        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.js"></script>
+        <script type="text/javascript" src = "home.js"></script>
+    </body>
 </html>

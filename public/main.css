@@ -43,6 +43,43 @@
     -o-padding-end: 0px;
 }
 
+/*css for inventation landing page*/
+.signup-container {
+    border: 3px black solid;
+    border-radius: 12px;
+    float: right;
+    width: 36%;
+    margin-top: 35px;
+    margin-right: 28px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    background: #2074b1;
+}
+
+.landing-left{
+    margin-top: 30px;
+    display: inline-block;
+    width: 53%;
+}
+
+.landing-desc {
+    width: 55%;
+    display: inline-block;
+    margin-top: 5%;
+    margin-left: 112px;
+    color: white;
+    font-size: x-large;
+}
+
+.land-login-btn {
+    display: block;
+    margin-left: 42%;
+    margin-top: 2%;
+    padding-right: 5%;
+    padding-left: 5%;
+}
+
+
 /* css for inventation homepage */
 body{
     background: #0b7dc7;
@@ -58,7 +95,7 @@ h1, h2, h3, h4, h5, h6{
 /*///USER LOGIN / SIGNUP PAGE STYLE SHEET///*/
 
 .home-title{
-    color: #669b00;
+    color: #10110f;
     display: block;
     margin: auto;
     margin-top: 5%;

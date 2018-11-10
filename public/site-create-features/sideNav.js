@@ -75,7 +75,7 @@ $(document).on('click', '.preview-btn', function () {
 function returnHome() {
     var r = confirm('Are you sure you want to sign out? \n' + 'any unsaved changes will be lost.');
     if (r === true) {
-        window.location.replace("/index.html");
+        window.location.replace("/homePage.html");
     } else {
         return
     }

@@ -10,6 +10,11 @@ function getUsers() {
     console.log(response);
 }
 
+function toLogin() {
+    var redirectUrl = "/login.html";
+    window.location.replace(redirectUrl)
+}
+
 function userCreate() {
     var username = $('.username').val();
     var password = $('.password').val();
