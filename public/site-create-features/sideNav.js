@@ -73,9 +73,8 @@ $(document).on('click', '.preview-btn', function () {
 })
 
 function returnHome() {
-    var r = confirm('Are you sure you want to return to the home page?');
+    var r = confirm('Are you sure you want to sign out? \n' + 'any unsaved changes will be lost.');
     if (r === true) {
-        saveSession();
         window.location.replace("/index.html");
     } else {
         return
