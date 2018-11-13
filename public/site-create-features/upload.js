@@ -1,5 +1,7 @@
 const IMG_UPLOAD_ENDPOINT = "https://api.cloudinary.com/v1_1/zabaow/image/upload";
 const API_KEY = "638832767114418";
+var n = 0;
+var slideIndex = 1;
 
 function apiSignature(timestamp, uid) {
     let signatureString = "public_id=" + uid + "&timestamp=" + timestamp + "KtoSOxrHph-EpcGXUHW3x2eA3MA";
@@ -8,14 +10,18 @@ function apiSignature(timestamp, uid) {
 
 $('#website-container').on('submit', function (event) {
     event.preventDefault();
-
     console.log('image upload starting');
     console.log($(this).find('.file-select'));
     const file = $(this).find('.file-select')[0].files[0];
-    //    const title = $(this).find('.frame-title-val').val();
-    //    console.log('title', title);
     console.log('file', file);
     uploadImage(file);
+    var slides = document.getElementsByClassName("mySlides");
+    if(slides.length > 0){
+        console.log(slides.length);
+        showSlides(n, slideIndex);
+    } else {
+        console.log(slides);
+    }
 });
 
 function uploadImage(file) {
@@ -46,12 +52,10 @@ function uploadImage(file) {
                 'userImageUrl': result.secure_url,
             }
             // addImageToDb(uploadDataObject);
-            console.log(result.secure_url);
-            console.log(result.original_filename);
             var upload_url = result.secure_url;
             var prev = document.getElementsByClassName("prev");
             var next = document.getElementsByClassName("next");
-            saveSession(upload_url);
+//            saveSession(upload_url);
             prev[0].style.display = "block"
             next[0].style.display = "block"
             var newImageTemplate = "<div class='mySlides fade'><img src='" + result.secure_url + ">";
@@ -60,5 +64,58 @@ function uploadImage(file) {
             $('.slideshow-container').prepend(newImageTemplate);
             $('.dot-container').append(newDotTemplate);
         });
-    $(this).find('.file-select').remove();
+//    $(this).find('.file-select').remove();
+
 }
+
+function plusSlides(n, slideIndex) {
+    showSlides(slideIndex += n);
+}
+
+
+function currentSlide(n, slideIndex) {
+    showSlides(slideIndex = n);
+}
+
+
+
+function showSlides(n, slideIndex) {
+    var i;
+    var slides = document.getElementsByClassName("mySlides");
+    var dots = document.getElementsByClassName("dot");
+    var prev = document.getElementsByClassName("prev");
+    var next = document.getElementsByClassName("next");
+    if (slides.length == 0) {
+        prev[0].style.display = "none"
+        next[0].style.display = "none"
+    }
+    if (n > slides.length) {
+        slideIndex = 1
+    }
+    if (n < 1) {
+        slideIndex = slides.length
+    }
+    for (i = 0; i < slides.length; i++) {
+        slides[i].style.display = "none"
+    }
+    for (i = 1; i < dots.length; i++) {
+        dots[i].className = dots[i].className.replace(" active", "");
+        console.log(dots[i].classname);
+    }
+    console.log(slideIndex);
+    slides[slideIndex - 1].style.display = "block";
+//    dots[slideIndex - 1].className += " active";
+}
+
+//function showSlidesInitial(n, slideIndex) {
+//    var i;
+//    var slides = $('.mySlides');
+//    var x  $('.mySlides');
+//    if(n > slides.length) {slideIndex = 1};
+//    if(n < 1) {slideIndex = slides.lenght}
+//    for(i = 0; i < slides.lenght; i++) {
+//        slides[i].style.display = "none";
+//    }
+//    slides[slideIndex - 1].style.display = "block";
+//
+//}

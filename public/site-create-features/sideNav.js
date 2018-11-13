@@ -284,10 +284,19 @@ function previewSession() {
     $('.preview-container').remove();
     $('.create-body').append("<hr class='preview-seperator'>");
 
-    const infoBoxContent = $(".info-box-content").val();
-    const countDownContent = $(".count-container").text();
+    const previewInfo = $(".info-box-content").val();
+    const previewCountdown = $(".time-left").text();
 
-    $('.create-body').append("<div class='preview-container'></div>")
+    $('.create-body').append("<div class='preview-container' ></div>");
+    $('.preview-container').append("<div class='info-preview-container'></div>");
+    $('.info-preview-container').append("<span class='info-preview-content'></span>");
+    $('.preview-container').append("<div class='countdown-preview-container'></div>");
+    $('.preview-container').append("<div class='slideshow-preview-container'></div>");
+
+    $('.info-preview-container').append(previewInfo);
+    $('.countdown-preview-container').append('<p class="countdown-description">(Hours) (Minutes) (Seconds)</p>');
+    $('.countdown-preview-container').append(previewCountdown);
+
 }
 
 window.onbeforeunload = function() {

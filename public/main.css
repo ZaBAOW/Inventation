@@ -316,13 +316,18 @@ input {
     font-size: 24px;
     background: rgba(255, 255, 255, 0.8);
     border-radius: 10px;
+    margin-top: 48px;
     border: 1px gray solid
 }
 
 .header {
+    position: fixed;
     min-height: 45px;
+    top: 0;
     background: rgba(255, 255, 255, 0.8);
     border-radius: 10px;
+    width: 100%;
+    border: 1px black solid;
 }
 
 .title {
@@ -361,17 +366,16 @@ input {
 }
 
 .save-container {
-    float: right;
     position: relative;
     display: inline-block;
-    margin-right: 10%;
-    margin-top: 10px;
+    margin-left: 16%;
+    bottom: 4px;
 }
 
 #website-container {
     width: 85%;
     margin: auto;
-    margin-top: 15px;
+    margin-top: 55px;
     background-color: white;
     background: rgba(255, 255, 255, 0.8);
 }
@@ -452,9 +456,49 @@ input {
     background: rgba(255, 255, 255, 0.8);
 }
 
-.save-session {}
+.info-preview-container {
+    border: 1px solid black;
+    display: inline-block;
+    width: 41%;
+    margin-left: 7%;
+    margin-bottom: 22px;
+}
 
-.preview-session {}
+.info-preview-content {
+    width:100px;
+    word-wrap:break-word;
+    display:inline-block;
+}
+
+.countdown-preview-container{
+    border: 1px solid black;
+    display: inline-block;
+    width: 32%;
+    margin-left: 8%;
+    margin-bottom: 22px;
+    text-align: center;
+}
+
+.slideshow-preview-container {
+    border: 1px solid black;
+    width: 65%;
+    margin-left: 15%;
+    margin-bottom: 3%;
+
+}
+
+
+.save-session {
+    right: 12%;
+}
+
+.preview-session {
+}
+
+.sign-out {
+    position: relative;
+    top: -5px;
+}
 
 .time-left {
     text-align: center;
