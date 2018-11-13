@@ -50,7 +50,7 @@
     float: right;
     width: 36%;
     margin-top: 35px;
-    margin-right: 28px;
+    margin-right: 107px;
     padding-top: 20px;
     padding-bottom: 20px;
     background: #2074b1;
@@ -66,14 +66,14 @@
     width: 55%;
     display: inline-block;
     margin-top: 5%;
-    margin-left: 112px;
+    margin-left: 196px;
     color: white;
     font-size: x-large;
 }
 
 .land-login-btn {
     display: block;
-    margin-left: 42%;
+    margin-left: 47%;
     margin-top: 2%;
     padding-right: 5%;
     padding-left: 5%;
@@ -465,7 +465,7 @@ input {
 }
 
 .info-preview-content {
-    width:100px;
+    width: 300px;
     word-wrap:break-word;
     display:inline-block;
 }
@@ -513,6 +513,18 @@ input {
     /* acting like an IF statement, the media query is a set of conditions in which the containing css will be applied
     for example the statament above says: IF the media on which this CSS is going to used is SCREEN (Mobiles, Tables, Laptops, Desktops or Projectors) and the maximum resolution of that device is 1024px, THEN apply the body color blue for all the text
     */
+    .landing-desc {
+        margin-left: 132px;
+    }
+
+    .land-login-btn {
+        margin-left: 40%;
+    }
+
+    .signup-container {
+        margin-right: 84px;
+    }
+
     .home-title{
         width: 55%;
     }
@@ -535,6 +547,26 @@ input {
 /*ipad potrait*/
 
 @media only screen and (max-width: 768px) {
+
+    .landing-left {
+        display: inline-block;
+        width: 75%;
+        position: absolute;
+        top: 73%;
+        left: 13%;
+    }
+
+    .signup-container {
+        border: 3px black solid;
+        border-radius: 12px;
+        position: absolute;
+        left: 23%;
+        width: 54%;
+        margin-top: 35px;
+        padding-top: 20px;
+        padding-bottom: 20px;
+        background: #2074b1;
+    }
 
     .home-title{
         width: 60%;
@@ -565,6 +597,26 @@ input {
 /*iPhone landscape*/
 
 @media only screen and (max-width: 480px) {
+
+    .landing-left {
+        display: inline-block;
+        width: 75%;
+        position: absolute;
+        top: 83%;
+        left: 6%;
+    }
+
+    .signup-container {
+        border: 3px black solid;
+        border-radius: 12px;
+        position: absolute;
+        left: 23%;
+        width: 54%;
+        margin-top: 35px;
+        padding-top: 20px;
+        padding-bottom: 20px;
+        background: #2074b1;
+    }
 
     .home-title{
         width: 65%;
@@ -627,6 +679,23 @@ input {
 /*iPhone portrait*/
 
 @media only screen and (max-width: 320px) {
+
+    .signup-container {
+        left: 12%;
+        width: 76%;
+    }
+
+    .land-profile-submit {
+        margin-left: 8px;
+    }
+
+    .landing-left {
+        left: -12%;
+    }
+
+    .land-login-btn {
+        margin-left: 66%;
+    }
 
     h1 {
         font-size: 175%;

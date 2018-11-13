@@ -293,7 +293,7 @@ function previewSession() {
     $('.preview-container').append("<div class='countdown-preview-container'></div>");
     $('.preview-container').append("<div class='slideshow-preview-container'></div>");
 
-    $('.info-preview-container').append(previewInfo);
+    $('.info-preview-content').append(previewInfo);
     $('.countdown-preview-container').append('<p class="countdown-description">(Hours) (Minutes) (Seconds)</p>');
     $('.countdown-preview-container').append(previewCountdown);
 
