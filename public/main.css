@@ -593,6 +593,20 @@ input {
     }
 }
 
+@media only screen and  (max-width: 765px) {
+    .save-container {
+        margin-left: 41%;
+    }
+
+    #website-container {
+        margin-top: 100px;
+    }
+
+    #message-box {
+        margin-top: 88px;
+    }
+}
+
 
 /*iPhone landscape*/
 
@@ -641,6 +655,10 @@ input {
         margin-right: 0px;
     }
 
+    .save-container {
+        margin-right: 11%;
+        margin-top: 3px;
+    }
 }
 
 @media only screen and (max-width: 440px) {
@@ -720,6 +738,10 @@ input {
     .item-selection {
         margin-top: 0px;
         margin-right: 0px;
+    }
+
+    #website-container {
+        margin-top: 150px;
     }
 }
 
