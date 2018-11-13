@@ -736,12 +736,25 @@ input {
     }
 
     .item-selection {
-        margin-top: 0px;
-        margin-right: 0px;
+        margin-bottom: 1px;
+        margin-right: 2px;
     }
 
     #website-container {
         margin-top: 150px;
+    }
+
+    .save-container {
+        position: relative;
+        display: inline-block;
+        margin-left: 56%;
+        margin-top: 3px;
+        bottom: 4px;
+    }
+
+    .sign-out {
+        float: right;
+        margin-right: 3px;
     }
 }
 
