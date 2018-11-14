@@ -50,19 +50,21 @@ function uploadImage(file) {
         .done(function (result) {
             let uploadDataObject = {
                 'userImageUrl': result.secure_url,
-            }
+            };
             // addImageToDb(uploadDataObject);
             var upload_url = result.secure_url;
             var prev = document.getElementsByClassName("prev");
             var next = document.getElementsByClassName("next");
 //            saveSession(upload_url);
-            prev[0].style.display = "block"
-            next[0].style.display = "block"
-            var newImageTemplate = "<div class='mySlides fade'><img src='" + result.secure_url + ">";
-            var imageNumber = $('.dot-container span').length
+            prev[0].style.display = "block";
+            next[0].style.display = "block";
+            var imageNumber = $('.dot-container span').length;
             var newDotTemplate = '<span class="dot" onclick="currentSlide(' + imageNumber + ')"></span>'
-            $('.slideshow-container').prepend(newImageTemplate);
+            var newImageTemplate = "<div class='mySlides" + imageNumber + " fade'></div>";
+            var newImage = "<img src='" + result.secure_url + "'>";
             $('.dot-container').append(newDotTemplate);
+            $('.slideshow-container').prepend(newImageTemplate);
+            $(`.mySlides${imageNumber}`).append(newImage);
         });
 //    $(this).find('.file-select').remove();
 

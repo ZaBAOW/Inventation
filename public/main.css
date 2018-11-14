@@ -385,6 +385,10 @@ input {
     float: right;
 }
 
+.slideshow-container img{
+    width: 100%;
+}
+
 .remove-countdown {
     float: right;
     display: block;
@@ -608,6 +612,13 @@ input {
 }
 
 
+@media only screen and (max-width: 660px) {
+    .save-container {
+        margin-left: 0;
+        float: right;
+    }
+}
+
 /*iPhone landscape*/
 
 @media only screen and (max-width: 480px) {
@@ -656,8 +667,12 @@ input {
     }
 
     .save-container {
-        margin-right: 11%;
+        margin-left: 0;
         margin-top: 3px;
+    }
+
+    .sign-out {
+        float: right;
     }
 }
 
@@ -690,6 +705,11 @@ input {
 
     h1 {
         font-size: 175%;
+    }
+
+    .save-container {
+        margin-left: none;
+        float: right;
     }
 }
 
