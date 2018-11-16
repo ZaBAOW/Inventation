@@ -16,12 +16,12 @@ $('#website-container').on('submit', function (event) {
     console.log('file', file);
     uploadImage(file);
     var slides = document.getElementsByClassName("mySlides");
-    if(slides.length > 0){
-        console.log(slides.length);
-        showSlides(n, slideIndex);
-    } else {
-        console.log(slides);
-    }
+//    if(slides.length > 0){
+//        console.log(slides.length);
+//        showSlides(n, slideIndex);
+//    } else {
+//        console.log(slides);
+//    }
 });
 
 function uploadImage(file) {
@@ -60,17 +60,24 @@ function uploadImage(file) {
             next[0].style.display = "block";
             var imageNumber = $('.dot-container span').length;
             var newDotTemplate = '<span class="dot" onclick="currentSlide(' + imageNumber + ')"></span>'
-            var newImageTemplate = "<div class='mySlides" + imageNumber + " fade'></div>";
+            var newImageTemplate = "<div class='mySlides image" + imageNumber + " fade'></div>";
             var newImage = "<img src='" + result.secure_url + "'>";
             $('.dot-container').append(newDotTemplate);
             $('.slideshow-container').prepend(newImageTemplate);
-            $(`.mySlides${imageNumber}`).append(newImage);
+            $(`.mySlides.image${imageNumber}`).append(newImage);
+            console.log(slideIndex);
+            showSlides(n, slideIndex);
+        })
+        /* if the call is NOT successful show errors */
+        .fail(function (jqXHR, error, errorThrown) {
+            console.log(jqXHR);
+            console.log(error);
+            console.log(errorThrown);
         });
 //    $(this).find('.file-select').remove();
-
 }
 
-function plusSlides(n, slideIndex) {
+function plusSlides(n) {
     showSlides(slideIndex += n);
 }
 
@@ -98,26 +105,14 @@ function showSlides(n, slideIndex) {
         slideIndex = slides.length
     }
     for (i = 0; i < slides.length; i++) {
-        slides[i].style.display = "none"
+        $(".mySlides:nth-child("+i+")").toggleClass("visible");
     }
     for (i = 1; i < dots.length; i++) {
         dots[i].className = dots[i].className.replace(" active", "");
         console.log(dots[i].classname);
     }
     console.log(slideIndex);
-    slides[slideIndex - 1].style.display = "block";
-//    dots[slideIndex - 1].className += " active";
+    $(".mySlides:nth-child("+ (slideIndex - 1) +")").toggleClass("visible");
+//    slides[slideIndex - 1].show();1
+    dots[slideIndex - 1].className += " active";
 }
-
-//function showSlidesInitial(n, slideIndex) {
-//    var i;
-//    var slides = $('.mySlides');
-//    var x  $('.mySlides');
-//    if(n > slides.length) {slideIndex = 1};
-//    if(n < 1) {slideIndex = slides.lenght}
-//    for(i = 0; i < slides.lenght; i++) {
-//        slides[i].style.display = "none";
-//    }
-//    slides[slideIndex - 1].style.display = "block";
-//
-//}
