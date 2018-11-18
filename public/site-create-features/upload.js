@@ -16,12 +16,6 @@ $('#website-container').on('submit', function (event) {
     console.log('file', file);
     uploadImage(file);
     var slides = document.getElementsByClassName("mySlides");
-//    if(slides.length > 0){
-//        console.log(slides.length);
-//        showSlides(n, slideIndex);
-//    } else {
-//        console.log(slides);
-//    }
 });
 
 function uploadImage(file) {
@@ -53,6 +47,7 @@ function uploadImage(file) {
             };
             // addImageToDb(uploadDataObject);
             var upload_url = result.secure_url;
+            saveSession(upload_url);
             var prev = document.getElementsByClassName("prev");
             var next = document.getElementsByClassName("next");
 //            saveSession(upload_url);
@@ -66,7 +61,7 @@ function uploadImage(file) {
             $('.slideshow-container').prepend(newImageTemplate);
             $(`.mySlides.image${imageNumber}`).append(newImage);
             console.log(slideIndex);
-            showSlides(n, slideIndex);
+            showSlides(slideIndex, n);
         })
         /* if the call is NOT successful show errors */
         .fail(function (jqXHR, error, errorThrown) {
@@ -78,17 +73,20 @@ function uploadImage(file) {
 }
 
 function plusSlides(n) {
-    showSlides(slideIndex += n);
+    console.log(n);
+    showSlides((slideIndex += n), n);
 }
 
 
 function currentSlide(n, slideIndex) {
-    showSlides(slideIndex = n);
+    console.log(n);
+    console.log(slideIndex);
+    showSlides((slideIndex = n), n);
 }
 
 
 
-function showSlides(n, slideIndex) {
+function showSlides(slideIndex, n) {
     var i;
     var slides = document.getElementsByClassName("mySlides");
     var dots = document.getElementsByClassName("dot");
@@ -110,7 +108,6 @@ function showSlides(n, slideIndex) {
     }
     for (i = 1; i < dots.length; i++) {
         dots[i].className = dots[i].className.replace(" active", "");
-        console.log(dots[i].classname);
     }
     console.log(slideIndex);
     $('.mySlides:first-child').show();
