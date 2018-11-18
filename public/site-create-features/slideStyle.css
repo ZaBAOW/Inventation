@@ -17,6 +17,10 @@
     margin-right: auto;
 }
 
+.visible {
+    display: block !important;
+}
+
 /* Next & previous buttons */
 .prev,
 .next {

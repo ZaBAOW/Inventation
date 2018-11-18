@@ -61,7 +61,7 @@ function uploadImage(file) {
             var imageNumber = $('.dot-container span').length;
             var newDotTemplate = '<span class="dot" onclick="currentSlide(' + imageNumber + ')"></span>'
             var newImageTemplate = "<div class='mySlides image" + imageNumber + " fade'></div>";
-            var newImage = "<img src='" + result.secure_url + "'>";
+            var newImage = "<img class='slide-image' src='" + result.secure_url + "'>";
             $('.dot-container').append(newDotTemplate);
             $('.slideshow-container').prepend(newImageTemplate);
             $(`.mySlides.image${imageNumber}`).append(newImage);
@@ -99,20 +99,22 @@ function showSlides(n, slideIndex) {
         next[0].style.display = "none"
     }
     if (n > slides.length) {
-        slideIndex = 1
+        slideIndex = 2
     }
     if (n < 1) {
-        slideIndex = slides.length
+        slideIndex = slides.length;
     }
     for (i = 0; i < slides.length; i++) {
-        $(".mySlides:nth-child("+i+")").toggleClass("visible");
+//        $(".mySlides:nth-child("+i+")").toggleClass("visible");
+        $('.mySlides').hide();
     }
     for (i = 1; i < dots.length; i++) {
         dots[i].className = dots[i].className.replace(" active", "");
         console.log(dots[i].classname);
     }
     console.log(slideIndex);
-    $(".mySlides:nth-child("+ (slideIndex - 1) +")").toggleClass("visible");
+    $('.mySlides:first-child').show();
+//    $(".mySlides:nth-child("+ (slideIndex) +") img").css('display', 'block');
 //    slides[slideIndex - 1].show();1
     dots[slideIndex - 1].className += " active";
 }
