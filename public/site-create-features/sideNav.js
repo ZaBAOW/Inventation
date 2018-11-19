@@ -332,7 +332,8 @@ function deleteLocalStorageExpire() {
 
 function plusSlides(n) {
     console.log(n);
-    showSlides((slideIndex += n), n);
+    slideIndex = (slideIndex += n);
+    showSlides(slideIndex, n);
 }
 
 
@@ -342,7 +343,7 @@ function currentSlide(slideIndex, n) {
     showSlides((slideIndex = n), n);
 }
 
-sleep(100).then(function showSlides(slideIndex, n) {
+function showSlides(slideIndex, n) {
     var i;
     var slides = document.getElementsByClassName("mySlides");
     var dots = document.getElementsByClassName("dot");
@@ -371,7 +372,7 @@ sleep(100).then(function showSlides(slideIndex, n) {
         //    slides[slideIndex - 1].show();1
         dots[slideIndex].className += " active";
     }
-})
+}
 
 
 
@@ -380,11 +381,11 @@ $(document).ready(function () {
     retrieveSessionById();
 })
 
-window.onload = function() {
+window.onload = sleep(100).then(function() {
     showSlides(slideIndex, n);
     var checkArea = $('#website-container').html()
     checkArea = $('#website-container').html();
     setupTimers();
     console.log('welcome back')
-}
+})
 
