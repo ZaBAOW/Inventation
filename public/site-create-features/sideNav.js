@@ -2,6 +2,8 @@
 
 var timeoutInMiliseconds = 3600000;
 var timeoutId;
+var n = 0;
+var slideIndex = 1;
 
 function displayMessage(message) {
     $("#message-box span").html(message);
@@ -199,11 +201,13 @@ function retrieveSessionById() {
                 for (i = 0; i < slideShowContent.length; i++) {
                     console.log(slideShowContent[i].image);
                     var image = slideShowContent[i].image;
-                    var newImageTemplate = "<div class='mySlides fade'><img src='" + image + "' style='max-width:100%'>";
-                    var imageNumber = $('.dot-container span').length
-                    var newDotTemplate = '<span class="dot" onclick="currentSlide(' + imageNumber + ')"></span>'
+                    var imageNumber = $('.dot-container span').length;
+                    var newImageTemplate = "<div class='mySlides image" + imageNumber + " fade'></div>";
+                    var newImage = "<img class='slide-image' src='" + image + "'>";
+                    var newDotTemplate = '<span class="dot" onclick="currentSlide(' + imageNumber + ')"></span>';
                     $('.dot-container').append(newDotTemplate);
                     $('.slideshow-container').prepend(newImageTemplate);
+                    $(`.mySlides.image${imageNumber}`).append(newImage);
                 }
             }
             if (selectedDateContent !== null) {
@@ -216,6 +220,7 @@ function retrieveSessionById() {
         .catch(function (err) {
             console.log(err);
         });
+    alert('done retrieving session');
 }
 
 function authValid() {
@@ -229,16 +234,6 @@ function authValid() {
         console.log('Validation of authToken successfull');
     }
 }
-
-$(document).ready(function () {
-    authValid();
-    retrieveSessionById()
-    var checkArea = $('#website-container').html()
-    checkArea = $('#website-container').html();
-    setupTimers();
-    console.log('welcome back')
-})
-
 
 function saveSession(upload_url) {
     const infoBoxContent = $(".info-box-content").val();
@@ -330,5 +325,65 @@ function deleteLocalStorageExpire() {
     window.location.replace("/login.html");
     window.location.replace("/login.html");
     return null;
+}
+
+function plusSlides(n) {
+    console.log(n);
+    showSlides((slideIndex += n), n);
+}
+
+
+function currentSlide(slideIndex, n) {
+    console.log(n);
+    console.log(slideIndex);
+    showSlides((slideIndex = n), n);
+}
+
+function showSlides(slideIndex, n) {
+    var i;
+    var slides = document.getElementsByClassName("mySlides");
+    var dots = document.getElementsByClassName("dot");
+    var prev = document.getElementsByClassName("prev");
+    var next = document.getElementsByClassName("next");
+    alert('obtained lenght of mySlides');
+    alert(slides.length);
+    if (slides.length == 0) {
+        prev[0].style.display = "none"
+        next[0].style.display = "none"
+    } else {
+        if (n > slides.length) {
+            slideIndex = 2
+        }
+        if (n < 1) {
+            slideIndex = slides.length;
+        }
+        for (i = 0; i < slides.length; i++) {
+            //        $(".mySlides:nth-child("+i+")").toggleClass("visible");
+            $('.mySlides').hide();
+        }
+        for (i = 1; i < dots.length; i++) {
+            dots[i].className = dots[i].className.replace(" active", "");
+        }
+        console.log(slideIndex);
+        $('.mySlides:first-child').show();
+        //    $(".mySlides:nth-child("+ (slideIndex) +") img").css('display', 'block');
+        //    slides[slideIndex - 1].show();1
+        dots[slideIndex].className += " active";
+    }
+}
+
+$(document).ready(function () {
+    authValid();
+    alert('beginning session retrieval');
+    retrieveSessionById();
+})
+
+window.onload = function() {
+    alert('beginning to display slides');
+    showSlides(slideIndex, n);
+    var checkArea = $('#website-container').html()
+    checkArea = $('#website-container').html();
+    setupTimers();
+    console.log('welcome back')
 }
 

@@ -1,7 +1,8 @@
 const IMG_UPLOAD_ENDPOINT = "https://api.cloudinary.com/v1_1/zabaow/image/upload";
 const API_KEY = "638832767114418";
-var n = 0;
-var slideIndex = 1;
+//var n = 0;
+//var slideIndex = 1;
+
 
 function apiSignature(timestamp, uid) {
     let signatureString = "public_id=" + uid + "&timestamp=" + timestamp + "KtoSOxrHph-EpcGXUHW3x2eA3MA";
@@ -72,46 +73,47 @@ function uploadImage(file) {
 //    $(this).find('.file-select').remove();
 }
 
-function plusSlides(n) {
-    console.log(n);
-    showSlides((slideIndex += n), n);
-}
-
-
-function currentSlide(n, slideIndex) {
-    console.log(n);
-    console.log(slideIndex);
-    showSlides((slideIndex = n), n);
-}
-
-
-
-function showSlides(slideIndex, n) {
-    var i;
-    var slides = document.getElementsByClassName("mySlides");
-    var dots = document.getElementsByClassName("dot");
-    var prev = document.getElementsByClassName("prev");
-    var next = document.getElementsByClassName("next");
-    if (slides.length == 0) {
-        prev[0].style.display = "none"
-        next[0].style.display = "none"
-    }
-    if (n > slides.length) {
-        slideIndex = 2
-    }
-    if (n < 1) {
-        slideIndex = slides.length;
-    }
-    for (i = 0; i < slides.length; i++) {
-//        $(".mySlides:nth-child("+i+")").toggleClass("visible");
-        $('.mySlides').hide();
-    }
-    for (i = 1; i < dots.length; i++) {
-        dots[i].className = dots[i].className.replace(" active", "");
-    }
-    console.log(slideIndex);
-    $('.mySlides:first-child').show();
-//    $(".mySlides:nth-child("+ (slideIndex) +") img").css('display', 'block');
-//    slides[slideIndex - 1].show();1
-    dots[slideIndex - 1].className += " active";
-}
+//function plusSlides(n) {
+//    console.log(n);
+//    showSlides((slideIndex += n), n);
+//}
+//
+//
+//function currentSlide(n, slideIndex) {
+//    console.log(n);
+//    console.log(slideIndex);
+//    showSlides((slideIndex = n), n);
+//}
+//
+//
+//
+//function showSlides(slideIndex, n) {
+//    var i;
+//    var slides = document.getElementsByClassName("mySlides");
+//    var dots = document.getElementsByClassName("dot");
+//    var prev = document.getElementsByClassName("prev");
+//    var next = document.getElementsByClassName("next");
+//    console.log(slides.length);
+//    if (slides.length == 0) {
+//        prev[0].style.display = "none"
+//        next[0].style.display = "none"
+//    }
+//    if (n > slides.length) {
+//        slideIndex = 2
+//    }
+//    if (n < 1) {
+//        slideIndex = slides.length;
+//    }
+//    for (i = 0; i < slides.length; i++) {
+////        $(".mySlides:nth-child("+i+")").toggleClass("visible");
+//        $('.mySlides').hide();
+//    }
+//    for (i = 1; i < dots.length; i++) {
+//        dots[i].className = dots[i].className.replace(" active", "");
+//    }
+//    console.log(slideIndex);
+//    $('.mySlides:first-child').show();
+////    $(".mySlides:nth-child("+ (slideIndex) +") img").css('display', 'block');
+////    slides[slideIndex - 1].show();1
+//    dots[slideIndex].className += " active";
+//}
