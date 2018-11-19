@@ -4,6 +4,9 @@ var timeoutInMiliseconds = 3600000;
 var timeoutId;
 var n = 0;
 var slideIndex = 1;
+const sleep = (milliseconds) => {
+    return new Promise(resolve => setTimeout(resolve, milliseconds))
+}
 
 function displayMessage(message) {
     $("#message-box span").html(message);
@@ -220,7 +223,7 @@ function retrieveSessionById() {
         .catch(function (err) {
             console.log(err);
         });
-    alert('done retrieving session');
+//    alert('done retrieving session');
 }
 
 function authValid() {
@@ -339,14 +342,12 @@ function currentSlide(slideIndex, n) {
     showSlides((slideIndex = n), n);
 }
 
-function showSlides(slideIndex, n) {
+sleep(100).then(function showSlides(slideIndex, n) {
     var i;
     var slides = document.getElementsByClassName("mySlides");
     var dots = document.getElementsByClassName("dot");
     var prev = document.getElementsByClassName("prev");
     var next = document.getElementsByClassName("next");
-    alert('obtained lenght of mySlides');
-    alert(slides.length);
     if (slides.length == 0) {
         prev[0].style.display = "none"
         next[0].style.display = "none"
@@ -370,16 +371,16 @@ function showSlides(slideIndex, n) {
         //    slides[slideIndex - 1].show();1
         dots[slideIndex].className += " active";
     }
-}
+})
+
+
 
 $(document).ready(function () {
     authValid();
-    alert('beginning session retrieval');
     retrieveSessionById();
 })
 
 window.onload = function() {
-    alert('beginning to display slides');
     showSlides(slideIndex, n);
     var checkArea = $('#website-container').html()
     checkArea = $('#website-container').html();
