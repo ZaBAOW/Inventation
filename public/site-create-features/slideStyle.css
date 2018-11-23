@@ -17,6 +17,10 @@
     margin-right: auto;
 }
 
+.preview-image {
+    width: 100%;
+}
+
 .visible {
     display: block !important;
 }

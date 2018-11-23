@@ -295,6 +295,18 @@ function previewSession() {
     $('.countdown-preview-container').append('<p class="countdown-description">(Hours) (Minutes) (Seconds)</p>');
     $('.countdown-preview-container').append(previewCountdown);
 
+    $('.slideshow-preview-container').append('<div class="slide-container-preview storable"></div>');
+    $('.slide-container-preview').append('<div class="slideshow-preview"></div>')
+    $('.slideshow-preview').append('<a class="prevPreview" onclick="prevSlidePreview()">&#10094;</a>');
+    $('.slideshow-preview').append('<a class="nextPreview" onclick="nextSlidePreview()">&#10095;</a>');
+    $('.slideshow-preview').append('<div style="text-align: center" class="dot-container"></div>');
+    var slides = document.getElementsByClassName('mySlides');
+    console.log(slides.length);
+    for(var i = 0; i < slides.length; i++) {
+        var image = slides[i].children[0].src;
+        console.log(image);
+        $('.slideshow-preview').prepend("<img class='preview-image' src='" + image + "'>");
+    }
 }
 
 window.onbeforeunload = function() {
@@ -360,7 +372,7 @@ function nextSlide() {
             followingSlide = slides[i + 1];
             currentDot = dots[i];
             nextDot = dots[i + 1];
-            if((i + 1) >= slides.length) {
+            if((i + 1) == slides.length) {
                 next[0].style.display = "none";
             } else {
                 currentSlide.style.display = "none";
@@ -397,6 +409,65 @@ function prevSlide() {
                 previousSlide.style.display = "block";
 //                dots[previousDot].className += "active"
 //                dots[currentDot].className.replace("active", "");
+            }
+        }
+    }
+}
+
+function nextSlidePreview() {
+    var i;
+    var currentSlide;
+    var currentDot;
+    var nextDot;
+    var followingSlide;
+    var slides = document.getElementsByClassName("mySlides-preview");
+    var dots = document.getElementsByClassName("dot");
+    var next = document.getElementsByClassName("next");
+    var prev = document.getElementsByClassName("prev");
+    prev[0].style.display = "block"
+    for(i = 0; i < slides.length; i++) {
+        if(slides[i].style.display == "block") {
+            currentSlide = slides[i];
+            followingSlide = slides[i + 1];
+            currentDot = dots[i];
+            nextDot = dots[i + 1];
+            if((i + 1) >= slides.length) {
+                next[0].style.display = "none";
+            } else {
+                currentSlide.style.display = "none";
+                followingSlide.style.display = "block";
+                //                dots[nextDot].className += "active";
+                //                dots[currentDot].className.replace("active", "");
+            }
+            break;
+        }
+    }
+}
+
+function prevSlidePreview() {
+    var i;
+    var currentSlide;
+    var currentDot;
+    var previousDot;
+    var previousSlide;
+    var slides = document.getElementsByClassName("mySlides-preview");
+    var dots = document.getElementsByClassName("dot");
+    var next = document.getElementsByClassName("next");
+    var prev = document.getElementsByClassName("prev");
+    next[0].style.display = "block";
+    for(i = 0; i < slides.length; i++) {
+        if(slides[i].style.display == "block") {
+            currentSlide =  slides[i];
+            previousSlide = slides[i - 1];
+            //            currentDot = dots[i];
+            //            previousDot = dots[i - 1];
+            if((i - 1) < 0) {
+                prev[0].style.display = "none"
+            } else {
+                currentSlide.style.display = "none";
+                previousSlide.style.display = "block";
+                //                dots[previousDot].className += "active"
+                //                dots[currentDot].className.replace("active", "");
             }
         }
     }
