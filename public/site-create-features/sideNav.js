@@ -299,14 +299,21 @@ function previewSession() {
     $('.slide-container-preview').append('<div class="slideshow-preview"></div>')
     $('.slideshow-preview').append('<a class="prevPreview" onclick="prevSlidePreview()">&#10094;</a>');
     $('.slideshow-preview').append('<a class="nextPreview" onclick="nextSlidePreview()">&#10095;</a>');
-    $('.slideshow-preview').append('<div style="text-align: center" class="dot-container"></div>');
+    $('.slideshow-preview').append('<div style="text-align: center" class="preview-dot-container"></div>');
     var slides = document.getElementsByClassName('mySlides');
     console.log(slides.length);
     for(var i = 0; i < slides.length; i++) {
         var image = slides[i].children[0].src;
         console.log(image);
-        $('.slideshow-preview').prepend("<img class='preview-image' src='" + image + "'>");
+        $('.slideshow-preview').prepend('<div class= "preview-slide preview' + i + '"></div>');
+        if( i == 0) {
+            $('.preview' + i).append("<img class='preview-image' src='" + image + "'>");
+        } else {
+            $('.preview' + i).append("<img class='preview-image' src='" + image + "' style = 'display: none;'>");
+        }
+        $('.preview-dot-container').append('<span class="preview-dot"></span>')
     }
+    showPreviewSlides();
 }
 
 window.onbeforeunload = function() {
@@ -407,8 +414,6 @@ function prevSlide() {
             } else {
                 currentSlide.style.display = "none";
                 previousSlide.style.display = "block";
-//                dots[previousDot].className += "active"
-//                dots[currentDot].className.replace("active", "");
             }
         }
     }
@@ -420,10 +425,10 @@ function nextSlidePreview() {
     var currentDot;
     var nextDot;
     var followingSlide;
-    var slides = document.getElementsByClassName("mySlides-preview");
-    var dots = document.getElementsByClassName("dot");
-    var next = document.getElementsByClassName("next");
-    var prev = document.getElementsByClassName("prev");
+    var slides = document.getElementsByClassName("preview-slide");
+    var dots = document.getElementsByClassName("preview-dot");
+    var next = document.getElementsByClassName("nextPreview");
+    var prev = document.getElementsByClassName("prevPreview");
     prev[0].style.display = "block"
     for(i = 0; i < slides.length; i++) {
         if(slides[i].style.display == "block") {
@@ -436,8 +441,6 @@ function nextSlidePreview() {
             } else {
                 currentSlide.style.display = "none";
                 followingSlide.style.display = "block";
-                //                dots[nextDot].className += "active";
-                //                dots[currentDot].className.replace("active", "");
             }
             break;
         }
@@ -450,10 +453,10 @@ function prevSlidePreview() {
     var currentDot;
     var previousDot;
     var previousSlide;
-    var slides = document.getElementsByClassName("mySlides-preview");
-    var dots = document.getElementsByClassName("dot");
-    var next = document.getElementsByClassName("next");
-    var prev = document.getElementsByClassName("prev");
+    var slides = document.getElementsByClassName("preview-slide");
+    var dots = document.getElementsByClassName("preview-dot");
+    var next = document.getElementsByClassName("nextPreview");
+    var prev = document.getElementsByClassName("prevPreview");
     next[0].style.display = "block";
     for(i = 0; i < slides.length; i++) {
         if(slides[i].style.display == "block") {
@@ -500,6 +503,26 @@ function showSlides(slideIndex, n) {
         //    $(".mySlides:nth-child("+ (slideIndex) +") img").css('display', 'block');
         //    slides[slideIndex - 1].show();1
 //        dots[0].className += " active";
+    }
+}
+
+function showPreviewSlides() {
+    var i;
+    var slides = document.getElementsByClassName("preview-slide");
+    var dots = document.getElementsByClassName('preview-dot');
+    var prev = document.getElementsByClassName('nextPreview');
+    var next = document.getElementsByClassName('prevPreview');
+    if (slides.length == 0) {
+        prev[0].style.display = "none";
+        next[0].style.display = "none";
+    } else {
+//        for (i = 0; i <slides.length; i++) {
+//            $('.preview' + i).hide();
+//        }
+        for (i = 1; i < dots.length; i++) {
+            dots[i].className = dots[i].className.replace(" active", "");
+        }
+        $('.preview-slide:first-child').show();
     }
 }
 
