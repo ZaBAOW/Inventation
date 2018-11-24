@@ -305,12 +305,13 @@ function previewSession() {
     for(var i = 0; i < slides.length; i++) {
         var image = slides[i].children[0].src;
         console.log(image);
-        $('.slideshow-preview').prepend('<div class= "preview-slide preview' + i + '"></div>');
+
         if( i == 0) {
-            $('.preview' + i).append("<img class='preview-image' src='" + image + "'>");
+            $('.slideshow-preview').append('<div class= "preview-slide preview' + i + '" style = "display: block"></div>');
         } else {
-            $('.preview' + i).append("<img class='preview-image' src='" + image + "' style = 'display: none;'>");
+            $('.slideshow-preview').append('<div class= "preview-slide preview' + i + '" style = "display: none"></div>');
         }
+        $('.preview' + i).append("<img class='preview-image' src='" + image + "'>");
         $('.preview-dot-container').append('<span class="preview-dot"></span>')
     }
     showPreviewSlides();

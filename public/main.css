@@ -328,6 +328,7 @@ input {
     border-radius: 10px;
     width: 100%;
     border: 1px black solid;
+    z-index: 1000;
 }
 
 .title {
@@ -484,7 +485,6 @@ input {
 }
 
 .slideshow-preview-container {
-    border: 1px solid black;
     width: 81%;
     margin-left: 7%;
     margin-bottom: 3%;

@@ -9,6 +9,10 @@
     margin: auto;
 }
 
+.slideshow-preview {
+    position: relative;
+}
+
 /* Hide the images by default */
 .mySlides {
     display: none;
@@ -43,7 +47,8 @@
 .prevPreview,
 .nextPreview {
     cursor: pointer;
-    display: inline-block;
+    position: absolute;
+    top: 42%;
     width: auto;
     padding: 16px;
     color: rgb(126, 126, 126);
@@ -51,6 +56,7 @@
     font-size: 18px;
     transition: 0.6s ease;
     border-radius: 0 3px 3px 0;
+    z-index: 1000;
 }
 
 /* Position the "next button" to the right */
