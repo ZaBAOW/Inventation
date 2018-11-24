@@ -453,7 +453,6 @@ input {
 }
 
 .preview-container {
-    border: 3px solid black;
     width: 85%;
     margin: auto;
     margin-top: 15px;
@@ -462,7 +461,6 @@ input {
 }
 
 .info-preview-container {
-    border: 1px solid black;
     display: inline-block;
     width: 41%;
     margin-left: 7%;
@@ -476,7 +474,6 @@ input {
 }
 
 .countdown-preview-container{
-    border: 1px solid black;
     display: inline-block;
     width: 32%;
     margin-left: 8%;

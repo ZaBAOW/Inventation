@@ -285,15 +285,25 @@ function previewSession() {
     const previewInfo = $(".info-box-content").val();
     const previewCountdown = $(".time-left").text();
 
-    $('.create-body').append("<div class='preview-container' ></div>");
+    $('.create-body').append("<div class='preview-container'></div>");
     $('.preview-container').append("<div class='info-preview-container'></div>");
     $('.info-preview-container').append("<span class='info-preview-content'></span>");
     $('.preview-container').append("<div class='countdown-preview-container'></div>");
     $('.preview-container').append("<div class='slideshow-preview-container'></div>");
 
-    $('.info-preview-content').append(previewInfo);
+
+    if(previewInfo == undefined) {
+        $('.info-preview-content').append('There currenlty no event information on your site.  Make sure you type some out, or no one will know what your event is about.');
+    } else {
+        $('.info-preview-content').append(previewInfo);
+    }
     $('.countdown-preview-container').append('<p class="countdown-description">(Hours) (Minutes) (Seconds)</p>');
-    $('.countdown-preview-container').append(previewCountdown);
+    if(previewCountdown == "") {
+        $('.countdown-preview-container').append('Countdown was not set.');
+    } else {
+        $('.countdown-preview-container').append(previewCountdown);
+    }
+
 
     $('.slideshow-preview-container').append('<div class="slide-container-preview storable"></div>');
     $('.slide-container-preview').append('<div class="slideshow-preview"></div>')
