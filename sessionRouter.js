@@ -107,23 +107,38 @@ router.put('/:id', jsonParser, (req, res) => {
                     return res.status(204).end();
                 })
             } else {
-                console.log('adding image...');
-                return Session.update(conditions, {
+                if(typeof slideShowContent.image == "string"){
+                    console.log('adding new image to existing array');
+                    return Session.update(conditions, {
                         $push: {
                             slideShowContent
                         }
                     })
-                    .then(function (session) {
+                        .then(function (session) {
                         console.log('displaying updated session');
-                        //  console.log("New Session: ", session);
                         return res.status(204).end();
                     })
-                    .catch(function (err) {
+                        .catch(function (err) {
                         console.log(err);
                         return res.status(500).json({
                             message: err
                         });
                     });
+                } else if(typeof slideShowContent.image == "object") {
+                    console.log('overwiting slideshow field');
+                    return Session.update(conditions, updateArguments)
+                    .then(function(session) {
+                        return res.status(204).end();
+                    })
+                    .catch(function(err) {
+                        console.log(err);
+                        return res.status(500).end();
+                    })
+                } else {
+                    console.log('no condition was met, neither a string nor array was sent in the payload');
+                    return res.status(404).end();
+                }
+
             }
         })
         .catch(function (err) {
