@@ -23,6 +23,9 @@ function closeNav() {
 }
 
 function createInfo() {
+    if($('.info-container').length == 1) {
+        $('.info-container')[0].remove();
+    }
     var newInfoBox = "";
     newInfoBox += `<div class="info-container storable">`;
     newInfoBox += `<input type="button" class="remove-infoBox" value="&#10006">`;
@@ -33,6 +36,9 @@ function createInfo() {
 }
 
 function createCountdown() {
+    if($('.count-container').length == 1) {
+        $('.count-container')[0].remove();
+    }
     var newCountdown = "";
     newCountdown += `<div class="count-container storable">`;
     newCountdown += `<input type="button" class="remove-countdown" value="&#10006">`;
@@ -52,6 +58,9 @@ function createCountdown() {
 
 
 function createSlideShow() {
+    if($('.slide-container').length == 1) {
+        $('.slide-container')[0].remove();
+    }
     var newSlideShow = ""
     newSlideShow += `<div class="slide-container storable"><div class="slideshow-container">`;
     newSlideShow += `<input type="button" class="remove-slideshow" value="&#10006">`;
@@ -556,7 +565,7 @@ $(document).ready(function () {
     retrieveSessionById();
 })
 
-window.onload = sleep(100).then(function() {
+window.onload = sleep(1000).then(function() {
     showSlides(slideIndex, n);
     var checkArea = $('#website-container').html()
     checkArea = $('#website-container').html();
