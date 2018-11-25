@@ -628,6 +628,21 @@ input {
         left: 6%;
     }
 
+    .countdown-preview-container {
+        display: block;
+        margin-left: 33%;
+    }
+
+    .slideshow-preview-container {
+        margin-left: 10%;
+    }
+
+    .info-preview-content {
+        width: 350px;
+        margin-left: 23%;
+        text-align: center;
+    }
+
     .signup-container {
         border: 3px black solid;
         border-radius: 12px;
@@ -715,6 +730,10 @@ input {
 
 @media only screen and (max-width: 320px) {
 
+    .website-container {
+        margin-top: 136px;
+    }
+
     .signup-container {
         left: 12%;
         width: 76%;
@@ -772,6 +791,19 @@ input {
     .sign-out {
         float: right;
         margin-right: 3px;
+    }
+
+    .info-preview-container {
+        margin-left: 4%;
+    }
+
+    .info-preview-content {
+        width: 178px;
+    }
+
+    .countdown-preview-container {
+        margin-left: 14%;
+        width: 69%;
     }
 }
 
