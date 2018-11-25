@@ -100,9 +100,12 @@ router.put('/:id', jsonParser, (req, res) => {
     return Session.findOneAndUpdate(conditions, updateArguments, options)
         .exec()
         .then(function (session) {
-            if (slideShowContent.image == null) {
+            if (slideShowContent.image.length == 0) {
                 console.log('there was no image to add');
-                return res.status(204).end();
+                return Session.update(conditions, {slideShowContent: []})
+                .then(function(session) {
+                    return res.status(204).end();
+                })
             } else {
                 console.log('adding image...');
                 return Session.update(conditions, {

@@ -240,8 +240,21 @@ function authValid() {
 
 function saveSession(upload_url) {
     const infoBoxContent = $(".info-box-content").val();
-    const slideShowContent = upload_url;
-    console.log(slideShowContent);
+    var slideShowContent = "";
+    var slides = document.getElementsByClassName('mySlides');
+    if(slides.length == 0 && upload_url == undefined) {
+        slideShowContent = [];
+    } else if (slides.length != 0 && upload_url == undefined) {
+        slideShowContent = [];
+        for(var i = 0; i < slides.length; i++) {
+            var image = slides[i].children[0].src;
+            console.log(image);
+            slideShowContent.push(image);
+        }
+        console.log(slideShowContent);
+    } else {
+        slideShowContent = upload_url;
+    }
     const countDownContent = $(".count-container").text();
     const selectedDateContent = localStorage.selectedDate;
     console.log(selectedDateContent);
